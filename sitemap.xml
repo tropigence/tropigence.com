@@ -1,0 +1,22 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for page_item in site.pages %}
+    {% assign is_in_pages_folder = false %}
+    {% if page_item.path contains '_pages/' %}
+      {% assign is_in_pages_folder = true %}
+    {% endif %}
+
+    {% if is_in_pages_folder and page_item.sitemap == true and page_item.url != "/sitemap/" and page_item.url != "/404.html" %}
+    <url>
+      <loc>{{ site.url }}{{ site.baseurl }}{{ page_item.url }}</loc>
+      {% if page_item.last_modified_at %}
+      <lastmod>{{ page_item.last_modified_at | date_to_xmlschema }}</lastmod>
+      {% endif %}
+    </url>
+    {% endif %}
+  {% endfor %}
+</urlset>

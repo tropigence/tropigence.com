@@ -1,0 +1,36 @@
+/* Masthead and Footer Border Removal --------------------------------------- */
+
+/* Remove border-like line from bottom of the site header (masthead) */
+.masthead::after {
+    display: none !important;
+    /* This will hide the pseudo-element creating the line */
+}
+
+/* Remove border from top of the site footer */
+.page__footer {
+    border-top: none !important;
+}
+
+/* End of Masthead and Footer Border Removal -------------------------------- */
+
+
+/* Author Avatar Border Removal --------------------------------------------- */
+
+/* Target the image within the author avatar container */
+.author__avatar img {
+    border: none !important;
+    /* Removes any border */
+    box-shadow: none !important;
+    /* Removes any box shadow that might look like a border */
+    outline: none !important;
+    /* Removes any outline */
+}
+
+/* Sometimes the border/shadow might be on the container itself */
+.author__avatar {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* End of Author Avatar Border Removal -------------------------------------- */

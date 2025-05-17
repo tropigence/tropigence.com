@@ -1,0 +1,104 @@
+/* Optional: Basic reset for body to remove default margins */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.coming-soon-container {
+    display: flex;
+    /* Aligns children along the cross-axis (horizontally here) */
+    flex-direction: column;
+    /* Stacks children vertically */
+    align-items: center;
+    /* Centers children horizontally */
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 100px;
+    color: var(--global-text-color);
+    text-align: center;
+    width: 100%;
+}
+
+.coming-soon-container h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--global-text-color);
+}
+
+.coming-soon-container .search-form {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 400px;
+    /* The form itself is centered, this constrains its width */
+}
+
+.coming-soon-container .search-form input[type="search"] {
+    padding: 10px 15px 10px 40px;
+    /* Adjusted padding-left for icon */
+    font-size: 1rem;
+    border: 1px solid var(--custom-color-4);
+    /* Very light border for "almost no border" feel */
+    border-radius: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--global-black);
+    background-color: var(--custom-color-4);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23757575' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 16px 16px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+        0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coming-soon-container .search-form input[type="search"]::placeholder {
+    color: var(--global-text-color-light);
+    opacity: 0.7;
+}
+
+.coming-soon-container .search-form input[type="search"]:focus {
+    border-color: var(--custom-color-4);
+    /* Keep border very light on focus */
+    box-shadow: 0 1px 3px 0 rgba(60, 67, 64, 0.3),
+        0 2px 6px 2px rgba(60, 67, 64, 0.15);
+    outline: none;
+    /* Keeps the outline removed */
+}
+
+.coming-soon-container .home-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--custom-color-1);
+    color: var(--custom-color-4);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.coming-soon-container .home-link:hover {
+    background-color: var(--custom-color-2);
+    color: var(--global-text-color);
+    text-decoration: none;
+}
+
+/* Dark mode styles */
+html[data-theme="dark"] .coming-soon-container {
+    color: var(--global-text-color);
+}
+
+html[data-theme="dark"] .coming-soon-container .search-form input[type="search"]::placeholder {
+    color: var(--global-text-color-light);
+    opacity: 0.7;
+}
+
+html[data-theme="dark"] .coming-soon-container .home-link {
+    background-color: var(--custom-color-2);
+    color: var(--global-black);
+}
+
+html[data-theme="dark"] .coming-soon-container .home-link:hover {
+    background-color: var(--custom-color-1);
+    color: var(--custom-color-4);
+}

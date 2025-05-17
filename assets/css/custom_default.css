@@ -1,0 +1,446 @@
+/* Cover image style =========================================================*/
+/* Styling for cover image style is desktop first, then mobile adjustments */
+html {
+    scroll-behavior: smooth;
+    /* Enables smooth scrolling for anchor links */
+}
+
+.cover-image-container {
+    width: 100%;
+    height: 90vh;
+    /* Makes the container 90% of the viewport height. */
+    overflow: hidden;
+    margin-bottom: 4em;
+    /* Space below the cover image */
+    position: relative;
+    /* Needed to position text overlay and gradient absolutely within this container */
+}
+
+/* New: Gradient overlay using a pseudo-element */
+.cover-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(to right,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 0%,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 25%,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 75%,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 100%),
+        linear-gradient(to top,
+            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 0%,
+            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.75) 15%,
+            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 30%,
+            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 100%);
+    z-index: 1;
+    /* Sits above the image, but below the text overlay */
+}
+
+.cover-image-container img {
+    width: 100%;
+    height: 100%;
+    /* Make image fill the container's height */
+    object-fit: cover;
+    /* Ensures the image covers the area, might crop */
+    display: block;
+    /* Removes extra space below the image */
+}
+
+.cover-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    /* Position the left edge 5% from the container's left edge */
+    transform: translateY(-50%);
+    /* Only apply vertical centering */
+    color: var(--global-text-color);
+    /* Text color */
+    text-align: left;
+    z-index: 2;
+    /* Ensures text is above the image AND the gradient overlay */
+    padding: 20px;
+    /* Optional: adds some space around the text */
+    width: 55%;
+    /* Adjust as needed, e.g., 50% or 60% */
+    /* Optional: constrain width of text block */
+    max-width: 800px;
+    /* Keeps text block from becoming too wide on large screens */
+    /* Optional: max width for very wide screens */
+    box-sizing: border-box;
+    /* Ensures padding is included in the width calculation */
+}
+
+.cover-text-overlay h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.8em;
+    color: var(--custom-color-1);
+    text-shadow: 1px 1px 3px rgba(var(--custom-color-4-r),
+            var(--custom-color-4-g),
+            var(--custom-color-4-b), 0.7);
+}
+
+.cover-text-overlay p {
+    font-size: 1.2em;
+    color: var(--custom-color-3);
+    text-shadow: 1px 1px 2px rgba(var(--custom-color-4-r),
+            var(--custom-color-4-g),
+            var(--custom-color-4-b), 0.7);
+}
+
+.cover-text-overlay .btn {
+    display: inline-block;
+    /* To allow margin-top */
+    margin-top: 1em;
+    /* Space above the button */
+    font-size: 1.2em;
+}
+
+/* Mobile adjustments for Cover Text Overlay */
+@media (max-width: 767px) {
+    .cover-image-container {
+        height: 80vh;
+    }
+
+    .cover-text-overlay {
+        width: 90%;
+        /* Make the overlay wider on small screens */
+        left: 5%;
+        /* Position 5% from the left, leaving 5% on the right */
+        padding: 15px;
+        /* Reduce padding slightly */
+        /* top: 50%; transform: translateY(-50%); will still vertically center it */
+        /* box-sizing: border-box; is inherited and important */
+    }
+
+    .cover-text-overlay h1 {
+        font-size: 1.8em;
+        /* Reduce heading font size */
+        margin-bottom: 0.4em;
+    }
+
+    .cover-text-overlay p {
+        font-size: 1em;
+        /* Reduce paragraph font size */
+        margin-bottom: 0.8em;
+    }
+
+    .cover-text-overlay .btn {
+        font-size: 1em;
+        /* Reduce button font size */
+        padding: 0.6em 1.2em;
+        /* Optionally adjust button padding */
+        margin-top: 0.8em;
+    }
+}
+
+/* End of cover image style ================================================= */
+
+
+/* Feature Section Wrapper ================================================== */
+
+/* Styling here is mobile-first, then desktop adjustments */
+.custom-feature-section {
+    margin-bottom: 1em;
+    padding: 1em;
+    /* Provides spacing from screen edges */
+    width: 100%;
+    /* Full width on mobile, padding handles insets */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Base Feature Item Styling */
+/* This is the main container for a single feature item. */
+/* Mobile-first: defaults to a vertical layout (image on top, text below). */
+.custom-feature__item {
+    display: flex;
+    flex-direction: column;
+    /* Mobile: vertical layout */
+    border: none;
+    /* Remove visible border from the main rectangle */
+    border-radius: 30px;
+    /* Curvy edges for the main rectangle */
+    overflow: hidden;
+    background-color: rgba(var(--custom-color-2-r),
+            var(--custom-color-2-g),
+            var(--custom-color-2-b), 0.1);
+    margin-bottom: 0;
+    /* Space below each feature item */
+}
+
+/* Image Wrapper Styling */
+/* This div wraps the <img> tag. It helps control the image's space and alignment. */
+.custom-feature__image-wrapper {
+    width: 100%;
+    /* Default: image wrapper takes full width for image-on-top layout */
+    flex-shrink: 0;
+    /* Prevents shrinking in flex layouts, important for desktop row layout */
+    padding: 0;
+    /* Creates no space around the image for the image-on-top layout */
+    box-sizing: border-box;
+    /* Ensures padding doesn't add to the 100% width */
+    /* Padding and specific alignment for round images in desktop row layout are handled by modifiers */
+}
+
+/* Background for 'first container style' (default type) in light mode */
+.custom-feature__item.custom-feature__item--layout-desktop-row {
+    background-color: rgba(var(--custom-color-2-r),
+            var(--custom-color-2-g),
+            var(--custom-color-2-b),
+            0);
+    /* First container style - Light Mode */
+}
+
+/* Specific padding for the image wrapper when it's for the default type (round image) */
+/* This applies on all screen sizes for the default type item */
+.custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+    padding: 2em;
+    /* Ensures 2em space around the round image container */
+}
+
+/* Base Image Styling */
+/* Styles applied directly to the <img> tag. */
+.custom-feature__image {
+    display: block;
+    /* Removes extra space below the image */
+    object-fit: cover;
+    /* Ensures the image covers the area, might crop */
+    width: 100%;
+    /* Image takes the full width of its wrapper */
+    height: auto;
+    /* Adjusts height automatically based on width */
+}
+
+/* Image Shape Modifier: Round */
+.custom-feature__image--shape-round {
+    max-height: 300px;
+    max-width: 300px;
+    /* Max size of the round image */
+    border-radius: 50%;
+    /* Make the image round */
+    aspect-ratio: 1 / 1;
+    /* Ensure the space for the image is square for a perfect circle */
+    margin-left: auto;
+    /* Centers the round image within its wrapper on mobile */
+    margin-right: auto;
+    /* Centers the round image within its wrapper on mobile */
+}
+
+/* Image Shape Modifier: Rectangular with Rounded Corners */
+.custom-feature__image--shape-rect {
+    border-radius: 0;
+    max-height: 400px;
+    aspect-ratio: 2 / 1;
+}
+
+/* Description Wrapper Styling */
+/* This div wraps all text content (h3, p, button). */
+.custom-feature__description-wrapper {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Mobile: Center flex items (h3, p, btn) horizontally */
+    text-align: center;
+    /* Mobile: Center text within h3 and p */
+    flex-grow: 1;
+    /* Allows description area to take available vertical space */
+}
+
+.custom-feature__description-wrapper h3 {
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    font-size: 1.5em;
+    color: var(--custom-color-1);
+    /* Color for "Header" */
+}
+
+.custom-feature__description-wrapper p {
+    margin-bottom: 1em;
+    /* flex-grow: 1; /* This was on p originally, moved to parent for overall block growth */
+}
+
+/* Common Button Styling (Applied to buttons in feature items and cover overlay) */
+.custom-feature__description-wrapper a.btn.btn--primary,
+.cover-text-overlay a.btn.btn--primary {
+    margin-top: 1em;
+    margin-right: 10px;
+    align-self: center;
+    /* Mobile: Align button to the center */
+    background-color: var(--custom-color-1);
+    /* Background color for "Learn more" button */
+    color: var(--custom-color-4);
+    /* Text color for "Learn more" button */
+    border-color: var(--custom-color-1);
+    /* Match border color to background */
+    border-radius: 50px;
+    /* Rounded corners for the button */
+    display: inline-block;
+    /* Good for <a> tags styled as buttons */
+    text-decoration: none;
+    /* Ensures no underline */
+    padding: 0.75em 1.5em;
+    /* Consistent padding for buttons */
+    /* Padding and other base styles are often inherited from the theme's .btn class. */
+    /* If you need to enforce padding: e.g., padding: 0.75em 1.5em; */
+}
+
+.custom-feature__description-wrapper a.btn.btn--primary:hover,
+.cover-text-overlay a.btn.btn--primary:hover {
+    background-color: var(--custom-color-2);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
+}
+
+
+/* Desktop View Adjustments from default mobile view */
+@media (min-width: 768px) {
+    .custom-feature-section {
+        width: 90%;
+        /* Width for desktop view */
+        max-width: 1200px;
+        /* Max width for desktop view, centered by auto margins */
+    }
+
+    /* Layout Modifier: Desktop Row (Side-by-Side) */
+    /* Apply this class to .custom-feature__item for the image-left, text-right layout on desktop. */
+    .custom-feature__item--layout-desktop-row {
+        flex-direction: row;
+        /* Desktop: horizontal layout */
+        align-items: center;
+        /* Vertically align image and text block */
+    }
+
+    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+        width: 40%;
+        /* Width for the image container in row layout */
+        padding: 2em;
+        /* This specific padding for desktop-row layout will override the 1em base padding */
+        /* Adjust padding for desktop if needed (for round image) */
+        display: flex;
+        /* Used to center the round image if it's smaller than this padded area */
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        /* Ensure consistency */
+    }
+
+    /* Reset mobile centering for round image when in desktop row layout */
+    .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        margin-left: 0;
+        margin-right: 0;
+        /* No specific desktop overrides for .custom-feature__item--img img needed from current requirements */
+        /* It inherits max-width, border-radius, etc. from base styles */
+    }
+
+    /* Styles for the image wrapper in desktop row layout (default type) */
+    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+        width: 40%;
+        /* Width for the image container in row layout */
+        /* padding: 2em; is inherited from the rule outside media query */
+        display: flex;
+        /* Used to center the round image if it's smaller than this padded area */
+        justify-content: center;
+        align-items: center;
+        /* box-sizing: border-box; is inherited */
+    }
+
+    /* Common Desktop Text/Button Alignment for ALL description wrappers */
+    /* This applies to both layout types on desktop. */
+    .custom-feature__description-wrapper {
+        align-items: flex-start;
+        /* Desktop: Align flex items (h3, p, btn) to the left */
+        text-align: left;
+        /* Desktop: Align text within h3 and p to the left */
+    }
+
+    .custom-feature__description-wrapper a.btn.btn--primary {
+        align-self: flex-start;
+        /* Desktop: Align button to the left */
+    }
+}
+
+/* End of Feature Item Styling ============================================== */
+
+
+/* Dark Mode mods =========================================================== */
+/* Applied to the base item and description elements for consistency. */
+html[data-theme="dark"] .custom-feature__item {
+    background-color: rgba(var(--custom-color-3-r),
+            var(--custom-color-3-g),
+            var(--custom-color-3-b), 0.5);
+    /* Example: A darker, slightly transparent background */
+}
+
+/* Background for 'first container style' (default type) */
+html[data-theme="dark"] .custom-feature__item.custom-feature__item--layout-desktop-row {
+    background-color: rgba(var(--custom-color-3-r),
+            var(--custom-color-3-g),
+            var(--custom-color-3-b), 0);
+    /* First container style - Dark Mode */
+}
+
+html[data-theme="dark"] .custom-feature__description-wrapper h3 {
+    color: var(--custom-color-2);
+}
+
+html[data-theme="dark"] .custom-feature__description-wrapper p {
+    color: var(--global-text-color);
+}
+
+/* Dark Mode for Cover Image Overlay */
+html[data-theme="dark"] .cover-image-container::before {
+    background:
+        linear-gradient(to right,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 25%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 75%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%),
+        linear-gradient(to top,
+            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
+            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.75) 15%,
+            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 30%,
+            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%);
+}
+
+html[data-theme="dark"] .cover-text-overlay {
+    color: var(--custom-color-4);
+    /* Lighter than global text to account for image background */
+}
+
+
+html[data-theme="dark"] .cover-text-overlay h1 {
+    color: var(--custom-color-2);
+    text-shadow: 1px 1px 3px rgba(var(--custom-color-3-r),
+            var(--custom-color-3-g),
+            var(--custom-color-3-b),
+            0.7);
+}
+
+html[data-theme="dark"] .cover-text-overlay p {
+    color: var(--custom-color-4);
+    text-shadow: 1px 1px 2px rgba(var(--custom-color-3-r),
+            var(--custom-color-3-g),
+            var(--custom-color-3-b),
+            0.7);
+}
+
+/* Adjust button for dark mode if needed */
+html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary,
+html[data-theme="dark"] body .cover-text-overlay a.btn.btn--primary {
+    background-color: var(--custom-color-2);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
+}
+
+html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary:hover,
+html[data-theme="dark"] body .cover-text-overlay a.btn.btn--primary:hover {
+    background-color: var(--custom-color-1);
+    border-color: var(--custom-color-1);
+    color: var(--custom-color-4) !important;
+}
+
+/* End of dark mode mods ==================================================== */

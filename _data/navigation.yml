@@ -1,0 +1,25 @@
+# The following is the order of the links in the header of the website.
+#
+# Changing the order here will adjust the order and you can also add additional
+# links. Removing a link prevents it from showing in the header, but does not
+# prevent it from being included in the site.
+#
+
+main:
+    - title: "Solutions" # Our products
+      url: /solutions/
+
+    - title: "Research" # Our previous and current research
+      url: /research/
+
+    - title: "Insights" # Our blog posts about the horticultural landscape
+      url: /insights/
+
+    - title: "News" # News about tropigence
+      url: /news/
+
+    - title: "About" # The team
+      url: /about/
+
+    - title: "Contact" # Contact us
+      url: /contact/

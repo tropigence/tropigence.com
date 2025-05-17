@@ -1,0 +1,86 @@
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+/* Color codes used for the theme */
+$custom-color-1 : #009a00;
+$custom-color-2 : #99cc00;
+$custom-color-3 : #2c2d2c;
+$custom-color-4 : #fafffa;
+
+$gray                       : #7a8288;
+$dark-gray                  : mix(#000, $gray, 40%);
+$darker-gray                : mix(#000, $gray, 60%);
+$light-gray                 : mix(#fff, $gray, 50%);
+$global-white               : #c8cdc8;
+$global-black               : #414641;
+
+$background                 : $global-black;
+$background-light           : mix(#fff, $background, 80%);
+$background-lighter         : mix(#fff, $background, 90%);
+
+$link                       : $custom-color-2;
+$link-dark                  : mix(#000, $link, 25%);
+$link-light                 : mix(#fff, $link, 25%);
+
+/* Color codes used for the site */
+$danger-color               : #ee5f5b;
+$info-color                 : #2f7f93;
+$notice-color               : #7a8288;
+$success-color              : $custom-color-2;
+$warning-color              : #f89406;
+
+/* Other basic settings for the template */
+$border-radius              : 10px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Dark theme for the site */
+html[data-theme="dark"] {
+    --global-base-color                 : #{$background};
+    --global-bg-color                   : #{$background};
+    --global-footer-bg-color            : #{$background};
+    --global-border-color               : #{$custom-color-2};
+    --global-dark-border-color          : #{$background-light};
+    --global-code-background-color      : #002b36;
+    --global-code-text-color            : #{$global-white};
+    --global-fig-caption-color          : #{$light-gray};
+    --global-link-color                 : #{$link};
+    --global-link-color-hover           : #{$link-dark};
+    --global-link-color-visited         : #{$link-light};
+    --global-masthead-link-color        : #{$custom-color-4};
+    --global-masthead-link-color-hover  : #{$custom-color-2};
+    --global-text-color                 : #{$global-white};
+    --global-text-color-light           : #{$light-gray};
+    --global-thead-color                : #{$background-lighter};
+
+    /* New Color Definitions ------------------------------------------------ */
+    --global-white                      : #{$global-white};
+    --global-black                      : #{$global-black};
+    --global-black-r : #{red($global-black)};
+    --global-black-g : #{green($global-black)};
+    --global-black-b : #{blue($global-black)};
+    --custom-color-1-r : #{red($custom-color-1)};
+    --custom-color-1-g : #{green($custom-color-1)};
+    --custom-color-1-b : #{blue($custom-color-1)};
+    --custom-color-2-r : #{red($custom-color-2)};
+    --custom-color-2-g : #{green($custom-color-2)};
+    --custom-color-2-b : #{blue($custom-color-2)};
+    --custom-color-3-r : #{red($custom-color-3)};
+    --custom-color-3-g : #{green($custom-color-3)};
+    --custom-color-3-b : #{blue($custom-color-3)};
+    --custom-color-4-r : #{red($custom-color-4)};
+    --custom-color-4-g : #{green($custom-color-4)};
+    --custom-color-4-b : #{blue($custom-color-4)};
+
+    /* Company Color Definitions -------------------------------------------- */
+    --custom-color-1                  : #{$custom-color-1};
+    --custom-color-2                  : #{$custom-color-2};
+    --custom-color-3                  : #{$custom-color-3};
+    --custom-color-4: #{$custom-color-4};
+}
