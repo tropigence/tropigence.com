@@ -101,19 +101,11 @@ html {
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row {
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 1);
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
     padding: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Add consistent padding for circular images */
-.custom-feature__image-wrapper .custom-feature__image--shape-round {
-    margin: 0 auto;
 }
 
 .custom-feature__image {
@@ -204,17 +196,6 @@ html {
         padding: 0.6em 1.2em;
         margin-top: 0.8em;
     }
-
-    .custom-feature__item .custom-feature__image-wrapper {
-        padding: 2em;
-        padding-bottom: 1em;
-        /* Less padding at bottom in mobile view */
-    }
-
-    .custom-feature__image--shape-round {
-        margin-top: 1em;
-        /* Add consistent top margin in mobile */
-    }
 }
 
 @media (min-width: 768px) {
@@ -230,7 +211,6 @@ html {
 
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
         width: 40%;
-        padding: 2em;
         display: flex;
         justify-content: center;
         align-items: center;
