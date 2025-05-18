@@ -128,7 +128,7 @@ html {
 
 .custom-feature__image--shape-rect {
     border-radius: 0;
-    max-height: 600px;
+    max-height: 500px;
     aspect-ratio: 2 / 1;
 }
 
@@ -203,7 +203,7 @@ html {
 
 @media (min-width: 768px) {
     .custom-feature-section {
-        width: 90%;
+        width: 85%;
         max-width: 1440px;
     }
 
