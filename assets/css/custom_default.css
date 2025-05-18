@@ -173,7 +173,7 @@ html {
 }
 
 /* Responsive styles */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .cover-image-container {
         height: 80vh;
     }
@@ -204,7 +204,6 @@ html {
 @media (min-width: 768px) {
     .custom-feature-section {
         width: 90%;
-        max-width: 1200px;
     }
 
     .custom-feature__item--layout-desktop-row {
