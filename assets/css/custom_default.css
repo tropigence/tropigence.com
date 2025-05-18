@@ -120,7 +120,7 @@ html {
     max-width: 300px;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
-    margin: 0 auto;
+    margin: 0 auto 0 0;
 }
 
 .custom-feature__image--shape-rect {
