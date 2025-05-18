@@ -119,8 +119,8 @@ html {
 }
 
 .custom-feature__image--shape-round {
-    max-height: 400px;
-    max-width: 400px;
+    /* max-height: 400px;
+    max-width: 400px; */
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     margin: 0 auto 0 0;
