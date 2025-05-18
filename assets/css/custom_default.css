@@ -204,7 +204,7 @@ html {
 @media (min-width: 768px) {
     .custom-feature-section {
         width: 90%;
-        max-width: 1600px;
+        max-width: 1440px;
     }
 
     .custom-feature__item--layout-desktop-row {
