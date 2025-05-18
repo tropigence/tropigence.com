@@ -128,7 +128,7 @@ html {
 
 .custom-feature__image--shape-rect {
     border-radius: 0;
-    max-height: 500px;
+    /* max-height: 500px; */
     aspect-ratio: 2 / 1;
 }
 
