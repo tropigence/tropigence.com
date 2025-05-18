@@ -119,8 +119,6 @@ html {
 }
 
 .custom-feature__image--shape-round {
-    /* max-height: 400px;
-    max-width: 400px; */
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     margin: 0 auto 0 0;
@@ -128,7 +126,6 @@ html {
 
 .custom-feature__image--shape-rect {
     border-radius: 0;
-    /* max-height: 500px; */
     aspect-ratio: 2 / 1;
 }
 
