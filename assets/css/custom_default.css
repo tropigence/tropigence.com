@@ -220,7 +220,12 @@ html {
     }
 
     .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        margin: 0;
+        padding-left: 0.75em;
+        /* Reduce left padding to move text closer to image */
+        padding-right: 1.5em;
+        /* Keep original right padding */
+        margin-left: -10px;
+        /* Optional: pull slightly closer to image with negative margin */
     }
 
     .custom-feature__description-wrapper {
