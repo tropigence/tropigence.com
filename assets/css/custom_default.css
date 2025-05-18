@@ -203,7 +203,7 @@ html {
 
 @media (min-width: 768px) {
     .custom-feature-section {
-        width: 85%;
+        width: 80%;
         max-width: 1440px;
     }
 
