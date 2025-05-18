@@ -105,7 +105,7 @@ html {
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
-    padding: 2em 0em 2em 2em;
+    padding: 2em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
