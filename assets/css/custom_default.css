@@ -119,8 +119,8 @@ html {
 }
 
 .custom-feature__image--shape-round {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 400px;
+    max-width: 400px;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     margin: 0 auto 0 0;
@@ -128,7 +128,7 @@ html {
 
 .custom-feature__image--shape-rect {
     border-radius: 0;
-    max-height: 400px;
+    max-height: 500px;
     aspect-ratio: 2 / 1;
 }
 
@@ -220,12 +220,7 @@ html {
     }
 
     .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        padding-left: 0.75em;
-        /* Reduce left padding to move text closer to image */
-        padding-right: 1.5em;
-        /* Keep original right padding */
-        margin-left: -10px;
-        /* Optional: pull slightly closer to image with negative margin */
+        margin: 0;
     }
 
     .custom-feature__description-wrapper {
