@@ -101,15 +101,13 @@ html {
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row {
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.5);
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 1);
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
-padding: 2em 2em 2em 0;
-    /* Removed left padding */
+    padding: 2em;
     display: flex;
     justify-content: flex-start;
-    /* Align to left instead of center */
     align-items: center;
 }
 
