@@ -63,7 +63,7 @@ html {
     /* Ensures text is above the image AND the gradient overlay */
     padding: 20px;
     /* Optional: adds some space around the text */
-    width: 55%;
+    width: 40%;
     /* Adjust as needed, e.g., 50% or 60% */
     /* Optional: constrain width of text block */
     max-width: 800px;
@@ -105,11 +105,10 @@ html {
     }
 
     .cover-text-overlay {
-        width: 90%;
+        width: 95%;
         /* Make the overlay wider on small screens */
-        left: 5%;
-        /* Position 5% from the left, leaving 5% on the right */
-        padding: 15px;
+        left: 2.5%;
+        padding-left: 5px;
         /* Reduce padding slightly */
         /* top: 50%; transform: translateY(-50%); will still vertically center it */
         /* box-sizing: border-box; is inherited and important */
@@ -442,5 +441,6 @@ html[data-theme="dark"] body .cover-text-overlay a.btn.btn--primary:hover {
     border-color: var(--custom-color-1);
     color: var(--custom-color-4) !important;
 }
+
 
 /* End of dark mode mods ==================================================== */
