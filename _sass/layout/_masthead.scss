@@ -3,67 +3,76 @@
    ========================================================================== */
 
 .masthead {
-  position: fixed;
-  background: var(--global-bg-color);
-  height: fit-content;
-  top: 0;
-  width: 100%;
-
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-  z-index: 20;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: 1px;
-    background: var(--global-border-color);
+    position: fixed;
+    background: var(--global-bg-color);
+    height: fit-content;
+    top: 0;
     width: 100%;
-  }
+    /* Full width of the screen */
+    left: 0;
+    right: 0;
 
-  &__inner-wrap {
-    @include container;
-    @include clearfix;
-    padding: 0.5em 1em;
-    font-family: $sans-serif-narrow;
+    -webkit-animation: intro 0.3s both;
+    animation: intro 0.3s both;
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+    z-index: 20;
 
-    @include breakpoint($x-large) {
-      max-width: $x-large;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        background: var(--global-border-color);
+        width: 100%;
     }
 
-    nav {
-      z-index: 10;
-    }
+    &__inner-wrap {
+        @include clearfix;
+        padding: 0.5em 1em;
+        font-family: $sans-serif-narrow;
+        width: 95%;
+        /* Mobile width (95%) */
+        margin: 0 auto;
+        /* Center the inner content */
 
-    a {
-      text-decoration: none;
+        @include breakpoint($medium) {
+            width: 90%;
+            /* Desktop width (90%) */
+        }
+
+        nav {
+            z-index: 10;
+            width: 100%;
+            /* Use full width of inner-wrap */
+        }
+
+        a {
+            text-decoration: none;
+        }
     }
-  }
 }
 
 .masthead__menu {
 
-  ul {
-    margin: 0;
-    padding: 0;
-    clear: both;
-    list-style-type: none;
-  }
+    ul {
+        margin: 0;
+        padding: 0;
+        clear: both;
+        list-style-type: none;
+    }
 }
 
 .masthead__menu-item {
-  background-color: var(--global-bg-color);
-  display: block;
-  list-style-type: none;
-  white-space: nowrap;
+    background-color: var(--global-bg-color);
+    display: block;
+    list-style-type: none;
+    white-space: nowrap;
 
-  &--lg {
-    padding-right: 2em;
-    font-weight: 700;
-  }
+    &--lg {
+        padding-right: 2em;
+        font-weight: 700;
+    }
 }
 
 
@@ -71,20 +80,19 @@
 // Site log styling ============================================================
 
 .site-logo {
-    max-height: 30px; // Adjust as needed
+    max-height: 30px; // Default sizing for larger screens
     width: auto;
     vertical-align: middle;
-    display: inline-block; // Or block, depending on layout needs
-}
+    display: inline-block;
 
-@media (max-width: 768px) {
-    .site-logo {
-        max-height: 25px; // Adjust for smaller screens
+    // For screens smaller than medium
+    @include breakpoint(max-width $medium) {
+        max-height: 25px;
     }
 }
 
 .site-logo--light {
-    display: inline-block; // Or your preferred display type
+    display: inline-block;
 }
 
 .site-logo--dark {
@@ -97,7 +105,7 @@ html[data-theme="dark"] .site-logo--light {
 }
 
 html[data-theme="dark"] .site-logo--dark {
-    display: inline-block; // Or your preferred display type
+    display: inline-block;
 }
 
 // End of site logo styling ====================================================
