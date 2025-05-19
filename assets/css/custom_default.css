@@ -228,6 +228,13 @@ html {
     .custom-feature__description-wrapper a.btn.btn--primary {
         align-self: flex-start;
     }
+
+    .custom-feature__image--shape-rect {
+        max-height: 400px;
+    }
+    .custom-feature__image--shape-round {
+        max-height: 300px;
+    }
 }
 
 /* Dark mode styles */
