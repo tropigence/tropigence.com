@@ -234,6 +234,7 @@ html {
     }
     .custom-feature__image--shape-round {
         max-height: 300px;
+        max-width: 300px;
     }
 }
 
