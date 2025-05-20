@@ -29,17 +29,18 @@
 
     &__inner-wrap {
         @include clearfix;
-        padding: 0.5em 0em 0.5em 0.25em;
+        padding: 0.5em 0em 0.5em 0.5em;
         font-family: $sans-serif-narrow;
-        width: 95%;
+        width: 96%;
         /* Mobile width (95%) */
+
         margin: 0 auto;
         /* Center the inner content */
 
         @include breakpoint($medium) {
-            /* Desktop mods (90%) */
+            /* Desktop mods */
             width: 90%;
-            padding: 0.5em 1em;
+            padding: 0.7em 1.2em;
         }
 
         nav {
