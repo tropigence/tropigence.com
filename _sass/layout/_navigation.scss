@@ -225,7 +225,6 @@
             }
         }
 
-
         #theme-toggle {
             a {
                 width: 25px;
@@ -251,14 +250,12 @@
                 -webkit-transform: scaleX(0);
                 -ms-transform: scaleX(0);
                 transform: scaleX(0);
-                /* hide*/
             }
 
             &:hover:before {
                 -webkit-transform: scaleX(1);
                 -ms-transform: scaleX(1);
                 transform: scaleX(1);
-                /* reveal*/
             }
         }
     }
@@ -285,29 +282,26 @@
             }
         }
 
-        &:before {
+        &:before,
+        &:after {
             content: "";
             position: absolute;
-            top: -11px;
             right: 10px;
             width: 0;
             border-style: solid;
             border-width: 0 10px 10px;
-            border-color: var(--global-border-color) transparent;
             display: block;
+        }
+
+        &:before {
+            top: -11px;
+            border-color: var(--global-border-color) transparent;
             z-index: 0;
         }
 
         &:after {
-            content: "";
-            position: absolute;
             top: -10px;
-            right: 10px;
-            width: 0;
-            border-style: solid;
-            border-width: 0 10px 10px;
             border-color: var(--global-bg-color) transparent;
-            display: block;
             z-index: 1;
         }
 
@@ -322,6 +316,98 @@
     }
 }
 
+/* Custom navigation styling */
+.greedy-nav .visible-links {
+
+    /* Regular navigation items - keep hover styles on focus/active */
+    li:not(:first-child):not(#theme-toggle):not(.active):not(.current):not([aria-current="page"]):not(.selected) a {
+
+        &:focus,
+        &:active {
+            color: var(--global-masthead-link-color-hover) !important;
+
+            &:before {
+                -webkit-transform: scaleX(1) !important;
+                -ms-transform: scaleX(1) !important;
+                transform: scaleX(1) !important;
+                display: block !important;
+            }
+        }
+    }
+
+    /* Active/current menu item highlighting */
+    li.active,
+    li.current,
+    li[aria-current="page"],
+    li.selected {
+        a {
+            color: var(--global-masthead-link-color-hover) !important;
+            font-weight: bold !important;
+            background-color: transparent !important;
+            border-bottom: none !important;
+            /* Remove the old border-bottom */
+            margin-bottom: 0 !important;
+            /* Reset margin */
+
+            &:before {
+                /* Ensure underline is visible and full width for active item */
+                /* Add these properties to ensure the underline displays correctly */
+                display: block !important;
+                opacity: 1 !important;
+                -webkit-transform: scaleX(1) !important;
+                -ms-transform: scaleX(1) !important;
+                transform: scaleX(1) !important;
+            }
+        }
+    }
+
+    /* Logo styling (first child) */
+    li:first-child a {
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: inherit !important;
+            border-bottom: none !important;
+
+            &:before {
+                display: none !important;
+                transform: scaleX(0) !important;
+            }
+        }
+    }
+
+    li#theme-toggle a,
+    a#theme-toggle {
+        /* Base properties */
+        color: var(--global-masthead-link-color) !important;
+        background: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+
+        /* Always hide the underline for theme toggle */
+        &:before {
+            display: none !important;
+        }
+
+        /* No hover effects for theme toggle by default */
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--global-masthead-link-color) !important;
+        }
+
+        /* Only change color on actual hover devices */
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                color: var(--global-masthead-link-color-hover) !important;
+                /* Still no underline on hover */
+            }
+        }
+    }
+
+}
+
+/* Hamburger menu icon */
 .greedy-nav button .navicon,
 .greedy-nav button .navicon::before,
 .greedy-nav button .navicon::after {
@@ -332,25 +418,6 @@ html[data-theme="dark"] .greedy-nav button .navicon,
 html[data-theme="dark"] .greedy-nav button .navicon::before,
 html[data-theme="dark"] .greedy-nav button .navicon::after {
     background: var(--custom-color-4) !important;
-}
-
-@media (max-width: 767px) {
-
-    .greedy-nav .visible-links a:before,
-    .greedy-nav .visible-links a:hover:before,
-    .greedy-nav .visible-links a:focus:before,
-    .greedy-nav .visible-links a:active:before {
-        display: none !important;
-        content: none !important;
-    }
-
-    .greedy-nav .visible-links a,
-    .greedy-nav .visible-links a:hover,
-    .greedy-nav .visible-links a:focus,
-    .greedy-nav .visible-links a:active {
-        color: var(--global-masthead-link-color) !important;
-        background: none !important;
-    }
 }
 
 /*
@@ -455,10 +522,8 @@ html[data-theme="dark"] .greedy-nav button .navicon::after {
         }
     }
 
-    >li:last-child {
-        a {
-            border-bottom: none;
-        }
+    >li:last-child a {
+        border-bottom: none;
     }
 
     li ul>li a {
