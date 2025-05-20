@@ -5,91 +5,108 @@ permalink: /sitemap/
 ---
 
 <style>
-    .sitemap-container {
+    .page-content {
+        line-height: 1.8em;
+    }
+
+    .container {
         max-width: 800px;
         margin: 20px auto;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
     }
-    .sitemap-container h1 {
+
+    h1 {
         text-align: center;
         margin-bottom: 20px;
     }
-    .sitemap-section {
+
+    .section {
         margin-bottom: 30px;
     }
-    .sitemap-section h2 {
+
+    h2 {
         border-bottom: 1px solid;
         padding-bottom: 10px;
         margin-bottom: 15px;
     }
-    .sitemap-list {
+
+    ul {
         list-style: none;
         padding-left: 0;
     }
-    .sitemap-list li {
+
+    li {
         margin-bottom: 8px;
     }
-    .sitemap-list a {
+
+    a {
         text-decoration: none;
     }
-    .sitemap-list a:hover {
+
+    a:hover {
         text-decoration: underline;
     }
+
     @media (max-width: 768px) {
-        .sitemap-container {
+        .container {
             margin: 10px 15px;
             padding: 15px;
         }
     }
 </style>
 
-<div class="sitemap-container">
-    <h1>Sitemap</h1>
+<div class="page-content">
+    <div class="container">
+        <h1>Sitemap</h1>
 
-    {% include base_path %}
-    <p>
-        This is a list of pages found on this site. For you bots out there,
-        there is an
-        <a href="{{ base_path }}/sitemap.xml">XML version</a> available as well.
-    </p>
+        {% include base_path %}
+        <p>
+            This is a list of pages found on this site. For you bots out there,
+            there is an
+            <a href="{{ base_path }}/sitemap.xml">XML version</a> available as
+            well.
+        </p>
 
-    <div class="sitemap-section">
-        <h2>Pages</h2>
+        <div class="section">
+            <h2>Pages</h2>
 
-        {% assign pages_list = "" | split: "" %} {% for page_item in site.pages
-        %} {% assign is_in_pages_folder = false %} {% if page_item.path contains
-        '_pages/' %} {% assign is_in_pages_folder = true %} {% endif %} {% if
-        is_in_pages_folder and page_item.sitemap == true and page_item.url !=
-        "/sitemap/" and page_item.url != "/404.html" %} {% assign display_name =
-        page_item.title %} {% if display_name == "" or display_name == nil %} {%
-        if page_item.url == "/" %} {% assign display_name = "Home" %} {% else %}
-        {% assign temp_url_segments = page_item.url | split: '/' %} {% assign
-        valuable_segments = "" | split: "" %} {% for segment in
-        temp_url_segments %} {% if segment != "" %} {% assign valuable_segments
-        = valuable_segments | push: segment %} {% endif %} {% endfor %} {% if
-        valuable_segments.size > 0 %} {% assign last_segment = valuable_segments
-        | last %} {% assign display_name = last_segment | remove: '.html' |
-        replace: '-', ' ' | capitalize %} {% else %} {% assign page_name =
-        page_item.path | split: '/' | last | split: '.' | first %} {% assign
-        display_name = page_name | replace: '-', ' ' | capitalize %} {% endif %}
-        {% endif %} {% endif %} {% if display_name == "" or display_name == nil
-        %} {% assign display_name = page_item.url | default: "Untitled Page" %}
-        {% endif %} {% capture page_entry %}{{ display_name }}|{{ page_item.url
-        }}{% endcapture %} {% assign pages_list = pages_list | push: page_entry
-        %} {% endif %} {% endfor %} {% assign sorted_pages = pages_list | sort
-        %}
+            {% assign pages_list = "" | split: "" %} {% for page_item in
+            site.pages %} {% assign is_in_pages_folder = false %} {% if
+            page_item.path contains '_pages/' %} {% assign is_in_pages_folder =
+            true %} {% endif %} {% if is_in_pages_folder and page_item.sitemap
+            == true and page_item.url != "/sitemap/" and page_item.url !=
+            "/404.html" %} {% assign display_name = page_item.title %} {% if
+            display_name == "" or display_name == nil %} {% if page_item.url ==
+            "/" %} {% assign display_name = "Home" %} {% else %} {% assign
+            temp_url_segments = page_item.url | split: '/' %} {% assign
+            valuable_segments = "" | split: "" %} {% for segment in
+            temp_url_segments %} {% if segment != "" %} {% assign
+            valuable_segments = valuable_segments | push: segment %} {% endif %}
+            {% endfor %} {% if valuable_segments.size > 0 %} {% assign
+            last_segment = valuable_segments | last %} {% assign display_name =
+            last_segment | remove: '.html' | replace: '-', ' ' | capitalize %}
+            {% else %} {% assign page_name = page_item.path | split: '/' | last
+            | split: '.' | first %} {% assign display_name = page_name |
+            replace: '-', ' ' | capitalize %} {% endif %} {% endif %} {% endif
+            %} {% if display_name == "" or display_name == nil %} {% assign
+            display_name = page_item.url | default: "Untitled Page" %} {% endif
+            %} {% capture page_entry %}{{ display_name }}|{{ page_item.url }}{%
+            endcapture %} {% assign pages_list = pages_list | push: page_entry
+            %} {% endif %} {% endfor %} {% assign sorted_pages = pages_list |
+            sort %}
 
-        <ul class="sitemap-list">
-            {% if sorted_pages.size > 0 %} {% for page_entry in sorted_pages %}
-            {% assign parts = page_entry | split: "|" %}
-            <li>
-                <a href="{{ parts[1] | relative_url }}">{{ parts[0] }}</a>
-            </li>
-            {% endfor %} {% else %}
-            <li>No pages found with sitemap: true in their frontmatter.</li>
-            {% endif %}
-        </ul>
+            <ul>
+                {% if sorted_pages.size > 0 %} {% for page_entry in sorted_pages
+                %} {% assign parts = page_entry | split: "|" %}
+                <li>
+                    <a href="{{ parts[1] | relative_url }}">{{ parts[0] }}</a>
+                </li>
+                {% endfor %} {% else %}
+                <li>No pages found with sitemap: true in their frontmatter.</li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </div>
