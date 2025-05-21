@@ -282,8 +282,7 @@ html {
     }
 
     .custom-feature-section {
-        width: 80%;
-        max-width: 1440px;
+        width: 90%;
     }
 
     .custom-feature__item--layout-desktop-row {
@@ -320,8 +319,8 @@ html {
 /* Large desktop styles (min-width approach) */
 @media (min-width: 2048px) {
     .custom-feature-section {
-        width: 70%;
-        max-width: 1440px;
+        width: 80%;
+        /* max-width: 1440px; */
     }
 
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
