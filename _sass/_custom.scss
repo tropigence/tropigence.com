@@ -34,3 +34,19 @@
 }
 
 /* End of Author Avatar Border Removal -------------------------------------- */
+
+
+/* Media Query for different devices ---------------------------------------- */
+/* Mobile first approach, using min-width for larger devices */
+// Sass variables for use in media query conditions
+$screen-medium: 480px;
+$screen-large: 768px;
+$screen-x-large: 2048px;
+
+/* Media Query for different devices ---------------------------------------- */
+:root {
+    // CSS variables for use in other CSS properties
+    --global-screen-medium: #{$screen-medium};
+    --global-screen-large: #{$screen-large};
+    --global-screen-x-large: #{$screen-x-large};
+}

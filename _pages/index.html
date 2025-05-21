@@ -9,70 +9,133 @@ redirect_from:
     - /home/
     - /home.html
 ---
+<!-- Hero Section using the include -->
+{%
+    include custom_default.html
+    mode="hero"
+    image_url="/images/plantation.jpg"
+    image_alt="Cover Image"
+    header_text="Transforming Tropical Horticulture Through Advanced Research"
+    paragraph_text="We develop and apply the latest scientific advancements for more productive and sustainable agriculture."
+    button_href="#discover-more"
+    button_text="Discover More"
+%}
 
-<div class="cover-image-container">
-    <img
-        src="{{ '/images/plantation.jpg' | relative_url }}"
-        alt="Cover Image"
-    />
-    <div class="cover-text-overlay">
-        <h1>Transforming Tropical Horticulture Through Advanced Research</h1>
-        <p>
-            We are driving transformative changes through advanced research to
-            unlock the full potential of tropical agriculture. We develop and
-            apply the latest scientific advancements for more productive and
-            sustainable agriculture. Our work is revolutionizing the cultivation
-            of tropical crops, leading to enhanced sustainability, increased
-            yields, and shaping the future of agriculture in the tropics.
-        </p>
-        <a href="#discover-more" class="btn btn--primary">Discover More</a>
-    </div>
-</div>
+<!-- No slider single item feature style -->
+{%
+    include custom_default.html
+    mode="item"
+    container_style="feature-style-1"
+    image_url="/images/agbalumo.jpg"
+    image_alt="Tropical Fruit Research"
+    header_text="Tropical Fruit Enhancement"
+    paragraph_text="Our research focuses on improving yields and nutritional content of indigenous tropical fruits through advanced genomic techniques and sustainable cultivation methods."
+    button_href="/research"
+    button_text="Our Research"
+%}
 
+<!-- First Slider Section: Two identical feature styles -->
 <section class="custom-feature-section" id="discover-more">
-    {% include custom_default.html image_url="/images/agbalumo.jpg"
-    image_alt="Tropigence Labs Profile" header_text="Tropigence Labs"
-    paragraph_text="We are driving transformative changes through advanced
-    research to unlock the full potential of tropical agriculture. We develop
-    and apply the latest scientific advancements for more productive and
-    sustainable agriculture. Our work is revolutionizing the cultivation of
-    tropical crops, leading to enhanced sustainability, increased yields, and
-    shaping the future of agriculture in the tropics."
-    button_href="https://tropigence.com/" button_text="Learn More" %}
+    <div class="floating-slider-container round-images">
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-1"
+            image_url="/images/agbalumo.jpg"
+            image_alt="Tropical Fruit Research"
+            header_text="Tropical Fruit Enhancement"
+            paragraph_text="Our research focuses on improving yields and nutritional content of indigenous tropical fruits through advanced genomic techniques and sustainable cultivation methods."
+            button_href="/research"
+            button_text="Our Research"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-1"
+            image_url="/images/cocoa.jpg"
+            image_alt="Cocoa Breeding Program"
+            header_text="Cocoa Improvement Program"
+            paragraph_text="We're developing disease-resistant cocoa varieties that maintain superior flavor profiles while increasing yield potential for smallholder farmers across the tropics."
+            button_href="/cocoa"
+            button_text="Learn More"
+        %}
+    </div>
 </section>
 
+<!-- Second Slider Section: Three identical feature styles -->
 <section class="custom-feature-section">
-    {% include custom_default.html type="alt" image_url="/images/tomato.jpg"
-    image_alt="Tropigence Labs Profile" header_text="Tropigence Labs"
-    paragraph_text="We are driving transformative changes through advanced
-    research to unlock the full potential of tropical agriculture. We develop
-    and apply the latest scientific advancements for more productive and
-    sustainable agriculture. Our work is revolutionizing the cultivation of
-    tropical crops, leading to enhanced sustainability, increased yields, and
-    shaping the future of agriculture in the tropics."
-    button_href="https://tropigence.com/" button_text="Learn More" %}
+    <div class="floating-slider-container box-images">
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-2"
+            image_url="/images/tomato.jpg"
+            image_alt="Tomato Varieties"
+            header_text="Heat-Tolerant Vegetable Crops"
+            paragraph_text="Our breeding program develops vegetable varieties that thrive in tropical climates, offering improved disease resistance and higher yields even under heat stress conditions."
+            button_href="/vegetables"
+            button_text="Explore Varieties"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-2"
+            image_url="/images/lab.jpg"
+            image_alt="Laboratory Research"
+            header_text="Advanced Biotechnology"
+            paragraph_text="Our state-of-the-art laboratory applies cutting-edge biotechnology to accelerate crop improvement, developing solutions for tropical agriculture's most pressing challenges."
+            button_href="/biotech"
+            button_text="Our Approach"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-2"
+            image_url="/images/soil.jpg"
+            image_alt="Soil Testing"
+            header_text="Soil Health Management"
+            paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
+            button_href="/soil"
+            button_text="Soil Programs"
+        %}
+    </div>
 </section>
 
+<!-- Third Slider Section: Three mixed feature styles -->
 <section class="custom-feature-section">
-    {% include custom_default.html image_url="/images/agbalumo.jpg"
-    image_alt="Tropigence Labs Profile" header_text="Tropigence Labs"
-    paragraph_text="We are driving transformative changes through advanced
-    research to unlock the full potential of tropical agriculture. We develop
-    and apply the latest scientific advancements for more productive and
-    sustainable agriculture. Our work is revolutionizing the cultivation of
-    tropical crops, leading to enhanced sustainability, increased yields, and
-    shaping the future of agriculture in the tropics."
-    button_href="https://tropigence.com/" button_text="Learn More" %}
-</section>
-
-<section class="custom-feature-section">
-    {% include custom_default.html type="alt" image_url="/images/tomato.jpg"
-    image_alt="Tropigence Labs Profile" header_text="Tropigence Labs"
-    paragraph_text="We are driving transformative changes through advanced
-    research to unlock the full potential of tropical agriculture. We develop
-    and apply the latest scientific advancements for more productive and
-    sustainable agriculture. Our work is revolutionizing the cultivation of
-    tropical crops, leading to enhanced sustainability, increased yields, and
-    shaping the future of agriculture in the tropics."
-    button_href="https://tropigence.com/" button_text="Learn More" %}
+    <div class="floating-slider-container box-images">
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-2"
+            image_url="/images/tech.jpg"
+            image_alt="Agricultural Technology"
+            header_text="Digital Agriculture"
+            paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
+            button_href="/digital"
+            button_text="Digital Tools"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-1"
+            image_url="/images/community.jpg"
+            image_alt="Community Outreach"
+            header_text="Community Engagement"
+            paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
+            button_href="/community"
+            button_text="Our Impact"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            container_style="feature-style-2"
+            image_url="/images/lab.jpg"
+            image_alt="Laboratory Research"
+            header_text="Advanced Biotechnology"
+            paragraph_text="Our state-of-the-art laboratory applies cutting-edge biotechnology to accelerate crop improvement, developing solutions for tropical agriculture's most pressing challenges."
+            button_href="/biotech"
+            button_text="Our Approach"
+        %}
+    </div>
 </section>

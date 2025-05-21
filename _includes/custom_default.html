@@ -1,41 +1,125 @@
-{%- comment -%} Parameters: - type: "alt" (string, optional) - If "alt": Image
-on top (default mobile layout) with a rectangular, rounded-corner image. - If
-not "alt" (or not provided): Image on left, text on right for desktop view, with
-a fully round image. On mobile, it defaults to image on top, text below, with a
-round image. - image_url: (string, required) URL for the image. - image_alt:
-(string, required) Alt text for the image. - header_text: (string, required)
-Header text for the description. - paragraph_text: (string, required) Paragraph
-text for the description. - button_href: (string, optional) URL for the button.
-- button_text: (string, optional) Text for the button. Defaults to "Learn more".
-{%- endcomment -%} {%- assign item_base_class = "custom-feature__item" -%} {%-
-assign item_layout_modifier = "" -%} {%- assign image_shape_modifier = "" -%} {%
-if include.type == "alt" %} {%- comment -%} "alt" type: - Item layout: Stays
-default (flex-column on all screens, image on top). No layout modifier needed. -
-Image shape: Rectangular with rounded corners. {%- endcomment -%} {%- assign
-image_shape_modifier = "custom-feature__image--shape-rect" -%} {% else %} {%-
-comment -%} Default type (not "alt"): - Item layout: Becomes side-by-side on
-desktop. - Image shape: Fully round. {%- endcomment -%} {%- assign
-item_layout_modifier = "custom-feature__item--layout-desktop-row" -%} {%- assign
-image_shape_modifier = "custom-feature__image--shape-round" -%} {% endif %}
+{%- comment -%}
+    Parameters:
+    - mode: "slider", "item", or "hero" (default: "slider")
+      - If "slider": Creates a complete slider with the item inside
+      - If "item": Creates just the item (to be used within a slider elsewhere)
+      - If "hero": Creates a hero image container with overlay text
+    - slider_type: "box-images" or "round-images" (only used when mode="slider")
+    - slider_items: Number of items in slider (only used when mode="slider")
+      - If 1: Disables scrolling features
+      - If 2+: Enables scrolling features
+    - container_style: (string, required) Predefined style to apply:
+      - "feature-style-1": Round image with side-by-side layout (default)
+      - "feature-style-2": Rectangular image with stacked layout
+      - Or any custom class defined in your CSS
+    - image_url: (string, required) URL for the image.
+    - image_alt: (string, required) Alt text for the image.
+    - header_text: (string, required) Header text for the description.
+    - paragraph_text: (string, required) Paragraph text for the description.
+    - button_href: (string, optional) URL for the button.
+    - button_text: (string, optional) Text for the button. Defaults to "Learn more".
 
-<div class="{{ item_base_class }} {{ item_layout_modifier | strip_newlines }}">
-    <div class="custom-feature__image-wrapper">
+    Hero mode parameters:
+    - image_url: (string, required) URL for the hero background image
+    - image_alt: (string, required) Alt text for the hero image
+    - header_text: (string, required) Hero title text
+    - paragraph_text: (string, required) Hero paragraph text
+    - button_href: (string, optional) URL for the hero CTA button
+    - button_text: (string, optional) Text for the hero CTA button
+{%- endcomment -%}
+
+{%- assign mode = include.mode | default: 'slider' -%}
+{%- assign slider_type = include.slider_type | default: 'box-images' -%}
+{%- assign slider_items = include.slider_items | default: 1 | plus: 0 -%}
+{%- assign container_style = include.container_style
+    | default: 'feature-style-1'
+-%}
+{%- assign item_base_class = 'custom-feature__item' -%}
+{%- assign item_layout_modifier = '' -%}
+{%- assign image_shape_modifier = '' -%}
+
+{% if mode == 'hero' %}
+    <!-- Hero Section -->
+    <div class="hero-image-container">
         <img
-            class="custom-feature__image {{ image_shape_modifier | strip_newlines }}"
             src="{{ include.image_url | relative_url }}"
             alt="{{ include.image_alt }}"
-        />
+        >
+        <div class="hero-text-overlay">
+            <h1>{{ include.header_text }}</h1>
+            <p>
+                {{
+                    include.paragraph_text
+                    | replace: '\n', ' '
+                    | strip_html
+                    | strip
+                    | escape
+                }}
+            </p>
+            {% if include.button_href and include.button_text %}
+                <a
+                    href="{{ include.button_href }}"
+                    class="btn btn--primary"
+                    {% if include.button_href contains '://' %}
+                        rel="nofollow noopener noreferrer"
+                    {% endif %}
+                >
+                    {{ include.button_text }}
+                </a>
+            {% endif %}
+        </div>
     </div>
-    <div class="custom-feature__description-wrapper">
-        <h3>{{ include.header_text }}</h3>
-        <p>
-            {{ include.paragraph_text | replace: "\n", " " | strip_html | strip
-            | escape }}
-        </p>
-        {% if include.button_href and include.button_text %}
-        <a href="{{ include.button_href }}" class="btn btn--primary"{% if include.button_href contains "://" %} rel="nofollow noopener noreferrer"{% endif %}>
-            {{ include.button_text | default: "Learn more" }}
-        </a>
-        {% endif %}
+{% else %}
+    {% if container_style == 'feature-style-2' %}
+        {%- assign image_shape_modifier = 'custom-feature__image--shape-rect' -%}
+    {% else %}
+        {%- assign item_layout_modifier = 'custom-feature__item--layout-desktop-row' -%}
+        {%- assign image_shape_modifier = 'custom-feature__image--shape-round' -%}
+    {% endif %}
+
+    {% if mode == 'slider' %}
+        <!-- Start of floating slider container -->
+        <div
+            class="floating-slider-container {{ slider_type }}{% if slider_items == 1 %} single-item-slider{% endif %}"
+        >
+    {% endif %}
+
+    <!-- Feature Item -->
+    <div class="{{ item_base_class }} {{ item_layout_modifier | strip_newlines }} {{ container_style }}">
+        <div class="custom-feature__image-wrapper">
+            <img
+                class="custom-feature__image {{ image_shape_modifier | strip_newlines }}"
+                src="{{ include.image_url | relative_url }}"
+                alt="{{ include.image_alt }}"
+            >
+        </div>
+        <div class="custom-feature__description-wrapper">
+            <h3>{{ include.header_text }}</h3>
+            <p>
+                {{
+                    include.paragraph_text
+                    | replace: '\n', ' '
+                    | strip_html
+                    | strip
+                    | escape
+                }}
+            </p>
+            {% if include.button_href and include.button_text %}
+                <a
+                    href="{{ include.button_href }}"
+                    class="btn btn--primary"
+                    {% if include.button_href contains '://' %}
+                        rel="nofollow noopener noreferrer"
+                    {% endif %}
+                >
+                    {{ include.button_text | default: 'Learn more' }}
+                </a>
+            {% endif %}
+        </div>
     </div>
-</div>
+
+    {% if mode == 'slider' %}
+        <!-- End of floating slider container -->
+        </div>
+    {% endif %}
+{% endif %}

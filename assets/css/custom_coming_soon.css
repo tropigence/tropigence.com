@@ -19,6 +19,13 @@ body {
     width: 100%;
 }
 
+/* Add landscape mobile media query to reduce top margin */
+@media (orientation: landscape) and (max-height: 768px) {
+    .coming-soon-container {
+        margin-top: 20px;
+    }
+}
+
 .coming-soon-container h1 {
     font-size: 2rem;
     margin-bottom: 30px;

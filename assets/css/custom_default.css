@@ -1,17 +1,20 @@
-/* Cover image style ======================================================== */
+/* Mobile first CCC styling */
+/* Hero image style ======================================================== */
 html {
     scroll-behavior: smooth;
 }
 
-.cover-image-container {
+/* Mobile defaults */
+.hero-image-container {
     width: 100%;
-    height: 90vh;
+    height: 80vh;
+    /* Mobile height */
     overflow: hidden;
     margin-bottom: 4em;
     position: relative;
 }
 
-.cover-image-container::before {
+.hero-image-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -32,51 +35,123 @@ html {
     z-index: 1;
 }
 
-.cover-image-container img {
+.hero-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.cover-text-overlay {
+.hero-text-overlay {
     position: absolute;
     top: 50%;
-    left: 5%;
+    left: 2.5%;
     transform: translateY(-50%);
     color: var(--global-text-color);
     text-align: left;
     z-index: 2;
-    padding: 20px;
-    width: 40%;
-    max-width: 800px;
+    padding: 20px 5px;
+    width: 95%;
     box-sizing: border-box;
 }
 
-.cover-text-overlay h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.8em;
+.hero-text-overlay h1 {
+    font-size: 1.8em;
+    /* Mobile font size */
+    margin-bottom: 0.4em;
+    /* Mobile margin */
     color: var(--custom-color-1);
     text-shadow: 1px 1px 3px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
 }
 
-.cover-text-overlay p {
-    font-size: 1.2em;
+.hero-text-overlay p {
+    font-size: 1em;
+    /* Mobile font size */
+    margin-bottom: 0.8em;
+    /* Mobile margin */
     color: var(--custom-color-3);
     text-shadow: 1px 1px 2px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
 }
 
-.cover-text-overlay .btn {
+.hero-text-overlay .btn {
     display: inline-block;
-    margin-top: 1em;
-    font-size: 1.2em;
+    margin-top: 0.8em;
+    /* Mobile margin */
+    font-size: 1em;
+    /* Mobile font size */
+    padding: 0.6em 1.2em;
+    /* Mobile padding */
 }
-
-/* End Cover image style ==================================================== */
-
 
 /* Feature section styling ================================================== */
 
+/* Floating slider container styles ----------------------------------------- */
+.floating-slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 2em auto;
+    padding: 1em 0;
+    position: relative;
+    /* Enable smooth scrolling on touch devices */
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar in modern browsers but keep functionality */
+    scrollbar-width: none;
+    /* Firefox */
+    display: flex;
+    gap: 1em;
+    /* Enable scroll snapping for better UX */
+    scroll-snap-type: x mandatory;
+}
+
+/* Hide scrollbar for Chrome/Safari/Opera */
+.floating-slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Child items - Single item view by default */
+.floating-slider-container>.custom-feature__item {
+    flex: 0 0 calc(100% - 2em);
+    min-width: calc(100% - 2em);
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Tablet and laptop styles - adjust number of visible items */
+@media (min-width: 480px) {
+    .floating-slider-container {
+        padding: 1.5em 0;
+    }
+}
+
+/* Monitor styles */
+@media (min-width: 768px) {
+
+    /* For box image containers - show two at once */
+    .floating-slider-container.box-images>.custom-feature__item {
+        flex: 0 0 calc(50% - 1.5em);
+        min-width: calc(50% - 1.5em);
+    }
+
+    /* For round image containers - still show one at once but larger */
+    .floating-slider-container.round-images>.custom-feature__item {
+        flex: 0 0 calc(90% - 2em);
+        min-width: calc(90% - 2em);
+        margin: 0 auto;
+    }
+}
+
+/* Additional hover effect for desktop */
+@media (hover: hover) {
+    .floating-slider-container>.custom-feature__item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Dark mode styles */
+
+/* Feature container styles ------------------------------------------------- */
 .custom-feature-section {
     margin: 0 auto 1em;
     padding: 1em;
@@ -122,6 +197,8 @@ html {
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     margin: 0 auto 0 0;
+    max-height: 400px;
+    max-width: 400px;
 }
 
 .custom-feature__image--shape-rect {
@@ -150,7 +227,7 @@ html {
 
 /* Button styling - combined selectors */
 .custom-feature__description-wrapper a.btn.btn--primary,
-.cover-text-overlay a.btn.btn--primary {
+.hero-text-overlay a.btn.btn--primary {
     margin: 1em 10px 0 0;
     align-self: center;
     background-color: var(--custom-color-1);
@@ -160,45 +237,50 @@ html {
     display: inline-block;
     text-decoration: none;
     padding: 0.75em 1.5em;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .custom-feature__description-wrapper a.btn.btn--primary:hover,
-.cover-text-overlay a.btn.btn--primary:hover {
+.hero-text-overlay a.btn.btn--primary:hover {
     background-color: var(--custom-color-2);
     border-color: var(--custom-color-2);
     color: var(--global-black) !important;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .cover-image-container {
-        height: 80vh;
+/* Desktop styles (min-width approach) */
+@media (min-width: 480px) {
+    .hero-image-container {
+        height: 90vh;
     }
 
-    .cover-text-overlay {
-        width: 95%;
-        left: 2.5%;
-        padding-left: 5px;
+    .hero-text-overlay {
+        left: 5%;
+        /* Adjusted position */
+        width: 40%;
+        /* Narrower width */
+        max-width: 800px;
+        padding: 20px;
+        /* More padding */
     }
 
-    .cover-text-overlay h1 {
-        font-size: 1.8em;
-        margin-bottom: 0.4em;
-    }
-
-    .cover-text-overlay p {
-        font-size: 1em;
+    .hero-text-overlay h1 {
+        font-size: 2.5em;
+        /* Larger on desktop */
         margin-bottom: 0.8em;
     }
 
-    .cover-text-overlay .btn {
-        font-size: 1em;
-        padding: 0.6em 1.2em;
-        margin-top: 0.8em;
+    .hero-text-overlay p {
+        font-size: 1.2em;
+        /* Larger on desktop */
     }
-}
 
-@media (min-width: 768px) {
+    .hero-text-overlay .btn {
+        font-size: 1.2em;
+        /* Larger on desktop */
+        padding: 0.75em 1.5em;
+        margin-top: 1em;
+    }
+
     .custom-feature-section {
         width: 80%;
         max-width: 1440px;
@@ -232,11 +314,26 @@ html {
     .custom-feature__image--shape-rect {
         max-height: 400px;
     }
-    .custom-feature__image--shape-round {
-        max-height: 400px;
-        max-width: 400px;
+}
+
+
+/* Large desktop styles (min-width approach) */
+@media (min-width: 2048px) {
+    .custom-feature-section {
+        width: 70%;
+        max-width: 1440px;
+    }
+
+    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+        width: 50%;
+    }
+
+    .custom-feature__description-wrapper {
+        padding: 2em;
     }
 }
+
+
 
 /* Dark mode styles */
 html[data-theme="dark"] .custom-feature__item {
@@ -251,7 +348,7 @@ html[data-theme="dark"] .custom-feature__description-wrapper h3 {
     color: var(--custom-color-2);
 }
 
-html[data-theme="dark"] .cover-image-container::before {
+html[data-theme="dark"] .hero-image-container::before {
     background:
         linear-gradient(to right,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
@@ -265,29 +362,29 @@ html[data-theme="dark"] .cover-image-container::before {
             rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%);
 }
 
-html[data-theme="dark"] .cover-text-overlay {
+html[data-theme="dark"] .hero-text-overlay {
     color: var(--custom-color-4);
 }
 
-html[data-theme="dark"] .cover-text-overlay h1 {
+html[data-theme="dark"] .hero-text-overlay h1 {
     color: var(--custom-color-2);
     text-shadow: 1px 1px 3px rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.7);
 }
 
-html[data-theme="dark"] .cover-text-overlay p {
+html[data-theme="dark"] .hero-text-overlay p {
     color: var(--custom-color-4);
     text-shadow: 1px 1px 2px rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.7);
 }
 
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary,
-html[data-theme="dark"] body .cover-text-overlay a.btn.btn--primary {
+html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary {
     background-color: var(--custom-color-2);
     border-color: var(--custom-color-2);
     color: var(--global-black) !important;
 }
 
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary:hover,
-html[data-theme="dark"] body .cover-text-overlay a.btn.btn--primary:hover {
+html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary:hover {
     background-color: var(--custom-color-1);
     border-color: var(--custom-color-1);
     color: var(--custom-color-4) !important;
