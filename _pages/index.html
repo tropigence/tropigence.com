@@ -22,20 +22,22 @@ redirect_from:
 %}
 
 <!-- No slider single item feature style -->
-{%
-    include custom_default.html
-    mode="item"
-    container_style="feature-style-1"
-    image_url="/images/agbalumo.jpg"
-    image_alt="Tropical Fruit Research"
-    header_text="Tropical Fruit Enhancement"
-    paragraph_text="Our research focuses on improving yields and nutritional content of indigenous tropical fruits through advanced genomic techniques and sustainable cultivation methods."
-    button_href="/research"
-    button_text="Our Research"
-%}
+<section class="custom-feature-section" id="discover-more">
+    {%
+        include custom_default.html
+        mode="item"
+        container_style="feature-style-1"
+        image_url="/images/agbalumo.jpg"
+        image_alt="Tropical Fruit Research"
+        header_text="Tropical Fruit Enhancement"
+        paragraph_text="Our research focuses on improving yields and nutritional content of indigenous tropical fruits through advanced genomic techniques and sustainable cultivation methods."
+        button_href="/research"
+        button_text="Our Research"
+    %}
+</section>
 
 <!-- First Slider Section: Two identical feature styles -->
-<section class="custom-feature-section" id="discover-more">
+<section class="custom-feature-section">
     <div class="floating-slider-container round-images">
         {%
             include custom_default.html
