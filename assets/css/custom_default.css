@@ -209,22 +209,17 @@ html {
     margin: 0;
 }
 
-/* UPDATED: Button styling - Feature buttons SMALLER */
 .custom-feature__description-wrapper a.btn.btn--primary,
 .custom-feature__description-wrapper-2 a.btn.btn--primary,
 .hero-text-overlay a.btn.btn--primary {
     margin: 1em 10px 0 0;
     align-self: center;
-    font-size: 0.9em;
-    /* Decreased from 1em */
     background-color: var(--custom-color-1);
     color: var(--custom-color-4);
     border-color: var(--custom-color-1);
     border-radius: 50px;
     display: inline-block;
     text-decoration: none;
-    padding: 0.4em 0.9em;
-    /* Slightly smaller padding */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
