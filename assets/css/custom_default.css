@@ -185,6 +185,12 @@ html {
     scroll-snap-type: x mandatory;
 }
 
+/* Update the floating-slider-container width when inside custom-feature-section */
+.custom-feature-section .floating-slider-container {
+    width: 100%;
+    max-width: 100%;
+}
+
 .floating-slider-container::-webkit-scrollbar {
     display: none;
 }
