@@ -178,6 +178,17 @@ html {
 /* Large tablet and laptop styles */
 @media (min-width: 768px) {
 
+    .custom-feature-section {
+            width: 90%;
+        }
+
+    /* Add this new rule */
+    .floating-slider-container.round-images {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     /* For box image containers - show two at once */
     .floating-slider-container.box-images>.custom-feature__item {
         flex: 0 0 calc(50% - 1.5em);
@@ -339,31 +350,42 @@ html {
 /* Monitor styles */
 @media (min-width: 2048px) {
     .custom-feature-section {
-        width: 90%;
-        /* max-width: 1440px; */
-    }
+            width: 90%;
+        }
 
-    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
-        width: 50%;
-    }
+        .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+            width: 50%;
+        }
 
-    .custom-feature__description-wrapper {
-        padding: 2em;
-    }
+        .custom-feature__description-wrapper {
+            padding: 2em;
+        }
 
-    /* New styles for round image containers */
-    .custom-feature-section .floating-slider-container.round-images {
-        width: 70%;
-        /* Set to 70% width on large screens */
-        margin-left: auto;
-        margin-right: auto;
-    }
+        /* For box image containers - show THREE items at once on large screens */
+        .floating-slider-container.box-images {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    /* Adjust items inside round image containers if needed */
-    .floating-slider-container.round-images>.custom-feature__item {
-        flex: 0 0 calc(100% - 2em);
-        min-width: calc(100% - 2em);
-    }
+        .floating-slider-container.box-images>.custom-feature__item {
+            flex: 0 0 calc(33.33% - 2em);
+            min-width: calc(33.33% - 2em);
+        }
+
+        /* New styles for round image containers */
+        .custom-feature-section .floating-slider-container.round-images {
+            width: 70%;
+            /* Set to 70% width on large screens */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Adjust items inside round image containers if needed */
+        .floating-slider-container.round-images>.custom-feature__item {
+            flex: 0 0 calc(100% - 2em);
+            min-width: calc(100% - 2em);
+        }
 }
 
 
