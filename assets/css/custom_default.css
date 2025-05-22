@@ -501,9 +501,10 @@ html {
         min-width: calc(50% - 1.5em);
     }
 
+    /* Always display max 2 items for round-images sliders below 2040px */
     .floating-slider-container.round-images>.custom-feature__item {
-        flex: 0 0 calc(45% - 1em);
-        min-width: calc(45% - 1em);
+        flex: 0 0 calc(50% - 1em);
+        min-width: calc(50% - 1em);
     }
 
     .floating-slider-container.has-1-items>.custom-feature__item-2 {
@@ -516,7 +517,14 @@ html {
         min-width: 50%;
     }
 
-    .floating-slider-container.has-3-items>.custom-feature__item-2 {
+    /* Limit round image sliders with -2 variant to 2 items max */
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    /* Box image sliders can still use 3 items */
+    .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
         flex: 0 0 33.33%;
         min-width: 33.33%;
     }
@@ -552,8 +560,8 @@ html {
     }
 }
 
-/* Monitor styles (2048px+) */
-@media (min-width: 2048px) {
+/* Allow 3 items only at 2040px+ for round-images sliders */
+@media (min-width: 2040px) {
     .custom-feature-section {
         width: 90%;
     }
@@ -624,9 +632,10 @@ html {
         min-width: calc(33.33% - 2em);
     }
 
+    /* At 2040px+, allow round-images to show 3 items */
     .floating-slider-container.round-images>.custom-feature__item {
-        flex: 0 0 calc(45% - 1em);
-        min-width: calc(45% - 1em);
+        flex: 0 0 calc(33.33% - 1em);
+        min-width: calc(33.33% - 1em);
     }
 
     .floating-slider-container.has-1-items>.custom-feature__item-2 {
@@ -639,7 +648,9 @@ html {
         min-width: 50%;
     }
 
-    .floating-slider-container.has-3-items>.custom-feature__item-2 {
+    /* At 2040px+, allow round-images with -2 variant to show 3 items */
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2,
+    .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
         flex: 0 0 33.33%;
         min-width: 33.33%;
     }
