@@ -263,6 +263,12 @@ html {
         margin-right: auto;
     }
 
+    /* Start making standalone rounded images slightly larger at 480px */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 180px;
+        max-width: 180px;
+    }
+
     /* Custom button size for feature sections */
     .custom-feature__description-wrapper a.btn.btn--primary {
         font-size: 1.1em;
@@ -278,15 +284,23 @@ html {
         align-items: center;
     }
 
-    /* Fixed spacing between image and text for round images */
-    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+    /* SLIDER: Fixed sizing for round image wrapper in sliders */
+    .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 250px;
-        /* Fixed width instead of percentage */
         min-width: 250px;
-        /* Prevents shrinking */
         padding: 2em;
         margin-right: 20px;
-        /* Fixed gap between image and text */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* STANDALONE: Larger wrapper for standalone round images */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+        width: 280px;
+        min-width: 280px;
+        padding: 2em;
+        margin-right: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -300,17 +314,29 @@ html {
         align-items: center;
     }
 
+    /* Base settings for round images in row layout */
     .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         margin: 0;
         max-width: 100%;
-        /* Ensures image fits in container */
+    }
+
+    /* SLIDER: Specific max dimensions for round images in sliders */
+    .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 210px;
+        max-width: 210px;
+    }
+
+    /* STANDALONE: Larger max dimensions for standalone round images */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 240px;
+        max-width: 240px;
     }
 
     .custom-feature__description-wrapper {
         align-items: flex-start;
         text-align: left;
         padding-left: 0;
-        /* Reduces padding on left side next to image */
+        flex-grow: 1;
     }
 
     .custom-feature__description-wrapper a.btn.btn--primary {
@@ -349,6 +375,22 @@ html {
     }
 }
 
+/* Desktop styles (1024px+) */
+@media (min-width: 1024px) {
+
+    /* STANDALONE: Even larger rounded images on desktop */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+        width: 320px;
+        min-width: 320px;
+    }
+
+    /* STANDALONE: Larger max dimensions for standalone round images */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 280px;
+        max-width: 280px;
+    }
+}
+
 /* Monitor styles (2048px+) */
 @media (min-width: 2048px) {
 
@@ -364,11 +406,30 @@ html {
         margin-right: auto;
     }
 
-    /* Fixed width for round image container to maintain spacing */
-    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+    /* SLIDER: Fixed width for round image container in sliders */
+    .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 300px;
-        /* Slightly larger on big screens */
         min-width: 300px;
+    }
+
+    /* STANDALONE: Much larger images for standalone round image features */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+        width: 400px;
+        min-width: 400px;
+        padding: 2em;
+        margin-right: 40px;
+    }
+
+    /* SLIDER: Max dimensions for round images in sliders */
+    .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 260px;
+        max-width: 260px;
+    }
+
+    /* STANDALONE: Larger max dimensions for standalone round images */
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 360px;
+        max-width: 360px;
     }
 
     /* Box image containers maintain percentage width */
@@ -379,7 +440,6 @@ html {
     .custom-feature__description-wrapper {
         padding: 2em;
         padding-left: 0;
-        /* Maintains spacing next to image */
     }
 
     /* All slider containers are 90% width */
@@ -419,6 +479,10 @@ html[data-theme="dark"] .custom-feature__item.custom-feature__item--layout-deskt
     background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0);
 }
 
+html[data-theme="dark"] .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
+    background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
+}
+
 html[data-theme="dark"] .custom-feature__description-wrapper h3 {
     color: var(--custom-color-2);
 }
@@ -449,10 +513,6 @@ html[data-theme="dark"] .hero-text-overlay h1 {
 html[data-theme="dark"] .hero-text-overlay p {
     color: var(--custom-color-4);
     text-shadow: 1px 1px 2px rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.7);
-}
-
-html[data-theme="dark"] .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
-    background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
 }
 
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary,
