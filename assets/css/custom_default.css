@@ -113,7 +113,7 @@ html {
     .hero-text-overlay .btn {
         font-size: 1.2em;
         /* Larger on desktop */
-        padding: 0.75em 1.5em;
+        padding: 0.5em 1em;
         margin-top: 1em;
     }
 }
