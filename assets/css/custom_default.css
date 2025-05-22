@@ -182,7 +182,6 @@ html {
             width: 90%;
         }
 
-    /* Add this new rule */
     .floating-slider-container.round-images {
         width: 80%;
         margin-left: auto;
@@ -197,9 +196,9 @@ html {
 
     /* For round image containers - still show one at once but larger */
     .floating-slider-container.round-images>.custom-feature__item {
-        flex: 0 0 calc(90% - 2em);
-        min-width: calc(90% - 2em);
-        margin: 0 auto;
+        flex: 0 0 calc(45% - 1em);
+        min-width: calc(45% - 1em);
+        margin: 0;
     }
 }
 
@@ -373,19 +372,18 @@ html {
             min-width: calc(33.33% - 2em);
         }
 
-        /* New styles for round image containers */
         .custom-feature-section .floating-slider-container.round-images {
             width: 70%;
-            /* Set to 70% width on large screens */
             margin-left: auto;
             margin-right: auto;
         }
 
         /* Adjust items inside round image containers if needed */
         .floating-slider-container.round-images>.custom-feature__item {
-            flex: 0 0 calc(100% - 2em);
-            min-width: calc(100% - 2em);
-        }
+            flex: 0 0 calc(45% - 1em);
+            min-width: calc(45% - 1em);
+            margin: 0;
+         }
 }
 
 
