@@ -81,6 +81,7 @@ html {
     width: 100%;
 }
 
+/* Base styles for all feature items */
 .custom-feature__item {
     display: flex;
     flex-direction: column;
@@ -98,8 +99,19 @@ html {
     box-sizing: border-box;
 }
 
+/* Default style for desktop row layout */
 .custom-feature__item.custom-feature__item--layout-desktop-row {
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
+}
+
+/* Make round image items transparent when standalone */
+.custom-feature-section:not(.floating-slider-container) .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
+}
+
+/* Keep round image items in sliders with slight background */
+.floating-slider-container.round-images .custom-feature__item {
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
@@ -231,9 +243,16 @@ html {
         padding: 1.5em 0;
     }
 
-    /* Standalone feature sections */
-    .custom-feature-section {
+    /* Standalone round image feature sections - 80% width */
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Regular feature sections - 90% width */
+    .custom-feature-section {
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -277,20 +296,30 @@ html {
         max-height: 400px;
     }
 
-    /* Slider adjustments */
+    /* Generic feature sections - 90% width */
+    .custom-feature-section {
+        width: 90%;
+    }
+
+    /* Standalone round image feature sections - 80% width */
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
+        width: 80%;
+    }
+
+    /* All slider containers - 90% width */
     .floating-slider-container {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* Box image sliders */
+    /* Box image sliders - two items */
     .floating-slider-container.box-images>.custom-feature__item {
         flex: 0 0 calc(50% - 1.5em);
         min-width: calc(50% - 1.5em);
     }
 
-    /* Round image sliders */
+    /* Round image sliders - two items */
     .floating-slider-container.round-images>.custom-feature__item {
         flex: 0 0 calc(45% - 1em);
         min-width: calc(45% - 1em);
@@ -300,16 +329,14 @@ html {
 /* Monitor styles (2048px+) */
 @media (min-width: 2048px) {
 
-    /* Standalone feature items with round images */
+    /* Generic feature sections - 90% width */
     .custom-feature-section {
         width: 90%;
     }
 
-    /* Make standalone round image features narrower */
-    .custom-feature-section:not(.slider-container) .custom-feature__item.custom-feature__item--layout-desktop-row {
+    /* Make standalone round image features narrower - 60% width */
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 60%;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
@@ -320,7 +347,7 @@ html {
         padding: 2em;
     }
 
-    /* Slider containers */
+    /* All slider containers - 90% width */
     .floating-slider-container {
         width: 90%;
     }
@@ -332,10 +359,6 @@ html {
     }
 
     /* Round image sliders - two items */
-    .floating-slider-container.round-images {
-        width: 90%;
-    }
-
     .floating-slider-container.round-images>.custom-feature__item {
         flex: 0 0 calc(45% - 1em);
         min-width: calc(45% - 1em);
@@ -355,7 +378,7 @@ html[data-theme="dark"] .custom-feature__item {
     background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
 }
 
-html[data-theme="dark"] .custom-feature__item.custom-feature__item--layout-desktop-row {
+html[data-theme="dark"] .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
     background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0);
 }
 
