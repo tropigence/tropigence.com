@@ -160,6 +160,11 @@ html {
     flex-grow: 1;
 }
 
+/* Increased padding (1.5x) for box image features */
+.custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
+    padding: 2.25em;
+}
+
 .custom-feature__description-wrapper h3 {
     margin: 0 0 0.4em;
     font-size: 1.5em;
@@ -284,6 +289,11 @@ html {
     align-items: center;
     text-align: center;
     flex-grow: 1;
+}
+
+/* Increased padding (1.5x) for box image features - variant 2 */
+.custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
+    padding: 2.25em;
 }
 
 .custom-feature__description-wrapper-2 h3 {
@@ -470,6 +480,11 @@ html {
         flex-grow: 1;
     }
 
+    /* Increased padding (1.5x) for box image features at tablet+ */
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
+        padding: 2.25em;
+    }
+
     /* Remove left padding for features with round images */
     .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
         padding: 1.5em 1.5em 1.5em 0;
@@ -484,6 +499,11 @@ html {
         text-align: left;
         padding: 1.5em;
         flex-grow: 1;
+    }
+
+    /* Increased padding (1.5x) for box image features - variant 2 at tablet+ */
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
+        padding: 2.25em;
     }
 
     /* Remove left padding for variant 2 features with round images */
@@ -625,6 +645,12 @@ html {
     .custom-feature__description-wrapper,
     .custom-feature__description-wrapper-2 {
         padding: 2em;
+    }
+
+    /* Increased padding (1.5x) for box image features at large screens */
+    .custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper,
+    .custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
+        padding: 3em;
     }
 
     /* Remove left padding for features with round images at large screens */
