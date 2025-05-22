@@ -83,7 +83,7 @@ html {
     /* Mobile padding */
 }
 
-/* Tablet and Laptop Styles */
+/* Small tablet styles */
 @media (min-width: 480px) {
     .hero-image-container {
         height: 90vh;
@@ -152,14 +152,14 @@ html {
     transition: transform 0.3s ease;
 }
 
-/* Tablet and laptop styles */
+/* Small tablet styles */
 @media (min-width: 480px) {
     .floating-slider-container {
         padding: 1.5em 0;
     }
 }
 
-/* Monitor styles */
+/* Large tablet and laptop styles */
 @media (min-width: 768px) {
 
     /* For box image containers - show two at once */
@@ -282,8 +282,8 @@ html {
     color: var(--global-black) !important;
 }
 
-/* Desktop styles */
-@media (min-width: 1024px) {
+/* Large tablet and Laptop styles */
+@media (min-width: 768px) {
     .custom-feature-section {
         width: 90%;
     }
