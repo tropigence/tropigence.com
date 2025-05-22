@@ -110,7 +110,7 @@ html {
 }
 
 /* Keep round image items in sliders with slight background */
-.floating-slider-container.round-images .custom-feature__item {
+.floating-slider-container .custom-feature__item {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
 
@@ -243,18 +243,16 @@ html {
         padding: 1.5em 0;
     }
 
-    /* Standalone round image feature sections - 80% width */
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Regular feature sections - 90% width */
+    /* ALL feature sections start at 90% width */
     .custom-feature-section {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* ONLY standalone round image sections get 80% width */
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
+        width: 80%;
     }
 
     /* Custom button size for feature sections */
@@ -296,19 +294,20 @@ html {
         max-height: 400px;
     }
 
-    /* Generic feature sections - 90% width */
+    /* ALL feature sections are 90% width by default */
     .custom-feature-section {
         width: 90%;
     }
 
-    /* Standalone round image feature sections - 80% width */
+    /* ONLY standalone round image feature sections - 80% width */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
     }
 
-    /* All slider containers - 90% width */
+    /* All slider containers are always 90% width */
     .floating-slider-container {
-        width: 90%;
+        width: 90% !important;
+        /* Use !important to override any other styles */
         margin-left: auto;
         margin-right: auto;
     }
@@ -334,7 +333,7 @@ html {
         width: 90%;
     }
 
-    /* Make standalone round image features narrower - 60% width */
+    /* ONLY standalone round image features - 60% width */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 60%;
     }
@@ -347,9 +346,9 @@ html {
         padding: 2em;
     }
 
-    /* All slider containers - 90% width */
+    /* All slider containers are always 90% width */
     .floating-slider-container {
-        width: 90%;
+        width: 90% !important;
     }
 
     /* Box image sliders - three items */
