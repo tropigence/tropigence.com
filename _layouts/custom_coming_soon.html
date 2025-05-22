@@ -1,34 +1,35 @@
 ---
 layout: default
 ---
-
 <link
     rel="stylesheet"
     href="{{ '/assets/css/custom_coming_soon.css' | relative_url }}"
-/>
+>
 
 <div class="coming-soon-container">
-    <h1>{{ page.message_heading | default: "Coming Soon!" }}</h1>
+    <h1>{{ page.message_heading | default: 'Coming Soon!' }}</h1>
 
-    {% comment %} Conditionally display the search form {% endcomment %} {% if
-    page.show_search_form | default: false %}
-    <form
-        class="search-form"
-        onsubmit="alert('Search functionality would be implemented here. For now, please try navigating.'); return false;"
-    >
-        <input
-            type="search"
-            placeholder="{{ page.search_placeholder | default: 'Search...' }}"
-            aria-label="Search"
-        />
-    </form>
-    {% endif %} {% comment %} Conditionally display the home link {% endcomment
-    %} {% if page.show_home_link | default: true %}
-    <a
-        href="{{ page.home_link_url | default: '/' | relative_url }}"
-        class="home-link"
-        >{{ page.home_link_text | default: "Go to Homepage" }}</a
-    >
+    {% comment %} Conditionally display the search form {% endcomment %}
+    {% if page.show_search_form | default: false %}
+        <form
+            class="search-form"
+            onsubmit="alert('Search functionality would be implemented here. For now, please try navigating.'); return false;"
+        >
+            <input
+                type="search"
+                placeholder="{{ page.search_placeholder | default: 'Search...' }}"
+                aria-label="Search"
+            >
+        </form>
+    {% endif %}
+    {% comment %} Conditionally display the home link {% endcomment %}
+    {% if page.show_home_link | default: true %}
+        <a
+            href="{{ page.home_link_url | default: '/' | relative_url }}"
+            class="btn btn--primary"
+        >
+            {{- page.home_link_text | default: 'Go to Homepage' -}}
+        </a>
     {% endif %}
 </div>
 

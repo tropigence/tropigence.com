@@ -1,57 +1,58 @@
 ---
 layout: default
 ---
-
 <link
     rel="stylesheet"
     href="{{ '/assets/css/custom_file.css' | relative_url }}"
-/>
+>
 
 <div class="file-page-container">
     <header class="file-header">
-        <h1>{{ page.file_title | default: page.title | default: "File" }}</h1>
+        <h1>{{ page.file_title | default: page.title | default: 'File' }}</h1>
     </header>
 
     <!-- This main tag will now be the flex item that grows -->
     <main class="file-main-content">
         {% if page.file_url %}
-        <!-- This div will manage the vertical space for the viewer and button -->
-        <div class="file-viewer-and-button-area">
-            <div class="file-viewer-wrapper">
-                <div class="file-viewer">
-                    <iframe
-                        src="{{ page.file_url }}"
-                        title="{{ page.file_title | default: page.title | escape }} Viewer"
-                        frameborder="0"
-                        allowfullscreen
+            <!--
+                This div will manage the vertical space for the viewer and button
+            -->
+            <div class="file-viewer-and-button-area">
+                <div class="file-viewer-wrapper">
+                    <div class="file-viewer">
+                        <iframe
+                            src="{{ page.file_url }}"
+                            title="{{ page.file_title | default: page.title | escape }} Viewer"
+                            frameborder="0"
+                            allowfullscreen
+                        >
+                            Your browser does not support iframes. Please
+                            <a href="{{ page.file_url }}">download the file</a>
+                            to view it.
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <a
+                        href="{{ page.file_url }}"
+                        class="btn btn--primary"
+                        download="{{ page.download_filename | default: (page.file_url | split: '/' | last) }}"
                     >
-                        Your browser does not support iframes. Please
-                        <a href="{{ page.file_url }}">download the file</a>
-                        to view it.
-                    </iframe>
+                        Download
+                    </a>
                 </div>
             </div>
-
-            <div class="button-container">
-                <a
-                    href="{{ page.file_url }}"
-                    class="download-button"
-                    download="{{ page.download_filename | default: (page.file_url | split: '/' | last) }}"
-                >
-                    Download
-                </a>
-            </div>
-        </div>
         {% else %}
-        <p style="text-align: center">
-            File URL not provided. Please set <code>file_url</code> in the page
-            frontmatter.
-        </p>
+            <p style="text-align: center">
+                File URL not provided. Please set <code>file_url</code> in the
+                page frontmatter.
+            </p>
         {% endif %}
     </main>
 
-    {% comment %} Allows for additional Markdown/HTML content on the page. {%
-    endcomment %} {% if content != "" and content != nil %}
-    <div class="file-additional-content">{{ content }}</div>
+    {% comment %} Allows for additional Markdown/HTML content on the page. {% endcomment %}
+    {% if content != '' and content != null %}
+        <div class="file-additional-content">{{ content }}</div>
     {% endif %}
 </div>

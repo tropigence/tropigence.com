@@ -69,25 +69,40 @@
     height: 100%;
 }
 
+/* Button classes for file pages */
 .button-container {
-    text-align: center;
-    margin-top: 10px;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5em;
 }
 
-.download-button {
+.btn {
+    display: inline-block;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    text-decoration: none !important;
+    border-radius: 50px;
+    /* Rounded corners like in custom_default */
+    font-weight: bold;
+    border: 1px solid;
+    cursor: pointer;
+    text-align: center;
+    align-self: center;
+    width: auto;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn--primary {
     background-color: var(--custom-color-1);
     color: var(--custom-color-4);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 25px;
-    display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-color: var(--custom-color-1);
 }
 
-.download-button:hover {
+.btn--primary:hover {
     background-color: var(--custom-color-2);
-    color: var(--global-black);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
 }
 
 .file-additional-content {
@@ -117,14 +132,16 @@ html[data-theme="dark"] .file-header h1 {
     color: var(--global-white);
 }
 
-html[data-theme="dark"] .download-button {
+html[data-theme="dark"] body .btn--primary {
     background-color: var(--custom-color-2);
-    color: var(--global-black);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
 }
 
-html[data-theme="dark"] .download-button:hover {
+html[data-theme="dark"] body .btn--primary:hover {
     background-color: var(--custom-color-1);
-    color: var(--custom-color-4);
+    border-color: var(--custom-color-1);
+    color: var(--custom-color-4) !important;
 }
 
 /* End of File Viewer Styles -------------------------------------------------*/
