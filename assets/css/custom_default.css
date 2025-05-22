@@ -396,13 +396,6 @@ html {
         margin-right: auto;
     }
 
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 250px;
         min-width: 250px;
@@ -419,7 +412,7 @@ html {
         min-width: 250px;
         padding: 2em;
         margin-right: 10px;
-        /* Reduced from 20px to 10px */
+        /* Reduced to 10px */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -513,15 +506,15 @@ html {
         min-width: 100%;
     }
 
-    /* Box image sliders can still use multiple items */
+    /* Box image sliders can still use multiple items at 768px but no more than 2 */
     .floating-slider-container.box-images.has-2-items>.custom-feature__item-2 {
         flex: 0 0 50%;
         min-width: 50%;
     }
 
     .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 33.33%;
-        min-width: 33.33%;
+        flex: 0 0 50%;
+        min-width: 50%;
     }
 }
 
@@ -537,6 +530,14 @@ html {
         max-width: 280px;
     }
 
+    /* Apply 80% width and max-width only at 1024px+ */
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
+        width: 80%;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 280px;
         min-width: 280px;
@@ -547,13 +548,6 @@ html {
         max-width: 240px;
     }
 
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     /* Round image sliders can show 2 items at 1024px+ */
     .floating-slider-container.round-images>.custom-feature__item,
     .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
@@ -561,19 +555,18 @@ html {
         flex: 0 0 50%;
         min-width: 50%;
     }
+
+    /* Box image sliders can show 3 items at 1024px+ */
+    .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 33.33%;
+        min-width: 33.33%;
+    }
 }
 
 /* Allow 3 items at 2040px+ for round-images sliders */
 @media (min-width: 2040px) {
     .custom-feature-section {
         width: 90%;
-    }
-
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
@@ -639,8 +632,7 @@ html {
     }
 
     /* At 2040px+, allow round-images with -2 variant to show 3 items */
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2,
-    .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
         flex: 0 0 33.33%;
         min-width: 33.33%;
     }
