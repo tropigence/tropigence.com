@@ -39,9 +39,10 @@
 /* Media Query for different devices ---------------------------------------- */
 /* Mobile first approach, using min-width for larger devices */
 // Sass variables for use in media query conditions
-$screen-medium: 480px; /* Small Tablets */
-$screen-large: 768px; /* Big tablets and Laptops */
-$screen-x-large: 2048px; /* Monitors and TVs */
+$screen-medium: 480px; /* Big phones and small tablets */
+$screen-large: 768px; /* Medium sized tablets and small laptops */
+$screen-x-large: 1024px; /* Big tablets and laptops */
+$screen-xx-large: 2048px; /* Monitors and TVs */
 
 
 /* Media Query for different devices ---------------------------------------- */

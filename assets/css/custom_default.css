@@ -366,10 +366,7 @@ html {
         max-width: 180px;
     }
 
-    .custom-feature__description-wrapper a.btn.btn--primary {
-        font-size: 1.1em;
-    }
-
+    .custom-feature__description-wrapper a.btn.btn--primary,
     .custom-feature__description-wrapper-2 a.btn.btn--primary {
         font-size: 1.1em;
     }
@@ -416,11 +413,13 @@ html {
         align-items: center;
     }
 
+    /* Half the gap between round image and text for slider items */
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 250px;
         min-width: 250px;
         padding: 2em;
-        margin-right: 20px;
+        margin-right: 10px;
+        /* Reduced from 20px to 10px */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -486,18 +485,12 @@ html {
         flex-grow: 1;
     }
 
-    .custom-feature__description-wrapper a.btn.btn--primary {
-        align-self: flex-start;
-    }
-
+    .custom-feature__description-wrapper a.btn.btn--primary,
     .custom-feature__description-wrapper-2 a.btn.btn--primary {
         align-self: flex-start;
     }
 
-    .custom-feature__image--shape-rect {
-        max-height: 400px;
-    }
-
+    .custom-feature__image--shape-rect,
     .custom-feature__image--shape-rect-2 {
         max-height: 400px;
     }
@@ -507,10 +500,12 @@ html {
         min-width: calc(50% - 1.5em);
     }
 
-    /* Always display max 2 items for round-images sliders below 2040px */
-    .floating-slider-container.round-images>.custom-feature__item {
-        flex: 0 0 calc(50% - 1em);
-        min-width: calc(50% - 1em);
+    /* All round image sliders only show 1 item below 1024px */
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2 {
+        flex: 0 0 100%;
+        min-width: 100%;
     }
 
     .floating-slider-container.has-1-items>.custom-feature__item-2 {
@@ -518,18 +513,12 @@ html {
         min-width: 100%;
     }
 
-    .floating-slider-container.has-2-items>.custom-feature__item-2 {
+    /* Box image sliders can still use multiple items */
+    .floating-slider-container.box-images.has-2-items>.custom-feature__item-2 {
         flex: 0 0 50%;
         min-width: 50%;
     }
 
-    /* Limit round image sliders with -2 variant to 2 items max */
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 50%;
-        min-width: 50%;
-    }
-
-    /* Box image sliders can still use 3 items */
     .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
         flex: 0 0 33.33%;
         min-width: 33.33%;
@@ -564,9 +553,17 @@ html {
         margin-left: auto;
         margin-right: auto;
     }
+
+    /* Round image sliders can show 2 items at 1024px+ */
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
 }
 
-/* Allow 3 items only at 2040px+ for round-images sliders */
+/* Allow 3 items at 2040px+ for round-images sliders */
 @media (min-width: 2040px) {
     .custom-feature-section {
         width: 90%;
@@ -619,10 +616,7 @@ html {
         width: 50%;
     }
 
-    .custom-feature__description-wrapper {
-        padding: 2em;
-    }
-
+    .custom-feature__description-wrapper,
     .custom-feature__description-wrapper-2 {
         padding: 2em;
     }
@@ -644,16 +638,6 @@ html {
         min-width: calc(33.33% - 1em);
     }
 
-    .floating-slider-container.has-1-items>.custom-feature__item-2 {
-        flex: 0 0 100%;
-        min-width: 100%;
-    }
-
-    .floating-slider-container.has-2-items>.custom-feature__item-2 {
-        flex: 0 0 50%;
-        min-width: 50%;
-    }
-
     /* At 2040px+, allow round-images with -2 variant to show 3 items */
     .floating-slider-container.round-images.has-3-items>.custom-feature__item-2,
     .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
@@ -664,11 +648,8 @@ html {
 
 /* Hover effects */
 @media (hover: hover) {
-    .floating-slider-container>.custom-feature__item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
 
+    .floating-slider-container>.custom-feature__item:hover,
     .floating-slider-container>.custom-feature__item-2:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
