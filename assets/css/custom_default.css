@@ -115,6 +115,11 @@ html {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
 
+/* Ensure round image features in sliders specifically maintain 0.1 opacity background */
+.floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
+}
+
 .custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
     padding: 2em;
     display: flex;
@@ -444,6 +449,10 @@ html[data-theme="dark"] .hero-text-overlay h1 {
 html[data-theme="dark"] .hero-text-overlay p {
     color: var(--custom-color-4);
     text-shadow: 1px 1px 2px rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.7);
+}
+
+html[data-theme="dark"] .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
+    background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
 }
 
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary,
