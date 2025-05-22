@@ -3,7 +3,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Hero image styling ======================================================== */
+/* Hero image styling */
 .hero-image-container {
     width: 100%;
     height: 80vh;
@@ -74,7 +74,7 @@ html {
     padding: 0.5em 1em;
 }
 
-/* Feature section styling ================================================== */
+/* Feature section styling */
 .custom-feature-section {
     margin: 1.5em auto;
     padding: 1em;
@@ -84,7 +84,6 @@ html {
     justify-content: center;
 }
 
-/* Base styles for all feature items */
 .custom-feature__item {
     display: flex;
     flex-direction: column;
@@ -106,25 +105,21 @@ html {
     align-items: center;
 }
 
-/* Default style for desktop row layout */
 .custom-feature__item.custom-feature__item--layout-desktop-row {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
 
-/* Make round image items transparent when standalone */
 .custom-feature-section:not(.floating-slider-container) .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
     margin: 0 auto;
     width: 100%;
 }
 
-/* Keep round image items in sliders with slight background */
 .floating-slider-container .custom-feature__item {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
     width: 100%;
 }
 
-/* Ensure round image features in sliders specifically maintain 0.1 opacity background */
 .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
@@ -225,10 +220,106 @@ html {
     color: var(--global-black) !important;
 }
 
+/* Variant 2 styles for sliders */
+.custom-feature__item-2 {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
+}
+
+.floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
+}
+
+.custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2 {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.custom-feature__image-2 {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.custom-feature__image--shape-round-2 {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.custom-feature__image--shape-rect-2 {
+    border-radius: 0;
+    aspect-ratio: 2 / 1;
+}
+
+.custom-feature__description-wrapper-2 {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.custom-feature__description-wrapper-2 h3 {
+    margin: 0 0 0.4em;
+    font-size: 1.5em;
+    color: var(--custom-color-1);
+}
+
+.custom-feature__description-wrapper-2 p {
+    margin-bottom: 1em;
+}
+
+.custom-feature__description-wrapper-2 a.btn.btn--primary {
+    margin: 1em 10px 0 0;
+    align-self: center;
+    font-size: 1em;
+    background-color: var(--custom-color-1);
+    color: var(--custom-color-4);
+    border-color: var(--custom-color-1);
+    border-radius: 50px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.custom-feature__description-wrapper-2 a.btn.btn--primary:hover {
+    background-color: var(--custom-color-2);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
+}
+
+.floating-slider-container>.custom-feature__item-2 {
+    flex: 1;
+    min-width: 0;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+    margin: 0;
+}
+
 /* Small tablet styles (480px+) */
 @media (min-width: 480px) {
-
-    /* Hero adjustments */
     .hero-image-container {
         height: 90vh;
     }
@@ -254,54 +345,54 @@ html {
         margin-top: 1em;
     }
 
-    /* Feature section adjustments */
     .floating-slider-container {
         padding: 1.5em 0;
     }
 
-    /* ALL feature sections have 90% width by default */
     .custom-feature-section {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* Start making standalone rounded images slightly larger at 480px */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 180px;
         max-width: 180px;
     }
 
-    /* Custom button size for feature sections */
     .custom-feature__description-wrapper a.btn.btn--primary {
+        font-size: 1.1em;
+    }
+
+    .custom-feature__description-wrapper-2 a.btn.btn--primary {
         font-size: 1.1em;
     }
 }
 
 /* Large tablet and laptop styles (768px+) */
 @media (min-width: 768px) {
-
-    /* Feature layout adjustments */
     .custom-feature__item--layout-desktop-row {
         flex-direction: row;
         align-items: center;
     }
 
-    /* ALL sliders occupy 90% width */
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
+        flex-direction: row;
+        align-items: center;
+    }
+
     .floating-slider-container {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* ALL standalone feature sections occupy 90% width by default */
     .custom-feature-section:not(.floating-slider-container) {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* ONLY standalone round image sections get 80% width with max-width */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
         max-width: 1440px;
@@ -309,7 +400,6 @@ html {
         margin-right: auto;
     }
 
-    /* SLIDER: Fixed sizing for round image wrapper in sliders */
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 250px;
         min-width: 250px;
@@ -320,7 +410,16 @@ html {
         align-items: center;
     }
 
-    /* STANDALONE: Larger wrapper for standalone round images */
+    .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
+        width: 250px;
+        min-width: 250px;
+        padding: 2em;
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 280px;
         min-width: 280px;
@@ -331,7 +430,6 @@ html {
         align-items: center;
     }
 
-    /* Box image styling */
     .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper {
         width: 40%;
         display: flex;
@@ -339,19 +437,30 @@ html {
         align-items: center;
     }
 
-    /* Base settings for round images in row layout */
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         margin: 0 auto;
         max-width: 100%;
     }
 
-    /* SLIDER: Specific max dimensions for round images in sliders */
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image--shape-round-2 {
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 210px;
+        max-width: 210px;
+    }
+
     .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 210px;
         max-width: 210px;
     }
 
-    /* STANDALONE: Larger max dimensions for standalone round images */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 240px;
         max-width: 240px;
@@ -360,7 +469,14 @@ html {
     .custom-feature__description-wrapper {
         align-items: flex-start;
         text-align: left;
-        padding-left: 0;
+        padding: 1.5em;
+        flex-grow: 1;
+    }
+
+    .custom-feature__description-wrapper-2 {
+        align-items: flex-start;
+        text-align: left;
+        padding: 1.5em;
         flex-grow: 1;
     }
 
@@ -368,39 +484,66 @@ html {
         align-self: flex-start;
     }
 
+    .custom-feature__description-wrapper-2 a.btn.btn--primary {
+        align-self: flex-start;
+    }
+
     .custom-feature__image--shape-rect {
         max-height: 400px;
     }
 
-    /* Box image sliders - two items */
+    .custom-feature__image--shape-rect-2 {
+        max-height: 400px;
+    }
+
     .floating-slider-container.box-images>.custom-feature__item {
         flex: 0 0 calc(50% - 1.5em);
         min-width: calc(50% - 1.5em);
     }
 
-    /* Round image sliders - two items */
     .floating-slider-container.round-images>.custom-feature__item {
         flex: 0 0 calc(45% - 1em);
         min-width: calc(45% - 1em);
+    }
+
+    .floating-slider-container.has-1-items>.custom-feature__item-2 {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+
+    .floating-slider-container.has-2-items>.custom-feature__item-2 {
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    .floating-slider-container.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 33.33%;
+        min-width: 33.33%;
     }
 }
 
 /* Desktop styles (1024px+) */
 @media (min-width: 1024px) {
-
-    /* STANDALONE: Even larger rounded images on desktop */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 320px;
         min-width: 320px;
     }
 
-    /* STANDALONE: Larger max dimensions for standalone round images */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 280px;
         max-width: 280px;
     }
 
-    /* ONLY standalone round image sections maintain 80% width with max-width */
+    .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image--shape-round-2 {
+        max-height: 240px;
+        max-width: 240px;
+    }
+
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
         max-width: 1440px;
@@ -411,13 +554,10 @@ html {
 
 /* Monitor styles (2048px+) */
 @media (min-width: 2048px) {
-
-    /* Generic feature sections remain at 90% width */
     .custom-feature-section {
         width: 90%;
     }
 
-    /* ONLY standalone round image features get 80% width with max-width */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
         max-width: 1440px;
@@ -425,13 +565,16 @@ html {
         margin-right: auto;
     }
 
-    /* SLIDER: Fixed width for round image container in sliders */
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 300px;
         min-width: 300px;
     }
 
-    /* STANDALONE: Much larger images for standalone round image features */
+    .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
+        width: 300px;
+        min-width: 300px;
+    }
+
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 400px;
         min-width: 400px;
@@ -439,51 +582,77 @@ html {
         margin-right: 40px;
     }
 
-    /* SLIDER: Max dimensions for round images in sliders */
     .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 260px;
         max-width: 260px;
     }
 
-    /* STANDALONE: Larger max dimensions for standalone round images */
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image--shape-round-2 {
+        max-height: 260px;
+        max-width: 260px;
+    }
+
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 360px;
         max-width: 360px;
     }
 
-    /* Box image containers maintain percentage width */
     .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper {
+        width: 50%;
+    }
+
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
         width: 50%;
     }
 
     .custom-feature__description-wrapper {
         padding: 2em;
-        padding-left: 0;
     }
 
-    /* All slider containers are 90% width */
+    .custom-feature__description-wrapper-2 {
+        padding: 2em;
+    }
+
     .floating-slider-container,
     .floating-slider-container.box-images,
     .floating-slider-container.round-images {
         width: 90%;
     }
 
-    /* Box image sliders - three items */
     .floating-slider-container.box-images>.custom-feature__item {
         flex: 0 0 calc(33.33% - 2em);
         min-width: calc(33.33% - 2em);
     }
 
-    /* Round image sliders - two items */
     .floating-slider-container.round-images>.custom-feature__item {
         flex: 0 0 calc(45% - 1em);
         min-width: calc(45% - 1em);
+    }
+
+    .floating-slider-container.has-1-items>.custom-feature__item-2 {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+
+    .floating-slider-container.has-2-items>.custom-feature__item-2 {
+        flex: 0 0 50%;
+        min-width: 50%;
+    }
+
+    .floating-slider-container.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 33.33%;
+        min-width: 33.33%;
     }
 }
 
 /* Hover effects */
 @media (hover: hover) {
     .floating-slider-container>.custom-feature__item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-slider-container>.custom-feature__item-2:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
@@ -534,15 +703,29 @@ html[data-theme="dark"] .hero-text-overlay p {
     text-shadow: 1px 1px 2px rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.7);
 }
 
+html[data-theme="dark"] .custom-feature__item-2 {
+    background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
+}
+
+html[data-theme="dark"] .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
+    background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
+}
+
+html[data-theme="dark"] .custom-feature__description-wrapper-2 h3 {
+    color: var(--custom-color-2);
+}
+
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary,
-html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary {
+html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary,
+html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--primary {
     background-color: var(--custom-color-2);
     border-color: var(--custom-color-2);
     color: var(--global-black) !important;
 }
 
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary:hover,
-html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary:hover {
+html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary:hover,
+html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--primary:hover {
     background-color: var(--custom-color-1);
     border-color: var(--custom-color-1);
     color: var(--custom-color-4) !important;
