@@ -83,6 +83,41 @@ html {
     /* Mobile padding */
 }
 
+/* Desktop style*/
+@media (min-width: 480px) {
+    .hero-image-container {
+        height: 90vh;
+    }
+
+    .hero-text-overlay {
+        left: 5%;
+        /* Adjusted position */
+        width: 40%;
+        /* Narrower width */
+        max-width: 800px;
+        padding: 20px;
+        /* More padding */
+    }
+
+    .hero-text-overlay h1 {
+        font-size: 2.5em;
+        /* Larger on desktop */
+        margin-bottom: 0.8em;
+    }
+
+    .hero-text-overlay p {
+        font-size: 1.2em;
+        /* Larger on desktop */
+    }
+
+    .hero-text-overlay .btn {
+        font-size: 1.2em;
+        /* Larger on desktop */
+        padding: 0.75em 1.5em;
+        margin-top: 1em;
+    }
+}
+
 /* Feature section styling ================================================== */
 
 /* Floating slider container styles ----------------------------------------- */
@@ -247,40 +282,8 @@ html {
     color: var(--global-black) !important;
 }
 
-/* Desktop styles (min-width approach) */
-@media (min-width: 480px) {
-    .hero-image-container {
-        height: 90vh;
-    }
-
-    .hero-text-overlay {
-        left: 5%;
-        /* Adjusted position */
-        width: 40%;
-        /* Narrower width */
-        max-width: 800px;
-        padding: 20px;
-        /* More padding */
-    }
-
-    .hero-text-overlay h1 {
-        font-size: 2.5em;
-        /* Larger on desktop */
-        margin-bottom: 0.8em;
-    }
-
-    .hero-text-overlay p {
-        font-size: 1.2em;
-        /* Larger on desktop */
-    }
-
-    .hero-text-overlay .btn {
-        font-size: 1.2em;
-        /* Larger on desktop */
-        padding: 0.75em 1.5em;
-        margin-top: 1em;
-    }
-
+/* Desktop styles */
+@media (min-width: 1024px) {
     .custom-feature-section {
         width: 90%;
     }

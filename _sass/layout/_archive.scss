@@ -1,250 +1,290 @@
 /* ==========================================================================
-   ARCHIVE
+   SIDEBAR
    ========================================================================== */
 
-.archive {
-    margin-bottom: 2em;
+/*
+   Default
+   ========================================================================== */
 
-    @include breakpoint($medium) {
-        @include span(12 of 12);
+.sidebar {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    @include clearfix();
+    margin-bottom: 1em;
+
+    @media (orientation: portrait) {
+        margin-top: 0em;
+        padding-top: 0em;
+
+        @include breakpoint($medium) {
+            //  It only affects desktop in landscape mode = Almost never in use.
+            margin-top: -$masthead-height;
+        }
+    }
+
+    @media screen and (min-width: $sidebar-screen-min-width) {
+        height: 100vh;
+        overflow-y: auto; // Add scrollbar if the sidebar is too long
+        position: fixed;
+        padding-top: $masthead-height;
     }
 
     @include breakpoint($large) {
-        @include span(9.5 of 12 last);
-        @include prefix(0.5 of 12);
-        padding-right: 1.5em;
-    }
-
-    a {
-        text-decoration: underline;
+        @include span(2.5 of 12);
+        padding-left: 1.5em;
+        opacity: 1;
+        -webkit-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
 
         &:hover {
-            text-decoration: underline;
-
-            img {
-                box-shadow: 0 0 10px rgba(#000, 0.25);
-            }
+            opacity: 1;
         }
     }
-}
 
-.archive__subtitle {
-    margin: 1.414em 0 0;
-    padding-bottom: 0.5em;
-    font-size: $type-size-5;
-    color: var(--global-text-color-light);
-    border-bottom: 1px solid var(--global-border-color);
-
-    +.list__item .archive__item-title {
-        margin-top: 0.5em;
+    @include breakpoint($x-large) {
+        max-width: $sidebar-link-max-width;
+        padding-right: 0;
     }
-}
 
-.archive__item-title {
-    margin-bottom: 0.25em;
-    font-family: $sans-serif-narrow;
-
-    a+a {
-        opacity: 0.5;
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0;
+        font-family: $sans-serif-narrow;
     }
-}
 
-/* remove border*/
-.page__content {
-
-    .archive__item-title {
-        margin-top: 1em;
-        border-bottom: none;
+    h3,
+    h4 {
+        font-size: $type-size-5;
     }
-}
 
-.archive__item-excerpt {
-    margin-top: 0;
-    font-size: $type-size-6;
-
-    &+p {
-        text-indent: 0;
+    p,
+    li {
+        font-family: $sans-serif;
+        font-size: $type-size-6;
+        line-height: 1.5;
     }
-}
-
-.archive__item-teaser {
-    border-radius: $border-radius;
-    overflow: hidden;
 
     img {
         width: 100%;
     }
 }
 
-.archive__item:hover {
-    .archive__item-teaser {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
-    }
-
-    .archive__item-title {
-        text-decoration: underline;
-    }
-}
-
-
-/*
-     List view
-     ========================================================================== */
-
-.list__item {
-    @include breakpoint($medium) {
-        padding-right: $right-sidebar-width-narrow;
-    }
+.sidebar__right {
+    margin-bottom: 1em;
 
     @include breakpoint($large) {
-        padding-right: $right-sidebar-width;
+        position: relative;
+        float: right;
+        width: $right-sidebar-width-narrow;
+        margin-left: span(0.5 of 12);
+        z-index: 10;
     }
 
     @include breakpoint($x-large) {
-        padding-right: $right-sidebar-width-wide;
-    }
-
-    .page__meta {
-        margin: 0 0 4px;
+        width: $right-sidebar-width;
     }
 }
-
 
 /*
-     Grid view
+     Author profile and links
      ========================================================================== */
 
-.grid__item {
-    margin-bottom: 2em;
+.author__avatar {
+    display: table-cell;
+    vertical-align: top;
+    width: 36px;
+    // set width only, for non-square avatars
+    // height: 36px;
 
-    .page__meta {
-        margin: 0 0 4px;
+    @include breakpoint($large) {
+        display: block;
+        width: auto;
+        height: auto;
     }
 
-    .archive__item-title {
-        margin-top: 0.5em;
-        font-size: $type-size-5;
-    }
+    img {
+        max-width: 175px;
+        border-radius: 50%;
 
-    .archive__item-excerpt {
-        display: none;
-    }
-
-    @include breakpoint($small) {
-        @include gallery(5 of 10);
-
-        .archive__item-teaser {
-            max-height: 200px;
-        }
-    }
-
-    @include breakpoint($medium) {
-        margin-left: 0;
-        /* reset before mixin does its thing*/
-        margin-right: 0;
-        /* reset before mixin does its thing*/
-        @include gallery(2.5 of 10);
-
-        .archive__item-teaser {
-            max-height: 120px;
-        }
-
-        .archive__item-excerpt {
-            display: block;
-            font-size: $type-size-6;
+        @include breakpoint($large) {
+            padding: 8px 0;
+            border: 1px solid var(--global-border-color);
         }
     }
 }
 
+.author__content {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 15px;
+    padding-right: 25px;
+    line-height: 1;
 
-/*
-     Features
-     ========================================================================== */
-
-.feature__wrapper {
-    @include clearfix();
-    margin-bottom: 2em;
-    border-bottom: 1px solid var(--global-border-color);
+    @include breakpoint($large) {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
-.feature__item {
-    margin-bottom: 2em;
-    font-size: 1.25rem;
+.author__name {
+    margin: 0;
 
-    @include breakpoint($small) {
+    @include breakpoint($large) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.sidebar .author__name {
+    font-family: $sans-serif;
+    font-size: $type-size-5;
+}
+
+.sidebar .author__desktop {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+        display: block;
+    }
+}
+
+.author__pronouns {
+    margin: 0;
+
+    @include breakpoint($large) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.author__bio {
+    margin: 0;
+
+    @include breakpoint($large) {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+.author__urls-wrapper {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: $sans-serif;
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
+
+    li:last-child {
+        a {
+            margin-bottom: 0;
+        }
+    }
+
+    @include breakpoint($large) {
+        display: block;
+    }
+
+    button {
         margin-bottom: 0;
-        @include gallery(4 of 12);
 
-        .feature__item-teaser {
-            max-height: 200px;
-            overflow: hidden;
+        @include breakpoint($large) {
+            display: none;
+        }
+    }
+}
+
+.author__urls {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    padding: 10px;
+    list-style-type: none;
+    border: 1px solid var(--global-border-color);
+    border-radius: $border-radius;
+    background: var(--global-bg-color);
+    z-index: -1;
+    box-shadow: 0 0 10px rgba(#000, 0.25);
+    cursor: default;
+
+    @include breakpoint($large) {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: -11px;
+        left: calc(50% - 10px);
+        width: 0;
+        border-style: solid;
+        border-width: 0 10px 10px;
+        border-color: var(--global-border-color) transparent;
+        z-index: 0;
+
+        @include breakpoint($large) {
+            display: none;
         }
     }
 
-    &--left {
-        @include full();
-        font-size: 1.25rem;
+    &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 10px);
+        width: 0;
+        border-style: solid;
+        border-width: 0 10px 10px;
+        border-color: #fff transparent;
+        z-index: 1;
 
-        .archive__item-teaser {
-            margin-bottom: 2em;
-        }
-
-        @include breakpoint($small) {
-            .archive__item-teaser {
-                @include span(5 of 12);
-            }
-
-            .archive__item-body {
-                @include span(7 of 12 last);
-                @include prefix(0.5 of 12);
-                @include suffix(1 of 12);
-            }
+        @include breakpoint($large) {
+            display: none;
         }
     }
 
-    &--right {
-        @include full();
-        font-size: 1.25rem;
-
-        .archive__item-teaser {
-            margin-bottom: 2em;
-        }
-
-        @include breakpoint($small) {
-            text-align: right;
-
-            .archive__item-teaser {
-                @include span(5 of 12 rtl);
-            }
-
-            .archive__item-body {
-                @include span(7 of 12 last rtl);
-                @include prefix(0.5 of 12);
-                @include suffix(1 of 12);
-            }
-        }
+    li {
+        white-space: nowrap;
     }
 
-    &--center {
-        @include full();
-        font-size: 1.25rem;
+    a {
+        display: block;
+        margin-bottom: 5px;
+        padding-right: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        color: inherit;
+        font-size: $type-size-5;
+        text-decoration: none;
 
-        .archive__item-teaser {
-            margin-bottom: 2em;
+        &:hover {
+            text-decoration: underline;
         }
+    }
+}
 
-        @include breakpoint($small) {
-            text-align: center;
-
-            .archive__item-teaser {
-                margin: 0 auto;
-                width: span(5 of 12);
-            }
-
-            .archive__item-body {
-                margin: 0 auto;
-                width: span(7 of 12);
-            }
+/* No sidebar case - archive takes full width */
+.no-author-profile {
+    .archive {
+        @include breakpoint($large) {
+            @include span(12 of 12);
+            padding-left: 1.5em;
+            padding-right: 1.5em;
         }
     }
 }

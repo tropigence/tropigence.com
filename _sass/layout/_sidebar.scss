@@ -1,273 +1,274 @@
 /* ==========================================================================
-   SIDEBAR
+   ARCHIVE
    ========================================================================== */
 
-/*
-   Default
-   ========================================================================== */
-
-.sidebar {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+/* Add this at the top of your file */
+#main {
+    // Base styles that work for all devices
+    width: 100%;
+    margin: 1em auto;
 
     @include clearfix();
-    margin-bottom: 1em;
 
-    @media (orientation: portrait) {
-        margin-top: 1em;
-    }
-
-    @media screen and (min-width: $sidebar-screen-min-width) {
-        height: 100vh;
-        overflow-y: auto; // Add scrollbar if the sidebar is too long
-        position: fixed;
-        padding-top: $masthead-height;
+    // Add this new section for iPad-sized devices
+    @include breakpoint($medium) {
+        width: 99%;
+        margin: 0.5em auto;
+        padding: 0em 0.8em;
     }
 
     @include breakpoint($large) {
-        @include span(2.5 of 12);
-        padding-left: 1.5em;
-        opacity: 1;
-        -webkit-transition: opacity 0.2s ease-in-out;
-        transition: opacity 0.2s ease-in-out;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
-    @include breakpoint($x-large) {
-        max-width: $sidebar-link-max-width;
-        padding-right: 0;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: 0;
-        font-family: $sans-serif-narrow;
-    }
-
-    h3,
-    h4 {
-        font-size: $type-size-5;
-    }
-
-    p,
-    li {
-        font-family: $sans-serif;
-        font-size: $type-size-6;
-        line-height: 1.5;
-    }
-
-    img {
-        width: 100%;
+        // For desktop screens
+        width: 95%;
+        max-width: 1440px;
+        margin: 1em auto;
+        padding: 0em 1.8em;
     }
 }
 
-.sidebar__right {
-    margin-bottom: 1em;
+.archive {
+    margin-bottom: 2em;
 
-    @include breakpoint($large) {
-        position: relative;
-        float: right;
-        width: $right-sidebar-width-narrow;
-        margin-left: span(0.5 of 12);
-        z-index: 10;
-    }
-
-    @include breakpoint($x-large) {
-        width: $right-sidebar-width;
-    }
-}
-
-/*
-     Author profile and links
-     ========================================================================== */
-
-.author__avatar {
-    display: table-cell;
-    vertical-align: top;
-    width: 36px;
-    // set width only, for non-square avatars
-    // height: 36px;
-
-    @include breakpoint($large) {
-        display: block;
-        width: auto;
-        height: auto;
-    }
-
-    img {
-        max-width: 175px;
-        border-radius: 50%;
-
-        @include breakpoint($large) {
-            padding: 5px;
-            border: 1px solid var(--global-border-color);
-        }
-    }
-}
-
-.author__content {
-    display: table-cell;
-    vertical-align: top;
-    padding-left: 15px;
-    padding-right: 25px;
-    line-height: 1;
-
-    @include breakpoint($large) {
-        display: block;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-.author__name {
-    margin: 0;
-
-    @include breakpoint($large) {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-}
-
-.sidebar .author__name {
-    font-family: $sans-serif;
-    font-size: $type-size-5;
-}
-
-.sidebar .author__desktop {
-    display: none;
-
-    @media screen and (min-width: 1024px) {
-        display: block;
-    }
-}
-
-.author__pronouns {
-    margin: 0;
-
-    @include breakpoint($large) {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-}
-
-.author__bio {
-    margin: 0;
-
-    @include breakpoint($large) {
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-}
-
-.author__urls-wrapper {
-    position: relative;
-    display: table-cell;
-    vertical-align: middle;
-    font-family: $sans-serif;
-    z-index: 10;
-    position: relative;
-    cursor: pointer;
-
-    li:last-child {
-        a {
-            margin-bottom: 0;
-        }
+    @include breakpoint($medium) {
+        @include span(12 of 12);
     }
 
     @include breakpoint($large) {
-        display: block;
-    }
-
-    button {
-        margin-bottom: 0;
-
-        @include breakpoint($large) {
-            display: none;
-        }
-    }
-}
-
-.author__urls {
-    display: none;
-    position: absolute;
-    right: 0;
-    margin-top: 15px;
-    padding: 10px;
-    list-style-type: none;
-    border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background: var(--global-bg-color);
-    z-index: -1;
-    box-shadow: 0 0 10px rgba(#000, 0.25);
-    cursor: default;
-
-    @include breakpoint($large) {
-        display: block;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-
-    &:before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: -11px;
-        left: calc(50% - 10px);
-        width: 0;
-        border-style: solid;
-        border-width: 0 10px 10px;
-        border-color: var(--global-border-color) transparent;
-        z-index: 0;
-
-        @include breakpoint($large) {
-            display: none;
-        }
-    }
-
-    &:after {
-        display: block;
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: calc(50% - 10px);
-        width: 0;
-        border-style: solid;
-        border-width: 0 10px 10px;
-        border-color: #fff transparent;
-        z-index: 1;
-
-        @include breakpoint($large) {
-            display: none;
-        }
-    }
-
-    li {
-        white-space: nowrap;
+        @include span(9.5 of 12 last);
+        @include prefix(0.5 of 12);
+        padding-right: 1.5em;
     }
 
     a {
-        display: block;
-        margin-bottom: 5px;
-        padding-right: 5px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        color: inherit;
-        font-size: $type-size-5;
-        text-decoration: none;
+        text-decoration: underline;
 
         &:hover {
             text-decoration: underline;
+
+            img {
+                box-shadow: 0 0 10px rgba(#000, 0.25);
+            }
+        }
+    }
+}
+
+.archive__subtitle {
+    margin: 1.414em 0 0;
+    padding-bottom: 0.5em;
+    font-size: $type-size-5;
+    color: var(--global-text-color-light);
+    border-bottom: 1px solid var(--global-border-color);
+
+    +.list__item .archive__item-title {
+        margin-top: 0.5em;
+    }
+}
+
+.archive__item-title {
+    margin-bottom: 0.25em;
+    font-family: $sans-serif-narrow;
+
+    a+a {
+        opacity: 0.5;
+    }
+}
+
+/* remove border*/
+.page__content {
+
+    .archive__item-title {
+        margin-top: 1em;
+        border-bottom: none;
+    }
+}
+
+.archive__item-excerpt {
+    margin-top: 0;
+    font-size: $type-size-6;
+
+    &+p {
+        text-indent: 0;
+    }
+}
+
+.archive__item-teaser {
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+}
+
+.archive__item:hover {
+    .archive__item-teaser {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+    }
+
+    .archive__item-title {
+        text-decoration: underline;
+    }
+}
+
+
+/*
+   List view
+   ========================================================================== */
+
+.list__item {
+    @include breakpoint($medium) {
+        padding-right: $right-sidebar-width-narrow;
+    }
+
+    @include breakpoint($large) {
+        padding-right: $right-sidebar-width;
+    }
+
+    @include breakpoint($x-large) {
+        padding-right: $right-sidebar-width-wide;
+    }
+
+    .page__meta {
+        margin: 0 0 4px;
+    }
+}
+
+
+/*
+   Grid view
+   ========================================================================== */
+
+.grid__item {
+    margin-bottom: 2em;
+
+    .page__meta {
+        margin: 0 0 4px;
+    }
+
+    .archive__item-title {
+        margin-top: 0.5em;
+        font-size: $type-size-5;
+    }
+
+    .archive__item-excerpt {
+        display: none;
+    }
+
+    @include breakpoint($small) {
+        @include gallery(5 of 10);
+
+        .archive__item-teaser {
+            max-height: 200px;
+        }
+    }
+
+    @include breakpoint($medium) {
+        margin-left: 0;
+        /* reset before mixin does its thing*/
+        margin-right: 0;
+        /* reset before mixin does its thing*/
+        @include gallery(2.5 of 10);
+
+        .archive__item-teaser {
+            max-height: 120px;
+        }
+
+        .archive__item-excerpt {
+            display: block;
+            font-size: $type-size-6;
+        }
+    }
+}
+
+
+/*
+   Features
+   ========================================================================== */
+
+.feature__wrapper {
+    @include clearfix();
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--global-border-color);
+}
+
+.feature__item {
+    margin-bottom: 2em;
+    font-size: 1.25rem;
+
+    @include breakpoint($small) {
+        margin-bottom: 0;
+        @include gallery(4 of 12);
+
+        .feature__item-teaser {
+            max-height: 200px;
+            overflow: hidden;
+        }
+    }
+
+    &--left {
+        @include full();
+        font-size: 1.25rem;
+
+        .archive__item-teaser {
+            margin-bottom: 2em;
+        }
+
+        @include breakpoint($small) {
+            .archive__item-teaser {
+                @include span(5 of 12);
+            }
+
+            .archive__item-body {
+                @include span(7 of 12 last);
+                @include prefix(0.5 of 12);
+                @include suffix(1 of 12);
+            }
+        }
+    }
+
+    &--right {
+        @include full();
+        font-size: 1.25rem;
+
+        .archive__item-teaser {
+            margin-bottom: 2em;
+        }
+
+        @include breakpoint($small) {
+            text-align: right;
+
+            .archive__item-teaser {
+                @include span(5 of 12 rtl);
+            }
+
+            .archive__item-body {
+                @include span(7 of 12 last rtl);
+                @include prefix(0.5 of 12);
+                @include suffix(1 of 12);
+            }
+        }
+    }
+
+    &--center {
+        @include full();
+        font-size: 1.25rem;
+
+        .archive__item-teaser {
+            margin-bottom: 2em;
+        }
+
+        @include breakpoint($small) {
+            text-align: center;
+
+            .archive__item-teaser {
+                margin: 0 auto;
+                width: span(5 of 12);
+            }
+
+            .archive__item-body {
+                margin: 0 auto;
+                width: span(7 of 12);
+            }
         }
     }
 }
