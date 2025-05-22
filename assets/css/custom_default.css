@@ -83,7 +83,7 @@ html {
     /* Mobile padding */
 }
 
-/* Desktop style*/
+/* Tablet and Laptop Styles */
 @media (min-width: 480px) {
     .hero-image-container {
         height: 90vh;
@@ -152,7 +152,7 @@ html {
     transition: transform 0.3s ease;
 }
 
-/* Tablet and laptop styles - adjust number of visible items */
+/* Tablet and laptop styles */
 @media (min-width: 480px) {
     .floating-slider-container {
         padding: 1.5em 0;
