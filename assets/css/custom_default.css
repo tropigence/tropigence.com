@@ -319,7 +319,7 @@ html {
 }
 
 
-/* Large desktop styles (min-width approach) */
+/* Monitor styles */
 @media (min-width: 2048px) {
     .custom-feature-section {
         width: 90%;
