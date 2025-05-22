@@ -157,6 +157,22 @@ html {
     .floating-slider-container {
         padding: 1.5em 0;
     }
+    .floating-slider-container {
+        padding: 1.5em 0;
+    }
+
+    /* New styles for feature sections */
+    .custom-feature-section {
+        width: 80%;
+        /* Default to 80% width at this breakpoint */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Keep round image containers at full width on smaller tablets */
+    .floating-slider-container.round-images {
+        width: 100%;
+    }
 }
 
 /* Large tablet and laptop styles */
@@ -265,6 +281,7 @@ html {
 .hero-text-overlay a.btn.btn--primary {
     margin: 1em 10px 0 0;
     align-self: center;
+    font-size: 1em;
     background-color: var(--custom-color-1);
     color: var(--custom-color-4);
     border-color: var(--custom-color-1);
@@ -332,6 +349,20 @@ html {
 
     .custom-feature__description-wrapper {
         padding: 2em;
+    }
+
+    /* New styles for round image containers */
+    .custom-feature-section .floating-slider-container.round-images {
+        width: 70%;
+        /* Set to 70% width on large screens */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Adjust items inside round image containers if needed */
+    .floating-slider-container.round-images>.custom-feature__item {
+        flex: 0 0 calc(100% - 2em);
+        min-width: calc(100% - 2em);
     }
 }
 
