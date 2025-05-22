@@ -1,14 +1,12 @@
-/* Mobile first CCC styling */
-/* Hero image style ======================================================== */
+/* Mobile first styling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Mobile defaults */
+/* Hero image styling ======================================================== */
 .hero-image-container {
     width: 100%;
     height: 80vh;
-    /* Mobile height */
     overflow: hidden;
     margin-bottom: 4em;
     position: relative;
@@ -57,18 +55,14 @@ html {
 
 .hero-text-overlay h1 {
     font-size: 1.8em;
-    /* Mobile font size */
     margin-bottom: 0.4em;
-    /* Mobile margin */
     color: var(--custom-color-1);
     text-shadow: 1px 1px 3px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
 }
 
 .hero-text-overlay p {
     font-size: 1em;
-    /* Mobile font size */
     margin-bottom: 0.8em;
-    /* Mobile margin */
     color: var(--custom-color-3);
     text-shadow: 1px 1px 2px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
 }
@@ -76,143 +70,11 @@ html {
 .hero-text-overlay .btn {
     display: inline-block;
     margin-top: 0.8em;
-    /* Mobile margin */
     font-size: 1em;
-    /* Mobile font size */
     padding: 0.5em 1em;
-    /* Mobile padding */
-}
-
-/* Small tablet styles */
-@media (min-width: 480px) {
-    .hero-image-container {
-        height: 90vh;
-    }
-
-    .hero-text-overlay {
-        left: 5%;
-        /* Adjusted position */
-        width: 40%;
-        /* Narrower width */
-        max-width: 800px;
-        padding: 20px;
-        /* More padding */
-    }
-
-    .hero-text-overlay h1 {
-        font-size: 2.5em;
-        /* Larger on desktop */
-        margin-bottom: 0.8em;
-    }
-
-    .hero-text-overlay p {
-        font-size: 1.2em;
-        /* Larger on desktop */
-    }
-
-    .hero-text-overlay .btn {
-        font-size: 1.2em;
-        /* Larger on desktop */
-        padding: 0.5em 1em;
-        margin-top: 1em;
-    }
 }
 
 /* Feature section styling ================================================== */
-
-/* Floating slider container styles ----------------------------------------- */
-.floating-slider-container {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    margin: 2em auto;
-    padding: 1em 0;
-    position: relative;
-    /* Enable smooth scrolling on touch devices */
-    -webkit-overflow-scrolling: touch;
-    /* Hide scrollbar in modern browsers but keep functionality */
-    scrollbar-width: none;
-    /* Firefox */
-    display: flex;
-    gap: 1em;
-    /* Enable scroll snapping for better UX */
-    scroll-snap-type: x mandatory;
-}
-
-/* Hide scrollbar for Chrome/Safari/Opera */
-.floating-slider-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* Child items - Single item view by default */
-.floating-slider-container>.custom-feature__item {
-    flex: 0 0 calc(100% - 2em);
-    min-width: calc(100% - 2em);
-    scroll-snap-align: center;
-    transition: transform 0.3s ease;
-}
-
-/* Small tablet styles */
-@media (min-width: 480px) {
-    .floating-slider-container {
-        padding: 1.5em 0;
-    }
-    .floating-slider-container {
-        padding: 1.5em 0;
-    }
-
-    /* New styles for feature sections */
-    .custom-feature-section {
-        width: 80%;
-        /* Default to 80% width at this breakpoint */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Keep round image containers at full width on smaller tablets */
-    .floating-slider-container.round-images {
-        width: 100%;
-    }
-}
-
-/* Large tablet and laptop styles */
-@media (min-width: 768px) {
-
-    .custom-feature-section {
-            width: 90%;
-        }
-
-    .floating-slider-container.round-images {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* For box image containers - show two at once */
-    .floating-slider-container.box-images>.custom-feature__item {
-        flex: 0 0 calc(50% - 1.5em);
-        min-width: calc(50% - 1.5em);
-    }
-
-    /* For round image containers - still show one at once but larger */
-    .floating-slider-container.round-images>.custom-feature__item {
-        flex: 0 0 calc(45% - 1em);
-        min-width: calc(45% - 1em);
-        margin: 0;
-    }
-}
-
-/* Additional hover effect for desktop */
-@media (hover: hover) {
-    .floating-slider-container>.custom-feature__item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-}
-
-/* Dark mode styles */
-
-/* Feature container styles ------------------------------------------------- */
 .custom-feature-section {
     margin: 0 auto 1em;
     padding: 1em;
@@ -286,7 +148,33 @@ html {
     margin-bottom: 1em;
 }
 
-/* Button styling - combined selectors */
+/* Slider container styles */
+.floating-slider-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 2em auto;
+    padding: 1em 0;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+    gap: 1em;
+    scroll-snap-type: x mandatory;
+}
+
+.floating-slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.floating-slider-container>.custom-feature__item {
+    flex: 0 0 calc(100% - 2em);
+    min-width: calc(100% - 2em);
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Button styling */
 .custom-feature__description-wrapper a.btn.btn--primary,
 .hero-text-overlay a.btn.btn--primary {
     margin: 1em 10px 0 0;
@@ -309,12 +197,57 @@ html {
     color: var(--global-black) !important;
 }
 
-/* Large tablet and Laptop styles */
-@media (min-width: 768px) {
-    .custom-feature-section {
-        width: 90%;
+/* Small tablet styles (480px+) */
+@media (min-width: 480px) {
+
+    /* Hero adjustments */
+    .hero-image-container {
+        height: 90vh;
     }
 
+    .hero-text-overlay {
+        left: 5%;
+        width: 40%;
+        max-width: 800px;
+        padding: 20px;
+    }
+
+    .hero-text-overlay h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.8em;
+    }
+
+    .hero-text-overlay p {
+        font-size: 1.2em;
+    }
+
+    .hero-text-overlay .btn {
+        font-size: 1.2em;
+        margin-top: 1em;
+    }
+
+    /* Feature section adjustments */
+    .floating-slider-container {
+        padding: 1.5em 0;
+    }
+
+    /* Standalone feature sections */
+    .custom-feature-section {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Custom button size for feature sections */
+    .custom-feature__description-wrapper a.btn.btn--primary {
+        font-size: 1.1em;
+    }
+}
+
+/* Large tablet and laptop styles (768px+) */
+@media (min-width: 768px) {
+
+    /* Feature layout adjustments */
     .custom-feature__item--layout-desktop-row {
         flex-direction: row;
         align-items: center;
@@ -343,50 +276,79 @@ html {
     .custom-feature__image--shape-rect {
         max-height: 400px;
     }
+
+    /* Slider adjustments */
+    .floating-slider-container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Box image sliders */
+    .floating-slider-container.box-images>.custom-feature__item {
+        flex: 0 0 calc(50% - 1.5em);
+        min-width: calc(50% - 1.5em);
+    }
+
+    /* Round image sliders */
+    .floating-slider-container.round-images>.custom-feature__item {
+        flex: 0 0 calc(45% - 1em);
+        min-width: calc(45% - 1em);
+    }
 }
 
-
-/* Monitor styles */
+/* Monitor styles (2048px+) */
 @media (min-width: 2048px) {
+
+    /* Standalone feature items with round images */
     .custom-feature-section {
-            width: 90%;
-        }
+        width: 90%;
+    }
 
-        .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
-            width: 50%;
-        }
+    /* Make standalone round image features narrower */
+    .custom-feature-section:not(.slider-container) .custom-feature__item.custom-feature__item--layout-desktop-row {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .custom-feature__description-wrapper {
-            padding: 2em;
-        }
+    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+        width: 50%;
+    }
 
-        /* For box image containers - show THREE items at once on large screens */
-        .floating-slider-container.box-images {
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .custom-feature__description-wrapper {
+        padding: 2em;
+    }
 
-        .floating-slider-container.box-images>.custom-feature__item {
-            flex: 0 0 calc(33.33% - 2em);
-            min-width: calc(33.33% - 2em);
-        }
+    /* Slider containers */
+    .floating-slider-container {
+        width: 90%;
+    }
 
-        .custom-feature-section .floating-slider-container.round-images {
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    /* Box image sliders - three items */
+    .floating-slider-container.box-images>.custom-feature__item {
+        flex: 0 0 calc(33.33% - 2em);
+        min-width: calc(33.33% - 2em);
+    }
 
-        /* Adjust items inside round image containers if needed */
-        .floating-slider-container.round-images>.custom-feature__item {
-            flex: 0 0 calc(45% - 1em);
-            min-width: calc(45% - 1em);
-            margin: 0;
-         }
+    /* Round image sliders - two items */
+    .floating-slider-container.round-images {
+        width: 90%;
+    }
+
+    .floating-slider-container.round-images>.custom-feature__item {
+        flex: 0 0 calc(45% - 1em);
+        min-width: calc(45% - 1em);
+    }
 }
 
-
+/* Hover effects */
+@media (hover: hover) {
+    .floating-slider-container>.custom-feature__item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+}
 
 /* Dark mode styles */
 html[data-theme="dark"] .custom-feature__item {
