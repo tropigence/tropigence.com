@@ -79,6 +79,7 @@ html {
     margin: 0 auto 1em;
     padding: 1em;
     width: 100%;
+    box-sizing: border-box;
 }
 
 /* Base styles for all feature items */
@@ -243,7 +244,7 @@ html {
         padding: 1.5em 0;
     }
 
-    /* ALL feature sections start at 90% width */
+    /* ALL feature sections have 90% width by default */
     .custom-feature-section {
         width: 90%;
         margin-left: auto;
@@ -253,6 +254,8 @@ html {
     /* ONLY standalone round image sections get 80% width */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Custom button size for feature sections */
@@ -270,7 +273,22 @@ html {
         align-items: center;
     }
 
-    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+    /* Fixed spacing between image and text for round images */
+    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+        width: 250px;
+        /* Fixed width instead of percentage */
+        min-width: 250px;
+        /* Prevents shrinking */
+        padding: 2em;
+        margin-right: 20px;
+        /* Fixed gap between image and text */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Box image styling */
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper {
         width: 40%;
         display: flex;
         justify-content: center;
@@ -279,11 +297,15 @@ html {
 
     .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         margin: 0;
+        max-width: 100%;
+        /* Ensures image fits in container */
     }
 
     .custom-feature__description-wrapper {
         align-items: flex-start;
         text-align: left;
+        padding-left: 0;
+        /* Reduces padding on left side next to image */
     }
 
     .custom-feature__description-wrapper a.btn.btn--primary {
@@ -294,22 +316,19 @@ html {
         max-height: 400px;
     }
 
-    /* ALL feature sections are 90% width by default */
-    .custom-feature-section {
+    /* ALL regular sections and sliders are 90% width */
+    .custom-feature-section,
+    .floating-slider-container,
+    .floating-slider-container.box-images,
+    .floating-slider-container.round-images {
         width: 90%;
-    }
-
-    /* ONLY standalone round image feature sections - 80% width */
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-    }
-
-    /* All slider containers are always 90% width */
-    .floating-slider-container {
-        width: 90% !important;
-        /* Use !important to override any other styles */
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* ONLY standalone round image sections are 80% width */
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
+        width: 80%;
     }
 
     /* Box image sliders - two items */
@@ -328,27 +347,41 @@ html {
 /* Monitor styles (2048px+) */
 @media (min-width: 2048px) {
 
-    /* Generic feature sections - 90% width */
+    /* Generic feature sections remain at 90% width */
     .custom-feature-section {
         width: 90%;
     }
 
-    /* ONLY standalone round image features - 60% width */
+    /* ONLY standalone round image features get 80% width */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 60%;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
+    /* Fixed width for round image container to maintain spacing */
+    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+        width: 300px;
+        /* Slightly larger on big screens */
+        min-width: 300px;
+    }
+
+    /* Box image containers maintain percentage width */
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper {
         width: 50%;
     }
 
     .custom-feature__description-wrapper {
         padding: 2em;
+        padding-left: 0;
+        /* Maintains spacing next to image */
     }
 
-    /* All slider containers are always 90% width */
-    .floating-slider-container {
-        width: 90% !important;
+    /* All slider containers are 90% width */
+    .floating-slider-container,
+    .floating-slider-container.box-images,
+    .floating-slider-container.round-images {
+        width: 90%;
     }
 
     /* Box image sliders - three items */
