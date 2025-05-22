@@ -77,8 +77,10 @@ html {
 /* Feature section styling ================================================== */
 .custom-feature-section {
     margin: 0 auto 1em;
+    /* Centering for standalone sections when width < 100% */
     padding: 1em;
     width: 100%;
+    /* Full width on smallest mobile */
     box-sizing: border-box;
 }
 
@@ -168,13 +170,15 @@ html {
 
 /* Slider container styles */
 .floating-slider-container {
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    /* Slider container is 90% of screen width */
     overflow-x: auto;
     margin: 2em auto;
+    /* Centering the slider */
     padding: 1em 0;
     position: relative;
     -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
     scrollbar-width: none;
     display: flex;
     gap: 1em;
@@ -247,23 +251,17 @@ html {
     /* Feature section adjustments */
     .floating-slider-container {
         padding: 1.5em 0;
+        /* width: 90%; is inherited from base */
     }
 
-    /* ALL feature sections have 90% width by default */
-    .custom-feature-section {
+    /* Standalone feature sections are 90% width */
+    .custom-feature-section:not(.floating-slider-container) {
         width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* ONLY standalone round image sections get 80% width */
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+        /* Centering is handled by base 'margin: 0 auto 1em;' */
     }
 
     /* Start making standalone rounded images slightly larger at 480px */
+    /* This rule specifically targets the image size, not the section width */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 180px;
         max-width: 180px;
@@ -332,6 +330,13 @@ html {
         max-width: 240px;
     }
 
+    /* Standalone feature sections are 80% width, max 1440px */
+    .custom-feature-section:not(.floating-slider-container) {
+        width: 80%;
+        max-width: 1440px;
+        /* Centering is handled by base 'margin: 0 auto 1em;' */
+    }
+
     .custom-feature__description-wrapper {
         align-items: flex-start;
         text-align: left;
@@ -347,19 +352,14 @@ html {
         max-height: 400px;
     }
 
-    /* ALL regular sections and sliders are 90% width */
-    .custom-feature-section,
+    /* Slider containers maintain 90% width (inherited from base) and are centered */
     .floating-slider-container,
     .floating-slider-container.box-images,
     .floating-slider-container.round-images {
         width: 90%;
+        /* This is redundant if base is 90% but ensures specificity if needed */
         margin-left: auto;
         margin-right: auto;
-    }
-
-    /* ONLY standalone round image sections are 80% width */
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
     }
 
     /* Box image sliders - two items */
@@ -377,6 +377,8 @@ html {
 
 /* Desktop styles (1024px+) */
 @media (min-width: 1024px) {
+    /* Standalone feature sections inherit width: 80%; max-width: 1440px; */
+    /* Slider containers inherit width: 90%; */
 
     /* STANDALONE: Even larger rounded images on desktop */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
@@ -394,18 +396,8 @@ html {
 /* Monitor styles (2048px+) */
 @media (min-width: 2048px) {
 
-    /* Generic feature sections remain at 90% width */
-    .custom-feature-section {
-        width: 90%;
-    }
-
-    /* ONLY standalone round image features get 80% width */
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+    /* Standalone feature sections inherit width: 80%; max-width: 1440px; */
+    /* Slider containers inherit width: 90%; */
     /* SLIDER: Fixed width for round image container in sliders */
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 300px;
@@ -442,11 +434,11 @@ html {
         padding-left: 0;
     }
 
-    /* All slider containers are 90% width */
+    /* Slider containers inherit width: 90% */
     .floating-slider-container,
     .floating-slider-container.box-images,
     .floating-slider-container.round-images {
-        width: 90%;
+        /* width: 90%; is inherited */
     }
 
     /* Box image sliders - three items */
