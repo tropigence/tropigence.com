@@ -568,6 +568,13 @@ html {
         margin-right: auto;
     }
 
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-rect) {
+        width: 80%;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 280px;
         min-width: 280px;
