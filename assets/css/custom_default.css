@@ -473,16 +473,14 @@ html {
     .custom-feature__description-wrapper {
         align-items: flex-start;
         text-align: left;
-        padding: 1.5em;
+        padding: 2em;
         flex-grow: 1;
     }
 
-    /* Increased padding (1.5x) for box image features at tablet+ */
     .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
         padding: 2em;
     }
 
-    /* Remove left padding for features with round images */
     .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
         padding: 2em 2em 2em 0;
     }
@@ -494,7 +492,7 @@ html {
     .custom-feature__description-wrapper-2 {
         align-items: flex-start;
         text-align: left;
-        padding: 1.5em;
+        padding: 2em;
         flex-grow: 1;
     }
 
