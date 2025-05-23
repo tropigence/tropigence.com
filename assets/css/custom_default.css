@@ -82,7 +82,7 @@ li {
 
 /* Feature section styling */
 .custom-feature-section {
-    margin: 0.75em auto;
+    margin: 0.5em auto;
     padding: 1em;
     width: 100%;
     box-sizing: border-box;
@@ -165,13 +165,12 @@ li {
 }
 
 .custom-feature__description-wrapper h3 {
-    margin: 0 0 0.4em;
     font-size: 1.5em;
     color: var(--custom-color-1);
 }
 
 .custom-feature__description-wrapper p {
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 /* Button styling for all sections */
@@ -207,7 +206,6 @@ li {
     max-width: 100%;
     overflow-x: auto;
     margin: 1em auto;
-    padding: 1em 0;
     position: relative;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -294,13 +292,12 @@ li {
 }
 
 .custom-feature__description-wrapper-2 h3 {
-    margin: 0 0 0.4em;
     font-size: 1.5em;
     color: var(--custom-color-1);
 }
 
 .custom-feature__description-wrapper-2 p {
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 /* Fixed to ensure one item per slider on mobile */
