@@ -10,7 +10,8 @@
     /* default button */
     display: inline-block;
     padding: 0.5em 1em;
-    color: #fff !important;
+    color: var(--custom-color-4) !important;
+    /* Changed from #fff to variable */
     font-family: $sans-serif;
     font-size: $type-size-6;
     font-weight: bold;
@@ -23,7 +24,8 @@
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 
     &:hover {
-        background-color: mix(white, #000, 20%);
+        background-color: mix(var(--custom-color-4), var(--global-black), 20%);
+        /* Changed from hardcoded colors */
     }
 
     .icon {
@@ -67,14 +69,16 @@
         background-color: var(--global-bg-color);
 
         &:hover {
-            color: #fff !important;
+            color: var(--custom-color-4) !important;
+            /* Changed from #fff */
             border-color: var(--global-text-color-light);
         }
     }
 
     /* light outline */
     &--light-outline {
-        border: 1px solid #fff !important;
+        border: 1px solid var(--custom-color-4) !important;
+        /* Changed from #fff */
         /* override*/
         background-color: transparent;
     }
@@ -84,7 +88,8 @@
         background-color: $info-color;
 
         &:hover {
-            background-color: mix(#000, $info-color, 20%);
+            background-color: mix(var(--global-black), $info-color, 20%);
+            /* Changed from #000 */
         }
     }
 
@@ -93,7 +98,8 @@
         background-color: $warning-color;
 
         &:hover {
-            background-color: mix(#000, $warning-color, 20%);
+            background-color: mix(var(--global-black), $warning-color, 20%);
+            /* Changed from #000 */
         }
     }
 
@@ -102,7 +108,8 @@
         background-color: $success-color;
 
         &:hover {
-            background-color: mix(#000, $success-color, 20%);
+            background-color: mix(var(--global-black), $success-color, 20%);
+            /* Changed from #000 */
         }
     }
 
@@ -111,7 +118,8 @@
         background-color: $danger-color;
 
         &:hover {
-            background-color: mix(#000, $danger-color, 20%);
+            background-color: mix(var(--global-black), $danger-color, 20%);
+            /* Changed from #000 */
         }
     }
 
@@ -139,7 +147,8 @@
         background-color: $color;
 
         &:hover {
-            background-color: mix(#000, $color, 20%);
+            background-color: mix(var(--global-black), $color, 20%);
+            /* Changed from #000 */
         }
     }
 }
