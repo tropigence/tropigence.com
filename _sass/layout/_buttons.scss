@@ -142,31 +142,31 @@
         (linkedin, $linkedin-color
     );
 
-@each $socialnetwork, $color in $social {
-    &--#{$socialnetwork} {
-        background-color: $color;
+    @each $socialnetwork, $color in $social {
+        &--#{$socialnetwork} {
+            background-color: $color;
 
-        &:hover {
-            background-color: mix(var(--global-black), $color, 20%);
-            /* Changed from #000 */
+            &:hover {
+                background-color: mix(var(--global-black), $color, 20%);
+                /* Changed from #000 */
+            }
         }
     }
-}
 
-/* extra large button */
-&--x-large {
-    font-size: $type-size-4;
-}
+    /* extra large button */
+    &--x-large {
+        font-size: $type-size-4;
+    }
 
-/* large button */
-&--large {
-    font-size: $type-size-5;
-}
+    /* large button */
+    &--large {
+        font-size: $type-size-5;
+    }
 
-/* small button */
-&--small {
-    font-size: $type-size-7;
-}
+    /* small button */
+    &--small {
+        font-size: $type-size-7;
+    }
 }
 
 /* Dark mode styles */
