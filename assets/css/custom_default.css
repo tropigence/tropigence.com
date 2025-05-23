@@ -484,11 +484,11 @@ html {
 
     /* Remove left padding for features with round images */
     .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
-        padding: 1.5em 1.5em 1.5em 0;
+        padding: 2em 2em 2em 0;
     }
 
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
-        padding: 1.5em 1.5em 1.5em 0;
+        padding: 2em 2em 2em 0;
     }
 
     .custom-feature__description-wrapper-2 {
@@ -505,7 +505,7 @@ html {
 
     /* Remove left padding for variant 2 features with round images */
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__description-wrapper-2 {
-        padding: 1.5em 1.5em 1.5em 0;
+        padding: 2em 2em 2em 0;
     }
 
     .custom-feature__description-wrapper a.btn.btn--primary,
