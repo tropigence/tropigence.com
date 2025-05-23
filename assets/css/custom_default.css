@@ -90,10 +90,6 @@ li {
     justify-content: center;
 }
 
-.custom-feature-section:not(.floating-slider-container) {
-    margin: 1em auto;
-}
-
 .custom-feature__item {
     display: flex;
     flex-direction: column;
