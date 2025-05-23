@@ -11,7 +11,6 @@
     display: inline-block;
     padding: 0.5em 1em;
     color: var(--custom-color-4) !important;
-    /* Changed from #fff to variable */
     font-family: $sans-serif;
     font-size: $type-size-6;
     font-weight: bold;
@@ -25,7 +24,6 @@
 
     &:hover {
         background-color: mix(var(--custom-color-4), var(--global-black), 20%);
-        /* Changed from hardcoded colors */
     }
 
     .icon {
@@ -34,7 +32,6 @@
 
     .icon+.hidden {
         margin-left: -0.5em;
-        /* override for hidden text*/
     }
 
     /* primary button - matches your custom style */
@@ -65,12 +62,10 @@
     &--inverse {
         color: var(--global-text-color-light) !important;
         border: 1px solid var(--global-border-color) !important;
-        /* override*/
         background-color: var(--global-bg-color);
 
         &:hover {
             color: var(--custom-color-4) !important;
-            /* Changed from #fff */
             border-color: var(--global-text-color-light);
         }
     }
@@ -78,8 +73,6 @@
     /* light outline */
     &--light-outline {
         border: 1px solid var(--custom-color-4) !important;
-        /* Changed from #fff */
-        /* override*/
         background-color: transparent;
     }
 
@@ -89,7 +82,6 @@
 
         &:hover {
             background-color: mix(var(--global-black), $info-color, 20%);
-            /* Changed from #000 */
         }
     }
 
@@ -99,7 +91,6 @@
 
         &:hover {
             background-color: mix(var(--global-black), $warning-color, 20%);
-            /* Changed from #000 */
         }
     }
 
@@ -109,7 +100,6 @@
 
         &:hover {
             background-color: mix(var(--global-black), $success-color, 20%);
-            /* Changed from #000 */
         }
     }
 
@@ -119,7 +109,6 @@
 
         &:hover {
             background-color: mix(var(--global-black), $danger-color, 20%);
-            /* Changed from #000 */
         }
     }
 
@@ -134,12 +123,11 @@
 
     /* social buttons */
     $social: (
-        bluesky,
-        $bluesky-color),
+        (bluesky, $bluesky-color),
         (facebook, $facebook-color),
         (twitter, $twitter-color),
         (google-plus, $google-plus-color),
-        (linkedin, $linkedin-color
+        (linkedin, $linkedin-color)
     );
 
     @each $socialnetwork, $color in $social {
@@ -148,7 +136,6 @@
 
             &:hover {
                 background-color: mix(var(--global-black), $color, 20%);
-                /* Changed from #000 */
             }
         }
     }
