@@ -1,7 +1,7 @@
 /* Mobile first styling */
 html {
     scroll-behavior: smooth;
-    line-height: 1.8em;
+    line-height: 1.8em !important;
 }
 
 /* Hero image styling */
