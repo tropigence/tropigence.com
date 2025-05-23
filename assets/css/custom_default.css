@@ -167,6 +167,7 @@ li {
 .custom-feature__description-wrapper h3 {
     font-size: 1.5em;
     color: var(--custom-color-1);
+    margin: 0;
 }
 
 .custom-feature__description-wrapper p {
@@ -294,6 +295,7 @@ li {
 .custom-feature__description-wrapper-2 h3 {
     font-size: 1.5em;
     color: var(--custom-color-1);
+    margin: 0;
 }
 
 .custom-feature__description-wrapper-2 p {
