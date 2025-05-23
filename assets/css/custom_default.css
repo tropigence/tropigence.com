@@ -1,6 +1,7 @@
 /* Mobile first styling */
 html {
     scroll-behavior: smooth;
+    line-height: 1.8em;
 }
 
 /* Hero image styling */
@@ -558,7 +559,6 @@ html {
         max-width: 280px;
     }
 
-    /* Apply 80% width and max-width only at 1024px+ */
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
         width: 80%;
         max-width: 1440px;
