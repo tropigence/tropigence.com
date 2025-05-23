@@ -72,7 +72,6 @@ li {
 }
 
 .hero-text-overlay .btn {
-    font-size: 1em;
     margin-right: 10px;
     padding: 0.5em 1em;
 }
@@ -215,6 +214,7 @@ li {
 .custom-feature__description-wrapper a.btn.btn--primary,
 .custom-feature__description-wrapper-2 a.btn.btn--primary,
 .hero-text-overlay a.btn.btn--primary {
+    font-size: 1em;
     align-self: center;
     background-color: var(--custom-color-1);
     color: var(--custom-color-4);
