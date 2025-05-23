@@ -398,21 +398,21 @@ li {
         width: 250px;
         min-width: 250px;
         padding: 2em;
-        margin-right: 0; /* Adjusted for consistent spacing */
+        margin-right: 0;
     }
 
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 250px;
         min-width: 250px;
         padding: 2em;
-        margin-right: 0; /* Adjusted for consistent spacing */
+        margin-right: 0;
     }
 
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
-        width: 280px;
-        min-width: 280px;
+        width: 300px;
+        min-width: 300px;
         padding: 2em;
-        margin-right: 0; /* Adjusted for consistent spacing */
+        margin-right: 0;
     }
 
     .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
@@ -450,7 +450,12 @@ li {
         flex-grow: 1;
     }
 
-    /* Removed rule that set padding-left: 0 for round image descriptions. They will now inherit padding: 2em; */
+    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper,
+    .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper,
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__description-wrapper-2 {
+        padding: 2em 2em 2em 0;
+    }
+
     .custom-feature__description-wrapper a.btn.btn--primary,
     .custom-feature__description-wrapper-2 a.btn.btn--primary {
         align-self: flex-start;
@@ -552,7 +557,7 @@ li {
         width: 400px;
         min-width: 400px;
         padding: 2em;
-        margin-right: 0; /* Adjusted for consistent spacing */
+        margin-right: 0;
     }
 
     .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
