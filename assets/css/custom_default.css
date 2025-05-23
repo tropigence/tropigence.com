@@ -62,6 +62,7 @@ li {
     font-size: 1.8em;
     color: var(--custom-color-1);
     text-shadow: 1px 1px 3px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
+    margin: 0;
 }
 
 .hero-text-overlay p {
