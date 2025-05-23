@@ -72,21 +72,6 @@ redirect_from:
     </div>
 </section>
 
-<!-- No slider single item feature style -->
-<section class="custom-feature-section">
-    {%
-        include custom_default.html
-        mode="item"
-        container_style="feature-style-2"
-        image_url="/images/plantation.jpg"
-        image_alt="Tropical Fruit Research"
-        header_text="Tropical Fruit Enhancement"
-        paragraph_text="Our research focuses on improving yields and nutritional content of indigenous tropical fruits through advanced genomic techniques and sustainable cultivation methods."
-        button_href="/research"
-        button_text="Learn More"
-    %}
-</section>
-
 <!-- Header Section -->
 <section class="custom-feature-section">
     <div class="custom-section-header">
@@ -106,8 +91,8 @@ redirect_from:
             image_alt="Tomato Varieties"
             header_text="Heat-Tolerant Vegetables"
             paragraph_text="Our breeding program develops vegetable varieties that thrive in tropical climates, offering improved disease resistance and higher yields even under heat stress conditions."
-            button_href="/vegetables"
-            button_text="Explore Varieties"
+            button_href="/"
+            button_text="Explore"
         %}
         {%
             include custom_default.html
@@ -118,8 +103,8 @@ redirect_from:
             image_alt="Laboratory Research"
             header_text="Advanced Biotechnology"
             paragraph_text="Our state-of-the-art laboratory applies cutting-edge biotechnology to accelerate crop improvement, developing solutions for tropical agriculture's most pressing challenges."
-            button_href="/biotech"
-            button_text="Our Approach"
+            button_href="/"
+            button_text="Explore"
         %}
         {%
             include custom_default.html
@@ -130,8 +115,8 @@ redirect_from:
             image_alt="Soil Testing"
             header_text="Soil Health Management"
             paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
-            button_href="/soil"
-            button_text="Soil Programs"
+            button_href="/"
+            button_text="Explore"
         %}
     </div>
 </section>
@@ -171,6 +156,18 @@ redirect_from:
             button_href="/banana"
             button_text="Learn More"
         %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/plantation.jpg"
+            image_alt="Agricultural Technology"
+            header_text="Digital Agriculture"
+            paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
+            button_href="/"
+            button_text="Learn More"
+        %}
     </div>
 </section>
 
@@ -193,20 +190,32 @@ redirect_from:
             image_alt="Agricultural Technology"
             header_text="Digital Agriculture"
             paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
-            button_href="/digital"
-            button_text="Digital Tools"
+            button_href="/"
+            button_text="Learn More"
         %}
         {%
             include custom_default.html
             mode="item"
             in_slider=true
             container_style="feature-style-2"
-            image_url="/images/cover_team_color.png"
+            image_url="/images/cover_team.png"
             image_alt="Community Outreach"
             header_text="Community Engagement"
             paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
-            button_href="/community"
-            button_text="Our Impact"
+            button_href="/"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/plantation3.jpg"
+            image_alt="Soil Testing"
+            header_text="Soil Health Management"
+            paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
+            button_href="/"
+            button_text="Learn More"
         %}
     </div>
 </section>
