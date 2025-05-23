@@ -162,7 +162,7 @@ html {
 
 /* Increased padding (1.5x) for box image features */
 .custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
-    padding: 2.25em;
+    padding: 2em;
 }
 
 .custom-feature__description-wrapper h3 {
@@ -292,7 +292,7 @@ html {
 
 /* Increased padding (1.5x) for box image features - variant 2 */
 .custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
-    padding: 2.25em;
+    padding: 2em;
 }
 
 .custom-feature__description-wrapper-2 h3 {
@@ -479,7 +479,7 @@ html {
 
     /* Increased padding (1.5x) for box image features at tablet+ */
     .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
-        padding: 2.25em;
+        padding: 2em;
     }
 
     /* Remove left padding for features with round images */
@@ -500,7 +500,7 @@ html {
 
     /* Increased padding (1.5x) for box image features - variant 2 at tablet+ */
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
-        padding: 2.25em;
+        padding: 2em;
     }
 
     /* Remove left padding for variant 2 features with round images */
