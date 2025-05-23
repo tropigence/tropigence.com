@@ -92,7 +92,6 @@ li {
 
 .custom-feature-section:not(.floating-slider-container) {
     margin: 1em auto;
-    width: 90%;
 }
 
 .custom-feature__item {
