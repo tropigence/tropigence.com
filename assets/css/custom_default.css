@@ -13,6 +13,7 @@ h4,
 h5,
 h6,
 li {
+    scroll-behavior: smooth;
     line-height: 1.8em !important;
 }
 
