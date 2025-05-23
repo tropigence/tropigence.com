@@ -76,12 +76,13 @@ html {
 /* Feature section styling ================================================== */
 .custom-feature-section {
     margin: 0.75em auto;
-    /* Reduced from 1.5em to 0.75em */
     padding: 1em;
     width: 100%;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .custom-feature__item {
@@ -129,7 +130,7 @@ html {
     margin: 0 auto 1.5em;
     color: var(--custom-color-1);
     font-size: 1.8em;
-    width: 90%;
+    width: 1000%;
     max-width: 1440px;
 }
 
