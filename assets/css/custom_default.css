@@ -71,15 +71,18 @@ li {
     text-shadow: 1px 1px 2px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
 }
 
-.hero-text-overlay .btn {
+/* FIXED: Hero button styles - now font size matches paragraph */
+.hero-text-overlay .btn,
+.hero-text-overlay a.btn.btn--primary {
     margin-right: 10px;
     padding: 0.5em 1em;
+    font-size: 1em;
+    /* Matches paragraph size by default */
 }
 
 /* Feature section styling */
 .custom-feature-section {
     margin: 0.75em auto;
-    /* Reduced from 1.5em to 0.75em */
     padding: 1em;
     width: 100%;
     box-sizing: border-box;
@@ -114,17 +117,11 @@ li {
 
 .custom-feature-section:not(.floating-slider-container) .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
-    margin: 0 auto;
-    width: 100%;
 }
 
 .floating-slider-container .custom-feature__item {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
     width: 100%;
-}
-
-.floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) {
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
 
 .custom-feature__item.custom-feature__item--layout-desktop-row .custom-feature__image-wrapper {
@@ -163,7 +160,6 @@ li {
     flex-grow: 1;
 }
 
-/* Increased padding (1.5x) for box image features */
 .custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
     padding: 2em;
 }
@@ -176,6 +172,28 @@ li {
 
 .custom-feature__description-wrapper p {
     margin-bottom: 1em;
+}
+
+/* Button styling for all sections */
+.custom-feature__description-wrapper a.btn.btn--primary,
+.custom-feature__description-wrapper-2 a.btn.btn--primary,
+.hero-text-overlay a.btn.btn--primary {
+    align-self: center;
+    background-color: var(--custom-color-1);
+    color: var(--custom-color-4);
+    border-color: var(--custom-color-1);
+    border-radius: 50px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.custom-feature__description-wrapper a.btn.btn--primary:hover,
+.custom-feature__description-wrapper-2 a.btn.btn--primary:hover,
+.hero-text-overlay a.btn.btn--primary:hover {
+    background-color: var(--custom-color-2);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
 }
 
 /* Slider container styles */
@@ -193,7 +211,6 @@ li {
     scroll-snap-type: x mandatory;
 }
 
-/* Update the floating-slider-container width when inside custom-feature-section */
 .custom-feature-section .floating-slider-container {
     width: 100%;
     max-width: 100%;
@@ -211,27 +228,6 @@ li {
     margin: 0;
 }
 
-.custom-feature__description-wrapper a.btn.btn--primary,
-.custom-feature__description-wrapper-2 a.btn.btn--primary,
-.hero-text-overlay a.btn.btn--primary {
-    font-size: 1em;
-    align-self: center;
-    background-color: var(--custom-color-1);
-    color: var(--custom-color-4);
-    border-color: var(--custom-color-1);
-    border-radius: 50px;
-    display: inline-block;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.custom-feature__description-wrapper a.btn.btn--primary:hover,
-.hero-text-overlay a.btn.btn--primary:hover {
-    background-color: var(--custom-color-2);
-    border-color: var(--custom-color-2);
-    color: var(--global-black) !important;
-}
-
 /* Variant 2 styles for sliders */
 .custom-feature__item-2 {
     display: flex;
@@ -246,10 +242,6 @@ li {
 }
 
 .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
-}
-
-.floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
 
@@ -292,7 +284,6 @@ li {
     flex-grow: 1;
 }
 
-/* Increased padding (1.5x) for box image features - variant 2 */
 .custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
     padding: 2em;
 }
@@ -305,12 +296,6 @@ li {
 
 .custom-feature__description-wrapper-2 p {
     margin-bottom: 1em;
-}
-
-.custom-feature__description-wrapper-2 a.btn.btn--primary:hover {
-    background-color: var(--custom-color-2);
-    border-color: var(--custom-color-2);
-    color: var(--global-black) !important;
 }
 
 /* Fixed to ensure one item per slider on mobile */
@@ -353,9 +338,12 @@ li {
         font-size: 1.2em;
     }
 
-    .hero-text-overlay .btn {
+    /* FIXED: Hero button now scales with paragraph */
+    .hero-text-overlay .btn,
+    .hero-text-overlay a.btn.btn--primary {
         display: inline-block;
         font-size: 1.2em;
+        /* Matches paragraph size at this breakpoint */
     }
 
     .floating-slider-container {
@@ -372,20 +360,12 @@ li {
         max-height: 180px;
         max-width: 180px;
     }
-
-    .custom-feature__description-wrapper a.btn.btn--primary,
-    .custom-feature__description-wrapper-2 a.btn.btn--primary {
-        font-size: 1em;
-    }
 }
 
 /* Large tablet and laptop styles (768px+) */
 @media (min-width: 768px) {
-    .custom-feature__item--layout-desktop-row {
-        flex-direction: row;
-        align-items: center;
-    }
 
+    .custom-feature__item--layout-desktop-row,
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
         flex-direction: row;
         align-items: center;
@@ -408,20 +388,13 @@ li {
         min-width: 250px;
         padding: 2em;
         margin-right: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
-    /* Half the gap between round image and text for slider items */
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 250px;
         min-width: 250px;
         padding: 2em;
         margin-right: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
@@ -429,23 +402,11 @@ li {
         min-width: 280px;
         padding: 2em;
         margin-right: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
-    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper {
-        width: 40%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
         width: 40%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
@@ -470,25 +431,7 @@ li {
         max-width: 240px;
     }
 
-    .custom-feature__description-wrapper {
-        align-items: flex-start;
-        text-align: left;
-        padding: 2em;
-        flex-grow: 1;
-    }
-
-    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper {
-        padding: 2em;
-    }
-
-    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
-        padding: 2em 2em 2em 0;
-    }
-
-    .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
-        padding: 2em 2em 2em 0;
-    }
-
+    .custom-feature__description-wrapper,
     .custom-feature__description-wrapper-2 {
         align-items: flex-start;
         text-align: left;
@@ -496,12 +439,8 @@ li {
         flex-grow: 1;
     }
 
-    /* Increased padding (1.5x) for box image features - variant 2 at tablet+ */
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
-        padding: 2em;
-    }
-
-    /* Remove left padding for variant 2 features with round images */
+    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper,
+    .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper,
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__description-wrapper-2 {
         padding: 2em 2em 2em 0;
     }
@@ -535,11 +474,7 @@ li {
     }
 
     /* Box image sliders can still use multiple items at 768px but no more than 2 */
-    .floating-slider-container.box-images.has-2-items>.custom-feature__item-2 {
-        flex: 0 0 50%;
-        min-width: 50%;
-    }
-
+    .floating-slider-container.box-images.has-2-items>.custom-feature__item-2,
     .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
         flex: 0 0 50%;
         min-width: 50%;
@@ -558,13 +493,7 @@ li {
         max-width: 280px;
     }
 
-    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round) {
-        width: 80%;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+    .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round),
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-rect) {
         width: 80%;
         max-width: 1440px;
@@ -635,36 +564,15 @@ li {
         max-width: 360px;
     }
 
-    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper {
-        width: 50%;
-    }
-
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
         width: 50%;
     }
 
-    .custom-feature__description-wrapper,
-    .custom-feature__description-wrapper-2 {
-        padding: 2em;
-    }
-
-    /* Increased padding (1.5x) for box image features at large screens */
+    /* Increased padding for box image features at large screens */
     .custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper,
     .custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
         padding: 3em;
-    }
-
-    /* Remove left padding for features with round images at large screens */
-    .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
-        padding: 2em 2em 2em 0;
-    }
-
-    .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__description-wrapper {
-        padding: 2em 2em 2em 0;
-    }
-
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__description-wrapper-2 {
-        padding: 2em 2em 2em 0;
     }
 
     .floating-slider-container,
@@ -679,15 +587,10 @@ li {
     }
 
     /* At 2040px+, allow round-images to show 3 items */
-    .floating-slider-container.round-images>.custom-feature__item {
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
         flex: 0 0 calc(33.33% - 1em);
         min-width: calc(33.33% - 1em);
-    }
-
-    /* At 2040px+, allow round-images with -2 variant to show 3 items */
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 33.33%;
-        min-width: 33.33%;
     }
 }
 
