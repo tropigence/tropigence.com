@@ -188,6 +188,11 @@ li {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
+.custom-feature__description-wrapper a.btn.btn--primary,
+.custom-feature__description-wrapper-2 a.btn.btn--primary {
+    font-size: 1em;
+}
+
 .custom-feature__description-wrapper a.btn.btn--primary:hover,
 .custom-feature__description-wrapper-2 a.btn.btn--primary:hover,
 .hero-text-overlay a.btn.btn--primary:hover {
@@ -338,12 +343,10 @@ li {
         font-size: 1.2em;
     }
 
-    /* FIXED: Hero button now scales with paragraph */
     .hero-text-overlay .btn,
     .hero-text-overlay a.btn.btn--primary {
         display: inline-block;
         font-size: 1.2em;
-        /* Matches paragraph size at this breakpoint */
     }
 
     .floating-slider-container {
