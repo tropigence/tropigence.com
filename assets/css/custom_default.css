@@ -111,6 +111,14 @@ li {
     align-items: center;
 }
 
+.custom-feature__item .custom-feature__image-wrapper:has(.custom-feature__image--shape-round) {
+    margin-bottom: -1.5em; /* To resolve large buttom margin in mobile view */
+}
+
+.custom-feature__item-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
+    margin-bottom: -1.5em; /* To resolve large buttom margin in mobile view */
+}
+
 .custom-feature__item.custom-feature__item--layout-desktop-row {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
 }
