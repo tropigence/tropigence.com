@@ -13,7 +13,7 @@
       - If "item": Creates just the item (to be used within a slider elsewhere)
       - If "hero": Creates a hero image container with overlay text
     - slider_type: "box-images" or "round-images" (only used when mode="slider")
-    - slider_max_items: Number of items in slider (only used when mode="slider")
+    - slider_items: Number of items in slider (only used when mode="slider")
       - If 1: Disables scrolling features
       - If 2+: Enables scrolling features
     - container_style: (string, required) Predefined style to apply:
@@ -39,10 +39,7 @@
 
 {%- assign mode = include.mode | default: 'slider' -%}
 {%- assign slider_type = include.slider_type | default: 'box-images' -%}
-{%- assign slider_max_items = include.slider_max_items
-    | default: 1
-    | plus: 0
--%}
+{%- assign slider_items = include.slider_items | default: 1 | plus: 0 -%}
 {%- assign container_style = include.container_style
     | default: 'feature-style-1'
 -%}
@@ -113,7 +110,7 @@
     {% if mode == 'slider' %}
         <!-- Start of floating slider container -->
         <div
-            class="floating-slider-container {{ slider_type }} has-{{ slider_max_items }}-items{% if slider_max_items == 1 %} single-item-slider{% endif %}"
+            class="floating-slider-container {{ slider_type }} has-{{ slider_items }}-items{% if slider_items == 1 %} single-item-slider{% endif %}"
         >
     {% endif %}
 

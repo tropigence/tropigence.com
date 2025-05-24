@@ -30,49 +30,46 @@ redirect_from:
     </div>
 </section>
 
-<!-- First Slider Section: Solutions -->
+<!-- First Slider Section: Three identical feature styles -->
 <section class="custom-feature-section">
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="round-images"
-        slider_max_items="2"
-        container_style="feature-style-1"
-        image_url="/images/agbalumo.jpg"
-        image_alt="Agbalumo Improvement"
-        header_text="Agbalumo Improvement"
-        paragraph_text="Our research focuses on improving yields and nutritional content of Africa star apple through advanced genomic techniques and sustainable cultivation methods."
-        button_href="/solutions"
-        button_text="Explore"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="round-images"
-        slider_max_items="2"
-        container_style="feature-style-1"
-        image_url="/images/tomato.jpg"
-        image_alt="Tomato Improvement"
-        header_text="Tomato Improvement"
-        paragraph_text="We're developing high-temperature tolerant tomato varieties that maintain superior storage and flavor profiles. This is crucial for post-harvest loss mitigation in the tropics."
-        button_href="/solutions"
-        button_text="Explore"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="round-images"
-        slider_max_items="2"
-        container_style="feature-style-1"
-        image_url="/images/agbalumo.jpg"
-        image_alt="Agbalumo Improvement"
-        header_text="Agbalumo Improvement"
-        paragraph_text="Our research focuses on improving yields and nutritional content of Africa star apple through advanced genomic techniques and sustainable cultivation methods."
-        button_href="/solutions"
-        button_text="Explore"
-    %}
+    <div class="floating-slider-container round-images has-2-items">
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/agbalumo.jpg"
+            image_alt="Agbalumo Improvement"
+            header_text="Agbalumo Improvement"
+            paragraph_text="Our research focuses on improving yields and nutritional content of Africa star apple through advanced genomic techniques and sustainable cultivation methods."
+            button_href="/solutions"
+            button_text="Explore"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/tomato.jpg"
+            image_alt="Tomato Improvement"
+            header_text="Tomato Improvement"
+            paragraph_text="We're developing high-temperature tolerant tomato varieties that maintain superior storage and flavor profiles. This is crucial for post-harvest loss mitigation in the tropics."
+            button_href="/solutions"
+            button_text="Explore"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/agbalumo.jpg"
+            image_alt="Agbalumo Improvement"
+            header_text="Agbalumo Improvement"
+            paragraph_text="Our research focuses on improving yields and nutritional content of Africa star apple through advanced genomic techniques and sustainable cultivation methods."
+            button_href="/solutions"
+            button_text="Explore"
+        %}
+    </div>
 </section>
 
 <!-- Header Section -->
@@ -82,49 +79,46 @@ redirect_from:
     </div>
 </section>
 
-<!-- Second Slider Section: Research -->
+<!-- Second Slider Section: Three identical feature styles -->
 <section class="custom-feature-section">
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="box-images"
-        slider_max_items="3"
-        container_style="feature-style-2"
-        image_url="/images/tomato.jpg"
-        image_alt="Tomato Varieties"
-        header_text="Heat-Tolerant Vegetables"
-        paragraph_text="Our breeding program develops vegetable varieties that thrive in tropical climates, offering improved disease resistance and higher yields even under heat stress conditions."
-        button_href="/research"
-        button_text="Learn More"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="box-images"
-        slider_max_items="3"
-        container_style="feature-style-2"
-        image_url="/images/plantation.jpg"
-        image_alt="Laboratory Research"
-        header_text="Advanced Biotechnology"
-        paragraph_text="Our state-of-the-art laboratory applies cutting-edge biotechnology to accelerate crop improvement, developing solutions for tropical agriculture's most pressing challenges."
-        button_href="/research"
-        button_text="Learn More"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="box-images"
-        slider_max_items="3"
-        container_style="feature-style-2"
-        image_url="/images/plantation3.jpg"
-        image_alt="Soil Testing"
-        header_text="Soil Health Management"
-        paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
-        button_href="/research"
-        button_text="Learn More"
-    %}
+    <div class="floating-slider-container box-images has-3-items">
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/tomato.jpg"
+            image_alt="Tomato Varieties"
+            header_text="Heat-Tolerant Vegetables"
+            paragraph_text="Our breeding program develops vegetable varieties that thrive in tropical climates, offering improved disease resistance and higher yields even under heat stress conditions."
+            button_href="/research"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/plantation.jpg"
+            image_alt="Laboratory Research"
+            header_text="Advanced Biotechnology"
+            paragraph_text="Our state-of-the-art laboratory applies cutting-edge biotechnology to accelerate crop improvement, developing solutions for tropical agriculture's most pressing challenges."
+            button_href="/research"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/plantation3.jpg"
+            image_alt="Soil Testing"
+            header_text="Soil Health Management"
+            paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
+            button_href="/research"
+            button_text="Learn More"
+        %}
+    </div>
 </section>
 
 <!-- Header Section -->
@@ -134,49 +128,46 @@ redirect_from:
     </div>
 </section>
 
-<!-- Third Slider Section: Insights -->
+<!-- Third Slider Section -->
 <section class="custom-feature-section">
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="round-images"
-        slider_max_items="3"
-        container_style="feature-style-1"
-        image_url="/images/agbalumo.jpg"
-        image_alt="Agbalumo Products"
-        header_text="Agbalumo Products"
-        paragraph_text="Our research focuses on improving yields and nutritional content of Africa star apple through advanced genomic techniques and sustainable cultivation methods."
-        button_href="/research"
-        button_text="Learn More"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="round-images"
-        slider_max_items="3"
-        container_style="feature-style-1"
-        image_url="/images/tomato.jpg"
-        image_alt="Tomato for Cosmetics"
-        header_text="Tomato for Cosmetics"
-        paragraph_text="We're developing disease-resistant tomato varieties that maintain superior flavor profiles while increasing yield potential for smallholder farmers across the tropics."
-        button_href="/tomato"
-        button_text="Learn More"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="round-images"
-        slider_max_items="3"
-        container_style="feature-style-1"
-        image_url="/images/plantation.jpg"
-        image_alt="Agricultural Technology"
-        header_text="Digital Agriculture"
-        paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
-        button_href="/"
-        button_text="Learn More"
-    %}
+    <div class="floating-slider-container round-images has-3-items">
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/agbalumo.jpg"
+            image_alt="Agbalumo Products"
+            header_text="Agbalumo Products"
+            paragraph_text="Our research focuses on improving yields and nutritional content of Africa star apple through advanced genomic techniques and sustainable cultivation methods."
+            button_href="/research"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/tomato.jpg"
+            image_alt="Tomato for Cosmetics"
+            header_text="Tomato for Cosmetics"
+            paragraph_text="We're developing disease-resistant tomato varieties that maintain superior flavor profiles while increasing yield potential for smallholder farmers across the tropics."
+            button_href="/tomato"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-1"
+            image_url="/images/plantation.jpg"
+            image_alt="Agricultural Technology"
+            header_text="Digital Agriculture"
+            paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
+            button_href="/"
+            button_text="Learn More"
+        %}
+    </div>
 </section>
 
 <!-- Header Section -->
@@ -186,47 +177,44 @@ redirect_from:
     </div>
 </section>
 
-<!-- Fourth Slider Section: News -->
+<!-- Fourth Slider Section -->
 <section class="custom-feature-section">
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="box-images"
-        slider_max_items="3"
-        container_style="feature-style-2"
-        image_url="/images/plantation.jpg"
-        image_alt="Agricultural Technology"
-        header_text="Digital Agriculture"
-        paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
-        button_href="/"
-        button_text="Learn More"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="box-images"
-        slider_max_items="3"
-        container_style="feature-style-2"
-        image_url="/images/cover_team.png"
-        image_alt="Community Outreach"
-        header_text="Community Engagement"
-        paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
-        button_href="/"
-        button_text="Learn More"
-    %}
-
-    {%
-        include custom_default.html
-        mode="slider"
-        slider_type="box-images"
-        slider_max_items="3"
-        container_style="feature-style-2"
-        image_url="/images/plantation3.jpg"
-        image_alt="Soil Testing"
-        header_text="Soil Health Management"
-        paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
-        button_href="/"
-        button_text="Learn More"
-    %}
+    <div class="floating-slider-container box-images has-3-items">
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/plantation.jpg"
+            image_alt="Agricultural Technology"
+            header_text="Digital Agriculture"
+            paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
+            button_href="/"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/cover_team.png"
+            image_alt="Community Outreach"
+            header_text="Community Engagement"
+            paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
+            button_href="/"
+            button_text="Learn More"
+        %}
+        {%
+            include custom_default.html
+            mode="item"
+            in_slider=true
+            container_style="feature-style-2"
+            image_url="/images/plantation3.jpg"
+            image_alt="Soil Testing"
+            header_text="Soil Health Management"
+            paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
+            button_href="/"
+            button_text="Learn More"
+        %}
+    </div>
 </section>
