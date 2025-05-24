@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const AUTOPLAY_INTERVAL = 5000; // Autoplay scrolls every 5 seconds
+    const CONTENT_AUTOPLAY_INTERVAL = 5000; // Regular sliders: 5 seconds
+    const HERO_AUTOPLAY_INTERVAL = 3000;    // Hero slider: 3 seconds
 
     // Function to toggle theme
     function initThemeToggle() {
@@ -61,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
             indicatorsContainer.innerHTML = ''; // Clear existing indicators if any
         }
 
-
         slides.forEach((_, index) => {
             const indicator = document.createElement('div');
             indicator.className = 'indicator';
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     left: slides[nextIndex].offsetLeft,
                     behavior: 'smooth'
                 });
-            }, AUTOPLAY_INTERVAL);
+            }, HERO_AUTOPLAY_INTERVAL); // Use hero-specific interval here
         }
 
         function stopHeroAutoplay() {
@@ -137,13 +137,11 @@ document.addEventListener('DOMContentLoaded', function () {
         sliderContainer.addEventListener('mouseenter', stopHeroAutoplay);
         sliderContainer.addEventListener('mouseleave', startHeroAutoplay);
 
-
         updateHeroIndicators(); // Initial call
         window.addEventListener('resize', updateHeroIndicators);
         window.addEventListener('orientationchange', () => setTimeout(updateHeroIndicators, 200));
         startHeroAutoplay(); // Start autoplay
     }
-
 
     // Content sliders (custom-feature-section sliders)
     function initContentSliders() {
@@ -299,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // After scrolling, update UI indicators
                     setTimeout(updateUI, 500);
-                }, AUTOPLAY_INTERVAL);
+                }, CONTENT_AUTOPLAY_INTERVAL); // Keep using original interval for content sliders
             }
 
             function stopContentAutoplay() {
@@ -330,7 +328,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             sliderContainer.addEventListener('mouseenter', stopContentAutoplay);
             sliderContainer.addEventListener('mouseleave', startContentAutoplay);
-
 
             updateUI();
             window.addEventListener('load', updateUI);
