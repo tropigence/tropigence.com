@@ -660,8 +660,8 @@ html[data-theme="dark"] .hero-image-container::before {
     background:
         linear-gradient(to right,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
-            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 25%,
-            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 75%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.75) 25%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.1) 75%,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%),
         linear-gradient(to top,
             rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
