@@ -318,20 +318,17 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 0 1%;
-    /* Reduced padding for smaller peek effect */
+    padding: 0; /* Removed peek padding */
 }
 
 .floating-slider-container::-webkit-scrollbar {
     display: none;
 }
 
-/* Adjust width to show a subtle peek */
 .floating-slider-container>.custom-feature__item,
 .floating-slider-container>.custom-feature__item-2 {
-    flex: 0 0 95%;
-    /* Increased from 90% to reduce peek */
-    min-width: 95%;
+    flex: 0 0 100%; /* Default to 1 item, full width */
+    min-width: 100%;
     scroll-snap-align: center;
     transition: transform 0.3s ease;
     margin: 0;
@@ -348,12 +345,12 @@ li {
 .slider-indicators,
 .hero-slider-indicators {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px; /* Moved 5px down */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    z-index: 10;
+    z-index: 10; /* Ensure indicators are above arrows */
 }
 
 .slider-indicators .indicator,
@@ -516,18 +513,22 @@ li {
         align-self: flex-start;
     }
 
-    /* Slider item widths */
-    .floating-slider-container>.custom-feature__item,
-    .floating-slider-container>.custom-feature__item-2 {
-        flex: 0 0 97%;
-        min-width: 97%;
+    /* Slider item widths for 2 items (non-round) */
+    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item,
+    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item-2,
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item, /* has-3-items shows 2 items here */
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+        min-width: calc(50% - 0.5em);
     }
 
-    /* Show two items for has-2-items sliders */
-    .floating-slider-container.has-2-items>.custom-feature__item,
-    .floating-slider-container.has-2-items>.custom-feature__item-2 {
-        flex: 0 0 48%;
-        min-width: 48%;
+    /* Round image sliders: 1 item */
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
+        flex: 0 0 100%; /* 1 item */
+        min-width: 100%;
     }
 }
 
@@ -564,10 +565,26 @@ li {
     }
 
     /* Slider item widths */
-    .floating-slider-container.has-3-items>.custom-feature__item,
-    .floating-slider-container.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 32%;
-        min-width: 32%;
+    /* Sliders with 2 items (non-round) */
+    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item,
+    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+        min-width: calc(50% - 0.5em);
+    }
+    /* Sliders with 3 items (non-round) */
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
+        flex: 0 0 calc(100%/3 - 2em/3); /* 3 items with 1em gap */
+        min-width: calc(100%/3 - 2em/3);
+    }
+
+    /* Round image sliders: max 2 items */
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item, /* has-3-items also shows 2 items */
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+        min-width: calc(50% - 0.5em);
     }
 }
 
@@ -619,6 +636,20 @@ li {
     .custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper,
     .custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
         padding: 3em;
+    }
+
+    /* Ensure round-images sliders remain at max 2 items */
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* Max 2 items */
+        min-width: calc(50% - 0.5em);
+    }
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
+        flex: 0 0 calc(100%/3 - 2em/3); /* 3 items for non-round */
+        min-width: calc(100%/3 - 2em/3);
     }
 }
 
@@ -696,4 +727,43 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 html[data-theme="dark"] .slider-indicators .indicator.active,
 html[data-theme="dark"] .hero-slider-indicators .indicator.active {
     background-color: var(--custom-color-2);
+}
+
+/* ===== SECTION: Slider Navigation Arrows ===== */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5; /* Below indicators (z-index: 10) */
+    background: transparent;
+    color: var(--global-text-color);
+    border: 1px solid transparent; /* Can make border visible if desired: var(--global-text-color) */
+    border-radius: 50%;
+    width: 44px; /* Slightly larger for touch targets */
+    height: 44px;
+    font-size: 24px; /* Size for '>' or '<' characters or icons */
+    line-height: 42px; /* Adjust for border and vertical centering */
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider-arrow-prev {
+    left: 10px; /* Adjust spacing from edge */
+}
+
+.slider-arrow-next {
+    right: 10px; /* Adjust spacing from edge */
+}
+
+.slider-arrow:hover {
+    color: var(--custom-color-1);
+    /* background-color: rgba(var(--custom-color-1-r), var(--custom-color-1-g), var(--custom-color-1-b), 0.1); Optional: subtle bg */
+}
+
+html[data-theme="dark"] .slider-arrow:hover {
+    color: var(--custom-color-2);
+    /* background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1); Optional: subtle bg */
 }
