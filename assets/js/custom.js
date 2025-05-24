@@ -4,22 +4,54 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to toggle theme
     function initThemeToggle() {
         const themeToggleButton = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon'); // Assuming this ID for the icon
+
+        function applyThemeVisuals(theme) { // Only updates visuals, not localStorage
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            } else { // 'light'
+                document.documentElement.removeAttribute('data-theme'); // Match _main.js behavior for light theme
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            }
+        }
+
+        function setThemePreference(theme) { // Updates visuals and stores preference
+            localStorage.setItem('theme', theme);
+            applyThemeVisuals(theme);
+        }
+
         if (themeToggleButton) {
             themeToggleButton.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                if (currentTheme === 'dark') {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                }
+                // If data-theme="dark" is present, current theme is dark. Otherwise, it's light.
+                const isCurrentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                const newTheme = isCurrentlyDark ? 'light' : 'dark';
+                setThemePreference(newTheme);
             });
         }
 
-        // Apply saved theme on load
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        // Apply theme on initial load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            applyThemeVisuals(savedTheme); // Apply stored preference
+        } else {
+            // No saved theme, apply OS/browser preference visually
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyThemeVisuals(prefersDark ? 'dark' : 'light');
+        }
+
+        // Listen to OS theme changes if no theme is explicitly set by the user (i.e., no 'theme' in localStorage)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) { // Only follow OS if user hasn't made an explicit choice
+                applyThemeVisuals(e.matches ? 'dark' : 'light');
+            }
+        });
     }
 
     // Smooth scroll for anchor links
