@@ -722,3 +722,61 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 
 
 
+/* Simple feature style - text only with no background */
+.custom-feature__item.feature-style-simple,
+.custom-feature__item-2.feature-style-simple {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: transparent;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: none;
+}
+
+.feature-style-simple .custom-feature__description-wrapper,
+.feature-style-simple .custom-feature__description-wrapper-2 {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.feature-style-simple .custom-feature__description-wrapper h3,
+.feature-style-simple .custom-feature__description-wrapper-2 h3 {
+    font-size: 1.5em;
+    color: var(--custom-color-1);
+    margin: 0 0 0.7em 0;
+    width: 100%;
+    text-align: center;
+}
+
+.feature-style-simple .custom-feature__description-wrapper p,
+.feature-style-simple .custom-feature__description-wrapper-2 p {
+    font-size: 1em;
+    margin: 0;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+/* Ensure even height in sliders */
+.floating-slider-container {
+    align-items: stretch;
+}
+
+.floating-slider-container>.custom-feature__item.feature-style-simple,
+.floating-slider-container>.custom-feature__item-2.feature-style-simple {
+    height: 100%;
+}
+
+/* Dark mode styles */
+html[data-theme="dark"] .feature-style-simple .custom-feature__description-wrapper h3,
+html[data-theme="dark"] .feature-style-simple .custom-feature__description-wrapper-2 h3 {
+    color: var(--custom-color-2);
+}
