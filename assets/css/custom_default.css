@@ -319,7 +319,7 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0; /* No internal padding for the scroll container itself */
-    width: calc(100% - 86px); /* Reduced space for arrows: 5px edge + 36px arrow + 2px gap = 43px per side */
+    width: calc(100% - 84px); /* Space for arrows: 5px edge + 36px arrow + 1px gap = 42px per side */
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -523,8 +523,8 @@ li {
         min-width: calc(50% - 0.5em);
     }
     .floating-slider-container {
-        /* Arrow space: 15px edge + 44px arrow + 10px slider_spacing = 69px per side */
-        width: calc(100% - 138px);
+        /* Arrow space: 15px edge + 44px arrow + 5px new_gap = 64px per side. Total 128px. */
+        width: calc(100% - 128px);
     }
 
     /* Round image sliders: 1 item */
