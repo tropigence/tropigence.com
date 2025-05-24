@@ -730,7 +730,7 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
     border: none;
     border-radius: 10px;
     overflow: hidden;
-    background-color: transparent;
+    background-color: transparent !important;
     margin: 0 auto;
     width: 100%;
     box-shadow: none;
@@ -741,16 +741,16 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
     display: none;
 }
 
-.feature-style-simple .custom-feature__description-wrapper,
-.feature-style-simple .custom-feature__description-wrapper-2 {
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    box-sizing: border-box;
-    height: 100%;
+.custom-feature__item.feature-style-simple .custom-feature__image-wrapper,
+.custom-feature__item-2.feature-style-simple .custom-feature__image-wrapper-2 {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
 }
 
 .feature-style-simple .custom-feature__description-wrapper h3,
