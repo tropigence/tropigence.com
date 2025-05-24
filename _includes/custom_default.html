@@ -1,4 +1,12 @@
 {%- comment -%}
+    Slider classes:
+    - "floating-slider-container box-images has-2-items"
+    - "floating-slider-container box-images has-3-items"
+    - "floating-slider-container round-images has-2-items"
+    - "floating-slider-container round-images has-3-items"
+    has-2-items means max of 2 items in view at a time depending on screen size
+    has-3-items means max of 3 items in view at a time depending on screen size
+
     Parameters:
     - mode: "slider", "item", or "hero" (default: "slider")
       - If "slider": Creates a complete slider with the item inside
@@ -145,14 +153,3 @@
         </div>
     {% endif %}
 {% endif %}
-
-{% comment %}
-    How to use this snippet
-    Slider classes:
-    - "floating-slider-container box-images has-2-items"
-    - "floating-slider-container box-images has-3-items"
-    - "floating-slider-container round-images has-2-items"
-    - "floating-slider-container round-images has-3-items"
-    has-2-items means max of 2 items in view at a time depending on screen size
-    has-3-items means max of 3 items in view at a time depending on screen size
-{% endcomment %}
