@@ -3,21 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to toggle theme
     function initThemeToggle() {
-        const themeToggleButton = document.getElementById('theme-toggle');
-        if (themeToggleButton) {
-            themeToggleButton.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                if (currentTheme === 'dark') {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                }
-            });
-        }
+        // Don't add a new event listener - the one in _main.js will handle it
 
-        // Apply saved theme on load
+        // Just apply saved theme on load
         const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
