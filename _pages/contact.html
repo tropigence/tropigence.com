@@ -181,19 +181,12 @@ author_profile: false
 <section class="contact-section">
     <div class="container">
         <h1>Contact Us</h1>
-
-        <!-- Hidden iframe that will receive the form submission -->
-        <iframe
-            name="hidden-iframe"
-            id="hidden-iframe"
-            style="display: none;"
-        ></iframe>
+        <p>Feel free to reach out with any questions or inquiries.</p>
 
         <form
             id="contactForm"
             action="https://docs.google.com/forms/d/e/1FAIpQLSe5pPxziRm6AbiQcXJyFEhInLPiG4avom4Csnl3lL0iwLxmrA/formResponse"
             method="POST"
-            target="hidden-iframe"
             class="contact-form"
         >
             <div class="form-group">
@@ -237,43 +230,33 @@ author_profile: false
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('contactForm');
         const successMessage = document.getElementById('successMessage');
-        const iframe = document.getElementById('hidden-iframe');
-        let formSubmissionInitiated = false;
 
-        if (!form) {
-            console.error('Contact form (id="contactForm") not found.');
-            return;
-        }
-        if (!successMessage) {
-            console.error(
-                'Success message element (id="successMessage") not found.'
-            );
-            return;
-        }
-        if (!iframe) {
-            console.error('Hidden iframe (id="hidden-iframe") not found.');
-            return;
-        }
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        form.addEventListener('submit', function () {
-            // Indicate that a submission attempt has started.
-            // The success message will be shown once the iframe loads Google's response.
-            formSubmissionInitiated = true;
-        });
+            // Get form data
+            const formData = new FormData(form);
 
-        iframe.addEventListener('load', function () {
-            // This event fires after Google Forms has processed the submission
-            // and loaded its response page (e.g., "Thanks for your response") into the iframe.
-            // We only want to react if our form was the one that initiated this load.
-            if (formSubmissionInitiated) {
-                // Hide form and show success message
-                form.style.display = 'none';
-                successMessage.style.display = 'block';
+            // Create a fetch request to submit the form
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors', // Important for cross-domain requests
+            })
+                .then(() => {
+                    // Show success message, hide form
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
 
-                // Reset the form (optional, as it's now hidden)
-                form.reset();
-                formSubmissionInitiated = false; // Reset flag
-            }
+                    // Reset form
+                    form.reset();
+
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         });
     });
 </script>
