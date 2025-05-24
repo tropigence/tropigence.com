@@ -10,6 +10,11 @@ author_profile: false
         max-width: 800px;
         margin: 3em auto;
         padding: 2rem;
+        width: 90%; /* Default width for mobile */
+    }
+
+    .contact-section h1 {
+        text-align: center; /* Center the Contact Us header */
     }
 
     .contact-form {
@@ -104,21 +109,27 @@ author_profile: false
     }
 
     /* Responsive adjustments */
+    @media (min-width: 480px) {
+        .contact-section {
+            width: 60%; /* 60% width for devices 480px and larger */
+        }
+    }
+
     @media (min-width: 768px) {
         .contact-section {
-            width: 90%;
+            width: 60%; /* Maintain 60% width */
         }
     }
 
     @media (min-width: 1024px) {
         .contact-section {
-            width: 85%;
+            width: 60%; /* Maintain 60% width */
         }
     }
 
     @media (min-width: 1440px) {
         .contact-section {
-            width: 80%;
+            width: 60%;
             max-width: 1200px;
         }
     }
@@ -167,17 +178,25 @@ author_profile: false
     </section>
 {% endcomment %}
 
-<!-- Option 2: Google Form (commented out - uncomment to use) -->
 <section class="contact-section">
     <div class="container">
         <h1>Contact Us</h1>
         <p>Feel free to reach out with any questions or inquiries.</p>
 
+        <!-- Hidden iframe that will receive the form submission -->
+        <iframe
+            name="hidden-iframe"
+            id="hidden-iframe"
+            style="display: none;"
+        ></iframe>
+
         <form
             id="contactForm"
             action="https://docs.google.com/forms/d/e/1FAIpQLSe5pPxziRm6AbiQcXJyFEhInLPiG4avom4Csnl3lL0iwLxmrA/formResponse"
             method="POST"
+            target="hidden-iframe"
             class="contact-form"
+            onsubmit="submitted=true;"
         >
             <div class="form-group">
                 <label for="name">Name</label>
@@ -217,35 +236,28 @@ author_profile: false
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
+    // Variable to track form submission
+    var submitted = false;
 
-        if (form) {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
+    // When page loads
+    window.addEventListener('load', function () {
+        // Get form and success message elements
+        var form = document.getElementById('contactForm');
+        var successMessage = document.getElementById('successMessage');
 
-                const formData = new FormData(form);
-                const url = form.getAttribute('action');
+        // Set interval to check if form was submitted
+        var checkSubmit = setInterval(function () {
+            if (submitted) {
+                // Hide form and show success message
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
 
-                // Submit the form data using fetch
-                fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors', // Required for cross-domain requests
-                })
-                    .then(() => {
-                        // Show success message
-                        form.style.display = 'none';
-                        successMessage.style.display = 'block';
+                // Reset form fields
+                form.reset();
 
-                        // Reset form
-                        form.reset();
-                    })
-                    .catch((error) => {
-                        console.error('Error submitting form:', error);
-                    });
-            });
-        }
+                // Stop checking
+                clearInterval(checkSubmit);
+            }
+        }, 1000);
     });
 </script>
