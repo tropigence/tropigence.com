@@ -40,11 +40,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Listen for scroll events
-        sliderContainer.addEventListener('scroll', updateIndicators);
+        // Listen for scroll events with passive option for better performance on mobile
+        sliderContainer.addEventListener('scroll', updateIndicators, { passive: true });
+
+        // Add touchend event for iOS devices
+        sliderContainer.addEventListener('touchend', function() {
+            setTimeout(updateIndicators, 100); // Small delay to ensure scroll has completed
+        }, { passive: true });
 
         // Initial update
         updateIndicators();
+
+        // Additional update after images load
+        window.addEventListener('load', updateIndicators);
+
+        // Update on orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(updateIndicators, 200);
+        });
     }
 
     // Initialize the hero slider
