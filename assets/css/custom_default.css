@@ -330,6 +330,12 @@ li {
     margin-right: auto;
 }
 
+/* Add top padding to box image sliders to allow smooth hover */
+.floating-slider-container:not(.round-images) {
+    padding: 5px 0 0 0;
+    box-sizing: border-box;
+}
+
 /* Update the negative margins to compensate for increased padding */
 .floating-slider-container.round-images > .custom-feature__item,
 .floating-slider-container.round-images > .custom-feature__item-2 {
