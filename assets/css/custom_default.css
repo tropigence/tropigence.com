@@ -322,12 +322,22 @@ li {
     width: calc(100% - 30px);
 }
 
-/* Add padding to sliders with round images */
+/* Adjust round image sliders to match the gap of box image sliders */
 .floating-slider-container.round-images {
     padding: 10px;
     box-sizing: border-box;
-    /* Adjust width to account for padding */
-    width: calc(100% - 30px - 20px);
+    /* Don't subtract the padding from width to maintain consistent spacing with nav */
+    width: calc(100% - 30px);
+    /* Add inner negative margins to compensate for padding */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Make the slider items fill the container despite the padding */
+.floating-slider-container.round-images > .custom-feature__item,
+.floating-slider-container.round-images > .custom-feature__item-2 {
+    margin: 0 -10px;
+    width: calc(100% + 20px);
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -347,6 +357,17 @@ li {
 .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
 .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
+}
+
+/* Tablet and desktop adjustments */
+@media (min-width: 768px) {
+    .floating-slider-container {
+        width: calc(100% - 44px);
+    }
+
+    .floating-slider-container.round-images {
+        width: calc(100% - 44px);
+    }
 }
 
 /* ===== SECTION: Slider Indicators ===== */
