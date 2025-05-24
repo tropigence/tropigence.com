@@ -717,3 +717,72 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 
 
 
+
+/* Slider indicator dots */
+.slider-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    justify-content: center;
+}
+
+.slider-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--global-text-color);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.slider-indicators .indicator.active {
+    background-color: var(--custom-color-1);
+    opacity: 1;
+}
+
+/* Position relative for all slider containers to properly position dots */
+.floating-slider-container {
+    position: relative;
+    padding-bottom: 35px;
+    /* Make room for indicators */
+}
+
+/* Dark mode styles for slider indicators */
+html[data-theme="dark"] .slider-indicators .indicator.active {
+    background-color: var(--custom-color-2);
+}
+
+/* Hero slider indicators need different positioning */
+.hero-slider-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.hero-slider-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--global-text-color);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-slider-indicators .indicator.active {
+    background-color: var(--custom-color-1);
+    opacity: 1;
+}
+
+html[data-theme="dark"] .hero-slider-indicators .indicator.active {
+    background-color: var(--custom-color-2);
+}
