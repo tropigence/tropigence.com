@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const CONTENT_AUTOPLAY_INTERVAL = 5000; // Regular sliders: 5 seconds
-    const HERO_AUTOPLAY_INTERVAL = 3000;    // Hero slider: 3 seconds
+    const HERO_AUTOPLAY_INTERVAL = 5000;    // Hero slider: 5 seconds
 
     // Function to toggle theme
     function initThemeToggle() {
