@@ -623,6 +623,18 @@ li {
     }
 }
 
+/* Desktop large styles (1440px+) */
+@media (min-width: 1440px) {
+    /* Round image sliders with 2 or 3 items show max 2 items */
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+        min-width: calc(50% - 0.5em);
+    }
+}
+
 /* Extra large screens (2040px+) */
 @media (min-width: 2040px) {
     .custom-feature-section {
@@ -680,12 +692,14 @@ li {
         min-width: calc(50% - 0.5em);
     }
 
-    /* Round image sliders with 3 items show 3 items at this breakpoint */
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item {
-        flex: 0 0 calc(100%/3 - 2em/3); /* 3 items with 1em gap */
-        min-width: calc(100%/3 - 2em/3);
+    /* Round image sliders with 3 items also show max 2 items */
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* Max 2 items with 1em gap */
+        min-width: calc(50% - 0.5em);
     }
+
+    /* Non-round sliders can still show 3 items */
     .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
     .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
         flex: 0 0 calc(100%/3 - 2em/3); /* 3 items for non-round */
