@@ -319,7 +319,7 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0; /* No internal padding for the scroll container itself */
-    width: calc(100% - 79px);
+    width: calc(100% - 59px);
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -442,6 +442,7 @@ li {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
+        width: calc(100% - 87px);
     }
 
     .custom-feature-section:not(.floating-slider-container) {
@@ -524,10 +525,10 @@ li {
     }
     .floating-slider-container {
         /* Recalculated: 7.5px edge + 44px arrow + 2px gap = 53.5px per side (107px total) */
-        width: calc(100% - 107px);
+        width: calc(100% - 87px);
     }
     .floating-slider-container.round-images {
-        width: calc(100% - 107px - 20px);
+        width: calc(100% - 87px - 20px);
     }
     .custom-feature-section {
         margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
@@ -769,7 +770,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-prev {
-    left: 7.5px; /* Spacing from edge of .custom-feature-section */
+    left: 7.5px; /* Original position from edge */
 }
 .slider-arrow-prev::before {
     /* Arrow pointing left: height 20px, width 12px */
@@ -779,7 +780,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-next {
-    right: 7.5px; /* Spacing from edge of .custom-feature-section */
+    right: 7.5px; /* Original position from edge */
 }
 .slider-arrow-next::before {
     /* Arrow pointing right: height 20px, width 12px */
