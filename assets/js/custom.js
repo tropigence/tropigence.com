@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!sliderContainer) return;
 
         let heroAutoplayTimer = null;
-        let currentHeroAutoplayTargetIndex = 0; // Tracks the intended slide for autoplay
         const slides = Array.from(sliderContainer.children).filter(child => child.matches('.feature-style-hero'));
         if (slides.length <= 1) return; // No indicators needed for 0 or 1 slide
 
@@ -72,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     left: slides[index].offsetLeft,
                     behavior: 'smooth'
                 });
-                currentHeroAutoplayTargetIndex = index; // Update target on manual click
                 resetHeroAutoplay(); // Reset autoplay on manual interaction
             });
             indicatorsContainer.appendChild(indicator);
@@ -86,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let activeIndex = 0;
             let minDistance = Infinity;
 
-            // Determine the most visually prominent slide
             slides.forEach((slide, index) => {
                 const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
                 const viewCenter = scrollLeft + containerWidth / 2;
@@ -102,35 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Helper to get the index of the slide that is most visually centered
-        function getVisualHeroSlideIndex() {
-            const scrollLeft = sliderContainer.scrollLeft;
-            const containerWidth = sliderContainer.offsetWidth;
-            let activeIndex = 0;
-            let minDistance = Infinity;
-
-            slides.forEach((slide, index) => {
-                const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-                const viewCenter = scrollLeft + containerWidth / 2;
-                const distance = Math.abs(slideCenter - viewCenter);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    activeIndex = index;
-                }
-            });
-            return activeIndex;
-        }
-
         function startHeroAutoplay() {
             stopHeroAutoplay(); // Clear existing timer before starting a new one
             if (slides.length <= 1) return; // No autoplay for single or no slides
             heroAutoplayTimer = setInterval(() => {
-                const nextIndex = (currentHeroAutoplayTargetIndex + 1) % slides.length;
+                const currentIndex = getCurrentHeroSlideIndex();
+                const nextIndex = (currentIndex + 1) % slides.length;
                 sliderContainer.scrollTo({
                     left: slides[nextIndex].offsetLeft,
                     behavior: 'smooth'
                 });
-                currentHeroAutoplayTargetIndex = nextIndex; // Update the target for the next cycle
             }, AUTOPLAY_INTERVAL);
         }
 
@@ -143,30 +121,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function resetHeroAutoplay() {
             stopHeroAutoplay();
-            // Update the target index based on the current visual state before restarting
-            currentHeroAutoplayTargetIndex = getVisualHeroSlideIndex();
             startHeroAutoplay();
         }
 
+        function getCurrentHeroSlideIndex() { // Helper to get current slide index for autoplay
+            const scrollLeft = sliderContainer.scrollLeft;
+            const slideWidth = slides[0] ? slides[0].offsetWidth : sliderContainer.offsetWidth;
+            if (slideWidth === 0) return 0;
+            return Math.round(scrollLeft / slideWidth);
+        }
+
         sliderContainer.addEventListener('scroll', updateHeroIndicators, { passive: true });
-
-        // On manual interaction, reset autoplay after a short delay to allow scroll to settle
-        const manualInteractionReset = () => {
-            setTimeout(resetHeroAutoplay, 150);
-        };
-        sliderContainer.addEventListener('touchend', manualInteractionReset, { passive: true });
-        sliderContainer.addEventListener('mouseup', manualInteractionReset);
-
+        sliderContainer.addEventListener('touchend', () => { setTimeout(updateHeroIndicators, 150); resetHeroAutoplay(); }, { passive: true });
+        sliderContainer.addEventListener('mouseup', () => { setTimeout(updateHeroIndicators, 150); resetHeroAutoplay(); });
         sliderContainer.addEventListener('mouseenter', stopHeroAutoplay);
-        sliderContainer.addEventListener('mouseleave', resetHeroAutoplay); // resetHeroAutoplay will sync and start
+        sliderContainer.addEventListener('mouseleave', startHeroAutoplay);
+
 
         updateHeroIndicators(); // Initial call
-        currentHeroAutoplayTargetIndex = getVisualHeroSlideIndex(); // Set initial target
-        window.addEventListener('resize', () => {
-            updateHeroIndicators();
-            resetHeroAutoplay(); // Resync and restart autoplay
-        });
-        window.addEventListener('orientationchange', () => setTimeout(resetHeroAutoplay, 200));
+        window.addEventListener('resize', updateHeroIndicators);
+        window.addEventListener('orientationchange', () => setTimeout(updateHeroIndicators, 200));
         startHeroAutoplay(); // Start autoplay
     }
 
@@ -301,10 +275,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 stopContentAutoplay();
                 if (slides.length <= 1) return;
                 contentAutoplayTimer = setInterval(() => {
-                    const currentIndex = getCurrentSlideIndex();
-                    const nextIndex = (currentIndex + 1) % slides.length;
-                    const targetScrollLeft = getScrollTargetForIndex(nextIndex);
-                    sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                    // Instead of using index-based navigation, move by exactly one item width
+                    const slideWidth = slides[0].offsetWidth;
+                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
+
+                    // Calculate current and max scroll positions
+                    const currentScrollPos = sliderContainer.scrollLeft;
+                    const maxScrollPos = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
+
+                    // Calculate next scroll position (one item forward)
+                    let nextScrollPos = currentScrollPos + slideWidth + gap;
+
+                    // If we're near the end, loop back to the beginning
+                    if (nextScrollPos >= maxScrollPos - 10) {
+                        nextScrollPos = 0;
+                    }
+
+                    // Scroll to the calculated position
+                    sliderContainer.scrollTo({
+                        left: nextScrollPos,
+                        behavior: 'smooth'
+                    });
+
+                    // After scrolling, update UI indicators
+                    setTimeout(updateUI, 500);
                 }, AUTOPLAY_INTERVAL);
             }
 
