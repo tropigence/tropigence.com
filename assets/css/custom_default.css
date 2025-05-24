@@ -523,13 +523,11 @@ li {
         min-width: calc(50% - 0.5em);
     }
     .floating-slider-container {
-        /* Halved desktop/tablet gap: 15px edge + 44px arrow + 5px gap = 64px per side. Total 128px. */
-        width: calc(100% - 128px); /* If previous was calc(100% - 138px) for a 10px gap */
+        /* Further reduced desktop/tablet gap: 15px edge + 44px arrow + 2px gap = 61px per side. Total 122px. */
+        width: calc(100% - 122px);
     }
     .custom-feature-section {
         margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
-        /* Arrow space: 15px edge + 44px arrow + 5px new_gap = 64px per side. Total 128px. */
-        width: calc(100% - 128px);
     }
 
     /* Round image sliders: 1 item */
