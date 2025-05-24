@@ -728,45 +728,53 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 
 
 
-
-/* Text-only square feature style */
+/* Text-only feature style (terms container style) */
 .custom-feature__item.feature-style-text-only,
 .custom-feature__item-2.feature-style-text-only {
     display: flex;
     flex-direction: column;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px;
+    /* Match terms container */
     overflow: hidden;
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
+    background-color: var(--global-background-color);
+    /* Match terms container background */
     margin: 0 auto;
     width: 100%;
-    aspect-ratio: 1 / 1;
     box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
+    /* Exact shadow from terms */
 }
 
 .feature-style-text-only .custom-feature__description-wrapper,
 .feature-style-text-only .custom-feature__description-wrapper-2 {
     padding: 30px;
+    /* Match terms container padding */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    height: 100%;
+    align-items: flex-start;
+    /* Left-aligned like terms */
+    text-align: left;
     box-sizing: border-box;
 }
 
 .feature-style-text-only .custom-feature__description-wrapper h3,
 .feature-style-text-only .custom-feature__description-wrapper-2 h3 {
-    font-size: 1.7em;
+    font-size: 1.5em;
     color: var(--custom-color-1);
-    margin: 0 0 0.8em 0;
+    /* Keep colored header */
+    margin: 0 0 20px 0;
+    /* Match terms h1 margin */
+    width: 100%;
+    text-align: center;
+    /* Center the header like terms */
 }
 
 .feature-style-text-only .custom-feature__description-wrapper p,
 .feature-style-text-only .custom-feature__description-wrapper-2 p {
-    font-size: 1.1em;
-    margin: 0;
+    font-size: 1em;
+    margin: 0 0 15px 0;
+    /* Match terms paragraph margin */
+    line-height: 1.8em;
 }
 
 /* Slider container specific styles */
@@ -779,14 +787,10 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 /* Small tablet styles (480px+) */
 @media (min-width: 480px) {
 
-    .feature-style-text-only .custom-feature__description-wrapper,
-    .feature-style-text-only .custom-feature__description-wrapper-2 {
-        padding: 35px;
-    }
-
-    .feature-style-text-only .custom-feature__description-wrapper h3,
-    .feature-style-text-only .custom-feature__description-wrapper-2 h3 {
-        font-size: 1.8em;
+    .floating-slider-container>.custom-feature__item.feature-style-text-only,
+    .floating-slider-container>.custom-feature__item-2.feature-style-text-only {
+        flex: 0 0 calc(100% - 2em);
+        min-width: calc(100% - 2em);
     }
 }
 
@@ -799,7 +803,8 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 
     .feature-style-text-only .custom-feature__description-wrapper,
     .feature-style-text-only .custom-feature__description-wrapper-2 {
-        padding: 40px;
+        padding: 30px;
+        /* Keep consistent with terms */
     }
 }
 
@@ -809,29 +814,27 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
         flex: 0 0 33.33%;
         min-width: 33.33%;
     }
-
-    .feature-style-text-only .custom-feature__description-wrapper,
-    .feature-style-text-only .custom-feature__description-wrapper-2 {
-        padding: 45px;
-    }
 }
 
-/* Larger screens */
-@media (min-width: 2040px) {
+/* Mobile view adjustment */
+@media (max-width: 768px) {
 
     .feature-style-text-only .custom-feature__description-wrapper,
     .feature-style-text-only .custom-feature__description-wrapper-2 {
-        padding: 50px;
+        padding: 15px;
+        /* Match terms mobile padding */
     }
 }
 
 /* Dark mode styles */
 html[data-theme="dark"] .custom-feature__item.feature-style-text-only,
 html[data-theme="dark"] .custom-feature__item-2.feature-style-text-only {
-    background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
+    background-color: var(--global-background-color);
+    /* Match terms container in dark mode */
 }
 
 html[data-theme="dark"] .feature-style-text-only .custom-feature__description-wrapper h3,
 html[data-theme="dark"] .feature-style-text-only .custom-feature__description-wrapper-2 h3 {
     color: var(--custom-color-2);
+    /* Keep colored header in dark mode */
 }
