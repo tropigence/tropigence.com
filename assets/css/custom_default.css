@@ -13,7 +13,7 @@ li {
     width: 100%;
     height: 75vh;
     overflow: hidden;
-    margin-bottom: 5em;
+    margin-bottom: 3em;
     position: relative;
 }
 
@@ -175,8 +175,10 @@ li {
 }
 
 .custom-feature-section {
-    margin: 1px auto 0.5em auto; /* Top margin set to 1px (mobile arrow-to-slider gap) */
-    padding: 0 1em 1em; /* Adjusted: top padding 0, L/R 1em, bottom 1em */
+    margin: 1px auto 0.5em auto;
+    /* Top margin set to 1px (mobile arrow-to-slider gap) */
+    padding: 0 1em 1em;
+    /* Adjusted: top padding 0, L/R 1em, bottom 1em */
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -311,14 +313,16 @@ li {
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
-    margin: 0 auto 1em; /* Adjusted: top margin 0, L/R auto, bottom 1em */
+    margin: 0 auto 1em;
+    /* Adjusted: top margin 0, L/R auto, bottom 1em */
     position: relative;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 0; /* No internal padding for the scroll container itself */
+    padding: 0;
+    /* No internal padding for the scroll container itself */
     width: calc(100% - 30px);
 }
 
@@ -337,8 +341,8 @@ li {
 }
 
 /* Update the negative margins to compensate for increased padding */
-.floating-slider-container.round-images > .custom-feature__item,
-.floating-slider-container.round-images > .custom-feature__item-2 {
+.floating-slider-container.round-images>.custom-feature__item,
+.floating-slider-container.round-images>.custom-feature__item-2 {
     margin: 0 -10px;
     width: calc(100% + 20px);
 }
@@ -349,7 +353,8 @@ li {
 
 .floating-slider-container>.custom-feature__item,
 .floating-slider-container>.custom-feature__item-2 {
-    flex: 0 0 100%; /* Default to 1 item, full width */
+    flex: 0 0 100%;
+    /* Default to 1 item, full width */
     min-width: 100%;
     scroll-snap-align: center;
     transition: transform 0.3s ease;
@@ -364,6 +369,7 @@ li {
 
 /* Tablet and desktop adjustments */
 @media (min-width: 480px) {
+
     .floating-slider-container,
     .floating-slider-container.round-images {
         width: calc(100% - 44px);
@@ -371,6 +377,7 @@ li {
 }
 
 @media (min-width: 768px) {
+
     .floating-slider-container,
     .floating-slider-container.round-images {
         width: calc(100% - 87px);
@@ -382,12 +389,14 @@ li {
 .slider-indicators,
 .hero-slider-indicators {
     position: absolute;
-    bottom: 10px; /* Increased gap to slider by moving indicators further down */
+    bottom: 10px;
+    /* Increased gap to slider by moving indicators further down */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    z-index: 10; /* Ensure indicators are above arrows */
+    z-index: 10;
+    /* Ensure indicators are above arrows */
 }
 
 .slider-indicators .indicator,
@@ -412,6 +421,7 @@ li {
     /* Hero styling */
     .hero-image-container {
         height: 90vh;
+        margin-bottom: 5em
     }
 
     .hero-text-overlay,
@@ -552,33 +562,40 @@ li {
     }
 
     /* Slider item widths for 2 items (non-round) */
-    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item,
-    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item-2,
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item, /* has-3-items shows 2 items here */
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
+    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
+    /* has-3-items shows 2 items here */
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        /* 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
     }
+
     .floating-slider-container {
         /* Recalculated: 7.5px edge + 44px arrow + 2px gap = 53.5px per side (107px total) */
         width: calc(100% - 87px);
     }
+
     .custom-feature-section {
-        margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
+        margin-top: 5px;
+        /* Top margin set to 5px (desktop arrow-to-slider gap) */
     }
 
     /* Round image sliders: 1 item */
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
-        flex: 0 0 100%; /* 1 item */
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 100%;
+        /* 1 item */
         min-width: 100%;
     }
 }
 
 /* Desktop styles (1024px+) */
 @media (min-width: 1024px) {
+
     /* Section and image sizing */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 320px;
@@ -610,27 +627,32 @@ li {
 
     /* Slider item widths */
     /* Sliders with 2 items (non-round) */
-    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item,
-    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
+    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        /* 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
     }
+
     /* Sliders with 3 items (non-round) */
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
-        flex: 0 0 calc(100%/3 - 2em/3); /* 3 items with 1em gap */
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(100%/3 - 2em/3);
+        /* 3 items with 1em gap */
         min-width: calc(100%/3 - 2em/3);
     }
 }
 
 /* Desktop large styles (1440px+) */
 @media (min-width: 1440px) {
+
     /* Round image sliders with 2 or 3 items show max 2 items */
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        /* 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
     }
 }
@@ -686,23 +708,26 @@ li {
     }
 
     /* Round image sliders with 2 items show 2 items */
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
     .floating-slider-container.round-images.has-2-items>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* 2 items */
+        flex: 0 0 calc(50% - 0.5em);
+        /* 2 items */
         min-width: calc(50% - 0.5em);
     }
 
     /* Round image sliders with 3 items also show max 2 items */
     .floating-slider-container.round-images.has-3-items>.custom-feature__item,
     .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* Max 2 items with 1em gap */
+        flex: 0 0 calc(50% - 0.5em);
+        /* Max 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
     }
 
     /* Non-round sliders can still show 3 items */
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
-        flex: 0 0 calc(100%/3 - 2em/3); /* 3 items for non-round */
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(100%/3 - 2em/3);
+        /* 3 items for non-round */
         min-width: calc(100%/3 - 2em/3);
     }
 }
@@ -785,14 +810,19 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
     top: 50%;
     transform: translateY(-50%);
     z-index: 5;
-    background: transparent; /* Transparent background */
-    border: none; /* No button border */
-    width: 44px; /* Clickable area width */
-    height: 44px; /* Clickable area height */
+    background: transparent;
+    /* Transparent background */
+    border: none;
+    /* No button border */
+    width: 44px;
+    /* Clickable area width */
+    height: 44px;
+    /* Clickable area height */
     cursor: pointer;
     padding: 0;
     margin: 0;
-    display: flex; /* For centering the ::before element */
+    display: flex;
+    /* For centering the ::before element */
     align-items: center;
     justify-content: center;
 }
@@ -807,29 +837,36 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-prev {
-    left: 7.5px; /* Original position from edge */
+    left: 7.5px;
+    /* Original position from edge */
 }
+
 .slider-arrow-prev::before {
     /* Arrow pointing left: height 20px, width 12px */
     border-width: 10px 12px 10px 0;
     border-color: transparent var(--global-text-color) transparent transparent;
-    margin-left: -3px; /* Fine-tune position if needed */
+    margin-left: -3px;
+    /* Fine-tune position if needed */
 }
 
 .slider-arrow-next {
-    right: 7.5px; /* Original position from edge */
+    right: 7.5px;
+    /* Original position from edge */
 }
+
 .slider-arrow-next::before {
     /* Arrow pointing right: height 20px, width 12px */
     border-width: 10px 0 10px 12px;
     border-color: transparent transparent transparent var(--global-text-color);
-    margin-right: -3px; /* Fine-tune position if needed */
+    margin-right: -3px;
+    /* Fine-tune position if needed */
 }
 
 /* Hover states for arrow shape */
 .slider-arrow-prev:hover::before {
     border-color: transparent var(--custom-color-1) transparent transparent;
 }
+
 .slider-arrow-next:hover::before {
     border-color: transparent transparent transparent var(--custom-color-1);
 }
@@ -837,6 +874,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 html[data-theme="dark"] .slider-arrow-prev:hover::before {
     border-color: transparent var(--custom-color-2) transparent transparent;
 }
+
 html[data-theme="dark"] .slider-arrow-next:hover::before {
     border-color: transparent transparent transparent var(--custom-color-2);
 }
@@ -844,14 +882,29 @@ html[data-theme="dark"] .slider-arrow-next:hover::before {
 /* Mobile specific adjustments for arrows */
 @media (max-width: 767px) {
     .slider-arrow {
-        width: 36px; /* Smaller clickable area */
+        width: 36px;
+        /* Smaller clickable area */
         height: 36px;
     }
-    .slider-arrow-prev { left: 2.25px; }
-    .slider-arrow-next { right: 2.25px; }
 
-    .slider-arrow-prev::before { border-width: 8px 10px 8px 0; } /* Smaller arrow shape */
-    .slider-arrow-next::before { border-width: 8px 0 8px 10px; } /* Smaller arrow shape */
+    .slider-arrow-prev {
+        left: 2.25px;
+    }
+
+    .slider-arrow-next {
+        right: 2.25px;
+    }
+
+    .slider-arrow-prev::before {
+        border-width: 8px 10px 8px 0;
+    }
+
+    /* Smaller arrow shape */
+    .slider-arrow-next::before {
+        border-width: 8px 0 8px 10px;
+    }
+
+    /* Smaller arrow shape */
 }
 
 
