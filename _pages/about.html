@@ -22,41 +22,60 @@ redirect_from:
 
 <div class="hero-image-container">
     <img src="/images/cover_team.png" alt="Our Team">
-    <div class="hero-slider-container floating-slider-container">
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-hero"
-            header_text="Transforming Tropical Horticulture Through Advanced Research"
-            paragraph_text="We are a team of highly innovative researchers, each bringing specialized knowledge and a shared passion for advancing tropical agriculture. Our collective expertise spans the critical domains of food technology, material science, and quantitative genetics."
-            button_href="#meet-the-team"
-            button_text="Meet the Team"
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-hero"
-            header_text="Vision"
-            paragraph_text="To become a leading private research hub in developing innovative solutions for horticultural exports in Nigeria, thereby promoting food and nutrition security."
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-hero"
-            header_text="Mission"
-            paragraph_text="To research and develop innovative genetic breeding, cool chain, and packaging solutions that will position Nigerian horticultural produce to attract premium prices in the global horticultural export market."
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-hero"
-            header_text="Core Values"
-            paragraph_text="Integrity, Innovation, Collaboration, Excellence, and Sustainability."
-        %}
+    <div class="hero-slider-container">
+        <div class="feature-style-hero">
+            <div class="custom-feature__description-wrapper">
+                <h3>
+                    Transforming Tropical Horticulture Through Advanced Research
+                </h3>
+                <p>
+                    We are a team of highly innovative researchers, each
+                    bringing specialized knowledge and a shared passion for
+                    advancing tropical agriculture. Our collective expertise
+                    spans the critical domains of food technology, material
+                    science, and quantitative genetics.
+                </p>
+                <a href="#meet-the-team" class="btn btn--primary"
+                    >Meet the Team</a
+                >
+            </div>
+        </div>
+        <div class="feature-style-hero">
+            <div class="custom-feature__description-wrapper">
+                <h3>Vision</h3>
+                <p>
+                    To become a leading private research hub in developing
+                    innovative solutions for horticultural exports in Nigeria,
+                    thereby promoting food and nutrition security.
+                </p>
+            </div>
+        </div>
+        <div class="feature-style-hero">
+            <div class="custom-feature__description-wrapper">
+                <h3>Mission</h3>
+                <p>
+                    To research and develop innovative genetic breeding, cool
+                    chain, and packaging solutions that will position Nigerian
+                    horticultural produce to attract premium prices in the
+                    global horticultural export market.
+                </p>
+            </div>
+        </div>
+        <div class="feature-style-hero">
+            <div class="custom-feature__description-wrapper">
+                <h3>Core Values</h3>
+                <p>
+                    Integrity, Innovation, Collaboration, Excellence, and
+                    Sustainability.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-slider-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
     </div>
 </div>
 
