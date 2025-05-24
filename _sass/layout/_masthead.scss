@@ -80,39 +80,6 @@
 
 
 // Site log styling ============================================================
-// Old site logo styling
-// .site-logo {
-//     max-height: 30px; // Default sizing for larger screens
-//     width: auto;
-//     vertical-align: middle;
-//     display: inline-block;
-
-//     // For screens smaller than medium
-//     @include breakpoint(max-width $medium) {
-//         max-height: 25px;
-//     }
-// }
-
-// .site-logo--light {
-//     display: inline-block;
-// }
-
-// .site-logo--dark {
-//     display: none;
-// }
-
-// // When dark theme is active: Hide light logo, show dark logo
-// html[data-theme="dark"] .site-logo--light {
-//     display: none;
-// }
-
-// html[data-theme="dark"] .site-logo--dark {
-//     display: inline-block;
-// }
-
-
-// New site logo styling
-
 .site-logo {
     max-height: 30px; // Default sizing for larger screens
     height: 30px; // Set explicit height
