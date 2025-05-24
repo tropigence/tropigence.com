@@ -375,7 +375,7 @@ li {
 /* Update the negative margins to compensate for increased padding */
 .floating-slider-container.round-images>.custom-feature__item,
 .floating-slider-container.round-images>.custom-feature__item-2 {
-    margin: 0 -10px;
+    /* margin: 0 -10px; */
     width: calc(100% + 20px);
 }
 
