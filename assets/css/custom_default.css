@@ -811,3 +811,17 @@ html[data-theme="dark"] .slider-arrow-next:hover::before {
     .slider-arrow-prev::before { border-width: 8px 10px 8px 0; } /* Smaller arrow shape */
     .slider-arrow-next::before { border-width: 8px 0 8px 10px; } /* Smaller arrow shape */
 }
+
+
+/* Box shadow for round image features in sliders */
+.floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
+.floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
+    /* Background remains transparent, we're just adding the shadow */
+}
+
+/* Darker shadow for dark mode for better visibility */
+html[data-theme="dark"] .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
+html[data-theme="dark"] .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5);
+}
