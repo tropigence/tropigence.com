@@ -128,7 +128,6 @@
     @include breakpoint(max-width $medium) {
         max-height: 25px;
         height: 25px; // Set explicit height for mobile
-        min-width: 100px; // Adjust based on your logo's aspect ratio
     }
 }
 
