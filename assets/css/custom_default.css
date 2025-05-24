@@ -171,7 +171,7 @@ li {
     margin: 2em auto 0 auto;
     padding: 0;
     font-size: 1.25em;
-    color: var(--custom-color-1)
+    color: var(--global-text-color)
 }
 
 .custom-feature-section {
@@ -318,7 +318,8 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 0; /* Removed peek padding */
+    padding: 0;
+    width: calc(100% - 92px); /* Make space for arrows (46px each side on mobile) */
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -521,6 +522,10 @@ li {
         flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
     }
+    .floating-slider-container {
+        /* Arrow space: 15px edge + 44px arrow + 10px slider_spacing = 69px per side */
+        width: calc(100% - 138px);
+    }
 
     /* Round image sliders: 1 item */
     .floating-slider-container.round-images.has-2-items > .custom-feature__item,
@@ -664,10 +669,6 @@ li {
 }
 
 /* ===== SECTION: Dark Mode Styles ===== */
-html[data-theme="dark"] .custom-section-header {
-    color: var(--custom-color-2);
-}
-
 html[data-theme="dark"] .custom-feature__item,
 html[data-theme="dark"] .custom-feature__item-2 {
     background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
@@ -734,36 +735,71 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 5; /* Below indicators (z-index: 10) */
-    background: transparent;
-    color: var(--global-text-color);
-    border: 1px solid transparent; /* Can make border visible if desired: var(--global-text-color) */
-    border-radius: 50%;
-    width: 44px; /* Slightly larger for touch targets */
-    height: 44px;
-    font-size: 24px; /* Size for '>' or '<' characters or icons */
-    line-height: 42px; /* Adjust for border and vertical centering */
-    text-align: center;
+    z-index: 5;
+    background: transparent; /* Transparent background */
+    border: none; /* No button border */
+    width: 44px; /* Clickable area width */
+    height: 44px; /* Clickable area height */
     cursor: pointer;
-    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
     padding: 0;
-    box-sizing: border-box;
+    display: flex; /* For centering the ::before element */
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: border-color 0.3s ease;
 }
 
 .slider-arrow-prev {
-    left: 10px; /* Adjust spacing from edge */
+    left: 15px; /* Spacing from edge of .custom-feature-section */
+}
+.slider-arrow-prev::before {
+    /* Arrow pointing left: height 20px, width 12px */
+    border-width: 10px 12px 10px 0;
+    border-color: transparent var(--global-text-color) transparent transparent;
+    margin-left: -3px; /* Fine-tune position if needed */
 }
 
 .slider-arrow-next {
-    right: 10px; /* Adjust spacing from edge */
+    right: 15px; /* Spacing from edge of .custom-feature-section */
+}
+.slider-arrow-next::before {
+    /* Arrow pointing right: height 20px, width 12px */
+    border-width: 10px 0 10px 12px;
+    border-color: transparent transparent transparent var(--global-text-color);
+    margin-right: -3px; /* Fine-tune position if needed */
 }
 
-.slider-arrow:hover {
-    color: var(--custom-color-1);
-    /* background-color: rgba(var(--custom-color-1-r), var(--custom-color-1-g), var(--custom-color-1-b), 0.1); Optional: subtle bg */
+/* Hover states for arrow shape */
+.slider-arrow-prev:hover::before {
+    border-color: transparent var(--custom-color-1) transparent transparent;
+}
+.slider-arrow-next:hover::before {
+    border-color: transparent transparent transparent var(--custom-color-1);
 }
 
-html[data-theme="dark"] .slider-arrow:hover {
-    color: var(--custom-color-2);
-    /* background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1); Optional: subtle bg */
+html[data-theme="dark"] .slider-arrow-prev:hover::before {
+    border-color: transparent var(--custom-color-2) transparent transparent;
+}
+html[data-theme="dark"] .slider-arrow-next:hover::before {
+    border-color: transparent transparent transparent var(--custom-color-2);
+}
+
+/* Mobile specific adjustments for arrows */
+@media (max-width: 767px) {
+    .slider-arrow {
+        width: 36px; /* Smaller clickable area */
+        height: 36px;
+    }
+    .slider-arrow-prev { left: 5px; }
+    .slider-arrow-next { right: 5px; }
+
+    .slider-arrow-prev::before { border-width: 8px 10px 8px 0; } /* Smaller arrow shape */
+    .slider-arrow-next::before { border-width: 8px 0 8px 10px; } /* Smaller arrow shape */
 }
