@@ -319,7 +319,7 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0; /* No internal padding for the scroll container itself */
-    width: calc(100% - 84px); /* Halved mobile gap: 5px edge + 36px arrow + 1px gap = 42px per side */
+    width: calc(100% - 79px);
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -523,8 +523,11 @@ li {
         min-width: calc(50% - 0.5em);
     }
     .floating-slider-container {
-        /* Further reduced desktop/tablet gap: 15px edge + 44px arrow + 2px gap = 61px per side. Total 122px. */
-        width: calc(100% - 122px);
+        /* Recalculated: 7.5px edge + 44px arrow + 2px gap = 53.5px per side (107px total) */
+        width: calc(100% - 107px);
+    }
+    .floating-slider-container.round-images {
+        width: calc(100% - 107px - 20px);
     }
     .custom-feature-section {
         margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
@@ -766,7 +769,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-prev {
-    left: 15px; /* Spacing from edge of .custom-feature-section */
+    left: 7.5px; /* Spacing from edge of .custom-feature-section */
 }
 .slider-arrow-prev::before {
     /* Arrow pointing left: height 20px, width 12px */
@@ -776,7 +779,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-next {
-    right: 15px; /* Spacing from edge of .custom-feature-section */
+    right: 7.5px; /* Spacing from edge of .custom-feature-section */
 }
 .slider-arrow-next::before {
     /* Arrow pointing right: height 20px, width 12px */
@@ -806,8 +809,8 @@ html[data-theme="dark"] .slider-arrow-next:hover::before {
         width: 36px; /* Smaller clickable area */
         height: 36px;
     }
-    .slider-arrow-prev { left: 5px; }
-    .slider-arrow-next { right: 5px; }
+    .slider-arrow-prev { left: 2.25px; }
+    .slider-arrow-next { right: 2.25px; }
 
     .slider-arrow-prev::before { border-width: 8px 10px 8px 0; } /* Smaller arrow shape */
     .slider-arrow-next::before { border-width: 8px 0 8px 10px; } /* Smaller arrow shape */
@@ -832,12 +835,4 @@ html[data-theme="dark"] .floating-slider-container .custom-feature__item-2.custo
     padding: 10px;
     box-sizing: border-box;
     /* Ensure padding doesn't increase overall width */
-}
-
-/* Adjust width calculation to account for padding */
-@media (min-width: 768px) {
-    .floating-slider-container.round-images {
-        width: calc(100% - 122px - 20px);
-        /* Original width calc minus padding (10px × 2) */
-    }
 }
