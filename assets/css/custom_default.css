@@ -176,7 +176,7 @@ li {
 
 .custom-feature-section {
     margin: 1px auto 0.5em auto; /* Top margin set to 1px (mobile arrow-to-slider gap) */
-    padding: 1em;
+    padding: 0 1em 1em; /* Adjusted: top padding 0, L/R 1em, bottom 1em */
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -311,7 +311,7 @@ li {
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
-    margin: 1em auto;
+    margin: 0 auto 1em; /* Adjusted: top margin 0, L/R auto, bottom 1em */
     position: relative;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
