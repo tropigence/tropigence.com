@@ -726,8 +726,6 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 
 
 
-
-
 /* Text-only feature style (terms container style) */
 .custom-feature__item.feature-style-text-only,
 .custom-feature__item-2.feature-style-text-only {
@@ -751,10 +749,15 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
     /* Match terms container padding */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* Left-aligned like terms */
-    text-align: left;
+    align-items: center;
+    /* Center-aligned content */
+    text-align: center;
+    /* Center-aligned text */
     box-sizing: border-box;
+    height: 100%;
+    /* Take full height */
+    justify-content: center;
+    /* Vertically center content */
 }
 
 .feature-style-text-only .custom-feature__description-wrapper h3,
@@ -766,7 +769,7 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
     /* Match terms h1 margin */
     width: 100%;
     text-align: center;
-    /* Center the header like terms */
+    /* Center the header */
 }
 
 .feature-style-text-only .custom-feature__description-wrapper p,
@@ -775,13 +778,28 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
     margin: 0 0 15px 0;
     /* Match terms paragraph margin */
     line-height: 1.8em;
+    text-align: center;
+    /* Center paragraphs */
 }
 
-/* Slider container specific styles */
+.feature-style-text-only .custom-feature__description-wrapper p:last-child,
+.feature-style-text-only .custom-feature__description-wrapper-2 p:last-child {
+    margin-bottom: 0;
+    /* Remove margin from last paragraph */
+}
+
+/* Ensure all items in a row have equal height */
+.floating-slider-container {
+    align-items: stretch;
+}
+
+/* Slider container specific styles with fixed proportions */
 .floating-slider-container>.custom-feature__item.feature-style-text-only,
 .floating-slider-container>.custom-feature__item-2.feature-style-text-only {
     flex: 0 0 100%;
     min-width: 100%;
+    height: auto;
+    /* Let content determine height */
 }
 
 /* Small tablet styles (480px+) */
