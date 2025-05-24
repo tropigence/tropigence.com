@@ -3,5 +3,92 @@ layout: custom_default
 title: "Contact"
 permalink: /contact/
 author_profile: false
-redirect_to: /coming-soon/
+{% comment %} redirect_to: /coming-soon/ {% endcomment %}
 ---
+<style>
+    /* Add to your site's CSS */
+    .contact-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .contact-form {
+        margin-top: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    .submit-btn {
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: #0052a3;
+    }
+</style>
+
+<section class="contact-section">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Feel free to reach out with any questions or inquiries.</p>
+
+        <form
+            action="https://formspree.io/f/example@gmail.com"
+            method="POST"
+            class="contact-form"
+        >
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</section>
