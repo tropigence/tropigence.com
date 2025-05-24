@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const AUTOPLAY_INTERVAL = 5000; // Autoplay scrolls every 5 seconds
+
     // Function to toggle theme
     function initThemeToggle() {
         const themeToggleButton = document.getElementById('theme-toggle');
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const sliderContainer = document.querySelector('.hero-slider-container');
         if (!sliderContainer) return;
 
+        let heroAutoplayTimer = null;
         const slides = Array.from(sliderContainer.children).filter(child => child.matches('.feature-style-hero'));
         if (slides.length <= 1) return; // No indicators needed for 0 or 1 slide
 
@@ -80,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     left: slides[index].offsetLeft,
                     behavior: 'smooth'
                 });
+                resetHeroAutoplay(); // Reset autoplay on manual interaction
             });
             indicatorsContainer.appendChild(indicator);
         });
@@ -107,14 +111,49 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        function startHeroAutoplay() {
+            stopHeroAutoplay(); // Clear existing timer before starting a new one
+            if (slides.length <= 1) return; // No autoplay for single or no slides
+            heroAutoplayTimer = setInterval(() => {
+                const currentIndex = getCurrentHeroSlideIndex();
+                const nextIndex = (currentIndex + 1) % slides.length;
+                sliderContainer.scrollTo({
+                    left: slides[nextIndex].offsetLeft,
+                    behavior: 'smooth'
+                });
+            }, AUTOPLAY_INTERVAL);
+        }
+
+        function stopHeroAutoplay() {
+            if (heroAutoplayTimer) {
+                clearInterval(heroAutoplayTimer);
+                heroAutoplayTimer = null;
+            }
+        }
+
+        function resetHeroAutoplay() {
+            stopHeroAutoplay();
+            startHeroAutoplay();
+        }
+
+        function getCurrentHeroSlideIndex() { // Helper to get current slide index for autoplay
+            const scrollLeft = sliderContainer.scrollLeft;
+            const slideWidth = slides[0] ? slides[0].offsetWidth : sliderContainer.offsetWidth;
+            if (slideWidth === 0) return 0;
+            return Math.round(scrollLeft / slideWidth);
+        }
+
         sliderContainer.addEventListener('scroll', updateHeroIndicators, { passive: true });
-        sliderContainer.addEventListener('touchend', () => setTimeout(updateHeroIndicators, 150), { passive: true });
-        sliderContainer.addEventListener('mouseup', () => setTimeout(updateHeroIndicators, 150));
+        sliderContainer.addEventListener('touchend', () => { setTimeout(updateHeroIndicators, 150); resetHeroAutoplay(); }, { passive: true });
+        sliderContainer.addEventListener('mouseup', () => { setTimeout(updateHeroIndicators, 150); resetHeroAutoplay(); });
+        sliderContainer.addEventListener('mouseenter', stopHeroAutoplay);
+        sliderContainer.addEventListener('mouseleave', startHeroAutoplay);
 
 
         updateHeroIndicators(); // Initial call
         window.addEventListener('resize', updateHeroIndicators);
         window.addEventListener('orientationchange', () => setTimeout(updateHeroIndicators, 200));
+        startHeroAutoplay(); // Start autoplay
     }
 
 
@@ -126,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const sliderContainer = section.querySelector('.floating-slider-container');
             if (!sliderContainer) return;
 
+            let contentAutoplayTimer = null;
             const slides = Array.from(sliderContainer.children).filter(child =>
                 child.matches('.custom-feature__item, .custom-feature__item-2')
             );
@@ -212,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         left: targetScrollLeft,
                         behavior: 'smooth'
                     });
+                    resetContentAutoplay();
                 });
             });
 
@@ -222,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (currentIndex === targetIndex && currentIndex === 0) return;
                     const targetScrollLeft = getScrollTargetForIndex(targetIndex);
                     sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                    resetContentAutoplay();
                 });
             }
 
@@ -232,31 +274,56 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (currentIndex === targetIndex && currentIndex === slides.length - 1) return;
                     const targetScrollLeft = getScrollTargetForIndex(targetIndex);
                     sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                    resetContentAutoplay();
                 });
             }
 
+            function startContentAutoplay() {
+                stopContentAutoplay();
+                if (slides.length <= 1) return;
+                contentAutoplayTimer = setInterval(() => {
+                    const currentIndex = getCurrentSlideIndex();
+                    const nextIndex = (currentIndex + 1) % slides.length;
+                    const targetScrollLeft = getScrollTargetForIndex(nextIndex);
+                    sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                }, AUTOPLAY_INTERVAL);
+            }
+
+            function stopContentAutoplay() {
+                if (contentAutoplayTimer) {
+                    clearInterval(contentAutoplayTimer);
+                    contentAutoplayTimer = null;
+                }
+            }
+
+            function resetContentAutoplay() {
+                stopContentAutoplay();
+                startContentAutoplay();
+            }
+
+            // Event listeners for interaction
             sliderContainer.addEventListener('scroll', updateUI, { passive: true });
-            sliderContainer.addEventListener('touchend', () => setTimeout(updateUI, 150), { passive: true });
+            sliderContainer.addEventListener('touchend', () => { setTimeout(updateUI, 150); resetContentAutoplay(); }, { passive: true });
 
             let isDragging = false;
             sliderContainer.addEventListener('mousedown', () => { isDragging = true; });
             document.addEventListener('mouseup', () => {
                 if (isDragging) {
-                    setTimeout(updateUI, 150); // Update UI after drag scroll ends
+                    setTimeout(updateUI, 150);
+                    resetContentAutoplay(); // Reset autoplay after drag
                 }
                 isDragging = false;
             }, { capture: true }); // Use capture to catch mouseup even if outside slider
-            sliderContainer.addEventListener('mouseleave', () => {
-                if (isDragging) { // If mouse leaves while dragging
-                     // Consider if UI update is needed here or rely on mouseup
-                }
-            });
+
+            sliderContainer.addEventListener('mouseenter', stopContentAutoplay);
+            sliderContainer.addEventListener('mouseleave', startContentAutoplay);
 
 
             updateUI();
             window.addEventListener('load', updateUI);
             window.addEventListener('resize', updateUI);
             window.addEventListener('orientationchange', () => setTimeout(updateUI, 200));
+            startContentAutoplay(); // Start autoplay for this content slider
         });
     }
 
