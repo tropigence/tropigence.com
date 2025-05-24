@@ -80,7 +80,14 @@ li {
     /* Matches paragraph size by default */
 }
 
-/* Feature section styling */
+/* Feature section styling ================================================== */
+.custom-section-header {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    color: var(--custom-color-1)
+}
+
 .custom-feature-section {
     margin: 0.5em auto;
     padding: 1em;
@@ -628,6 +635,10 @@ li {
 }
 
 /* Dark mode styles */
+html[data-theme="dark"] .custom-section-header {
+    color: var(--custom-color-2);
+}
+
 html[data-theme="dark"] .custom-feature__item {
     background-color: rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.5);
 }
