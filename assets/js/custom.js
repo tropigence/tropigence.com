@@ -209,9 +209,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
             function getScrollTargetForIndex(index) {
                 if (!slides[index]) return sliderContainer.scrollLeft;
-                const targetSlide = slides[index];
-                // Simply return the offsetLeft of the target slide
-                return targetSlide.offsetLeft;
+
+                // For autoplay and arrow navigation - we want to move just one item at a time
+                const currentIndex = getCurrentSlideIndex();
+
+                // If we're moving forward by one position (typical for autoplay and next button)
+                if (index === (currentIndex + 1) % slides.length) {
+                    // Calculate the width of a single slide (including its share of the gap)
+                    const slideWidth = slides[0].offsetWidth;
+                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
+
+                    // Move exactly one slide forward (width + gap)
+                    return sliderContainer.scrollLeft + slideWidth + gap;
+                }
+                // If we're moving backward by one position (typical for prev button)
+                else if (index === (currentIndex - 1 + slides.length) % slides.length) {
+                    // Calculate the width of a single slide (including its share of the gap)
+                    const slideWidth = slides[0].offsetWidth;
+                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
+
+                    // Move exactly one slide backward (width + gap)
+                    return sliderContainer.scrollLeft - (slideWidth + gap);
+                }
+
+                // For direct jumps via indicators, use the exact slide position
+                return slides[index].offsetLeft;
             }
 
             function getCurrentSlideIndex() {
