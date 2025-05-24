@@ -334,8 +334,8 @@ li {
 /* Update the negative margins to compensate for increased padding */
 .floating-slider-container.round-images > .custom-feature__item,
 .floating-slider-container.round-images > .custom-feature__item-2 {
-    margin: 0 -15px; /* Increased from -10px to -15px */
-    width: calc(100% + 30px); /* Increased from +20px to +30px */
+    margin: 0 -10px;
+    width: calc(100% + 20px);
 }
 
 /* Make the slider items fill the container despite the padding */
@@ -917,11 +917,4 @@ html[data-theme="dark"] .slider-arrow-next:hover::before {
 html[data-theme="dark"] .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
 html[data-theme="dark"] .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
     box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5);
-}
-
-/* Add padding to sliders with round images to make shadows fully visible */
-.floating-slider-container.round-images {
-    padding: 15px;
-    box-sizing: border-box;
-    /* Ensure padding doesn't increase overall width */
 }
