@@ -168,7 +168,7 @@ li {
 /* ===== SECTION: Feature Cards and Sections ===== */
 .custom-section-header {
     text-align: center;
-    margin: 2em auto 0 auto;
+    margin: 3em auto 0 auto;
     padding: 0;
     font-size: 1.25em;
     color: var(--global-text-color)
@@ -319,7 +319,7 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0; /* No internal padding for the scroll container itself */
-    width: calc(100% - 84px); /* Space for arrows: 5px edge + 36px arrow + 1px gap = 42px per side */
+    width: calc(100% - 84px); /* Halved mobile gap: 5px edge + 36px arrow + 1px gap = 42px per side */
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -523,8 +523,8 @@ li {
         min-width: calc(50% - 0.5em);
     }
     .floating-slider-container {
-        /* Arrow space: 15px edge + 44px arrow + 5px new_gap = 64px per side. Total 128px. */
-        width: calc(100% - 128px);
+        /* Halved desktop/tablet gap: 15px edge + 44px arrow + 5px gap = 64px per side. Total 128px. */
+        width: calc(100% - 128px); /* If previous was calc(100% - 138px) for a 10px gap */
     }
     .custom-feature-section {
         margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
