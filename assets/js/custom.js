@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
         sliderContainer.addEventListener('scroll', updateHeroIndicators, { passive: true });
         sliderContainer.addEventListener('touchend', () => { setTimeout(updateHeroIndicators, 150); resetHeroAutoplay(); }, { passive: true });
         sliderContainer.addEventListener('mouseup', () => { setTimeout(updateHeroIndicators, 150); resetHeroAutoplay(); });
-        sliderContainer.addEventListener('mouseenter', stopHeroAutoplay);
+        // sliderContainer.addEventListener('mouseenter', stopHeroAutoplay);
         sliderContainer.addEventListener('mouseleave', startHeroAutoplay);
 
         updateHeroIndicators(); // Initial call
