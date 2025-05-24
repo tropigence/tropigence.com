@@ -324,9 +324,9 @@ li {
 
 /* Adjust round image sliders with consistent padding on all sides */
 .floating-slider-container.round-images {
-    padding: 15px; /* Increased from 10px to 15px on all sides */
+    padding: 15px;
     box-sizing: border-box;
-    width: calc(100% - 30px); /* Base width same as box sliders */
+    width: calc(100% - 30px);
     margin-left: auto;
     margin-right: auto;
 }
@@ -336,13 +336,6 @@ li {
 .floating-slider-container.round-images > .custom-feature__item-2 {
     margin: 0 -10px;
     width: calc(100% + 20px);
-}
-
-/* Make the slider items fill the container despite the padding */
-.floating-slider-container.round-images > .custom-feature__item,
-.floating-slider-container.round-images > .custom-feature__item-2 {
-    margin: 0 -15px;
-    width: calc(100% + 30px);
 }
 
 .floating-slider-container::-webkit-scrollbar {
