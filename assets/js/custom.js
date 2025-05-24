@@ -210,7 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
             function getScrollTargetForIndex(index) {
                 if (!slides[index]) return sliderContainer.scrollLeft;
                 const targetSlide = slides[index];
-                return targetSlide.offsetLeft + (targetSlide.offsetWidth / 2) - (sliderContainer.offsetWidth / 2);
+                // Simply return the offsetLeft of the target slide
+                return targetSlide.offsetLeft;
             }
 
             function getCurrentSlideIndex() {

@@ -592,7 +592,7 @@ li {
 
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round),
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-rect) {
-        width: 80%;
+        width: 90%;
         max-width: 1440px;
         margin-left: auto;
         margin-right: auto;
