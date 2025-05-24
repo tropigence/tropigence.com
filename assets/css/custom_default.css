@@ -175,7 +175,7 @@ li {
 }
 
 .custom-feature-section {
-    margin: 0.5em auto;
+    margin: 0.25em auto 0.5em auto; /* Reduced top margin by half, kept bottom margin */
     padding: 1em;
     width: 100%;
     box-sizing: border-box;
@@ -318,8 +318,8 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 0;
-    width: calc(100% - 92px); /* Make space for arrows (46px each side on mobile) */
+    padding: 0; /* No internal padding for the scroll container itself */
+    width: calc(100% - 86px); /* Reduced space for arrows: 5px edge + 36px arrow + 2px gap = 43px per side */
 }
 
 .floating-slider-container::-webkit-scrollbar {
