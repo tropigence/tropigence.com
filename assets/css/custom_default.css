@@ -322,22 +322,27 @@ li {
     width: calc(100% - 30px);
 }
 
-/* Adjust round image sliders to match the gap of box image sliders */
+/* Adjust round image sliders with consistent padding on all sides */
 .floating-slider-container.round-images {
-    padding: 10px;
+    padding: 15px; /* Increased from 10px to 15px on all sides */
     box-sizing: border-box;
-    /* Don't subtract the padding from width to maintain consistent spacing with nav */
-    width: calc(100% - 30px);
-    /* Add inner negative margins to compensate for padding */
+    width: calc(100% - 30px); /* Base width same as box sliders */
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Update the negative margins to compensate for increased padding */
+.floating-slider-container.round-images > .custom-feature__item,
+.floating-slider-container.round-images > .custom-feature__item-2 {
+    margin: 0 -15px; /* Increased from -10px to -15px */
+    width: calc(100% + 30px); /* Increased from +20px to +30px */
 }
 
 /* Make the slider items fill the container despite the padding */
 .floating-slider-container.round-images > .custom-feature__item,
 .floating-slider-container.round-images > .custom-feature__item-2 {
-    margin: 0 -10px;
-    width: calc(100% + 20px);
+    margin: 0 -15px;
+    width: calc(100% + 30px);
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -360,13 +365,24 @@ li {
 }
 
 /* Tablet and desktop adjustments */
-@media (min-width: 768px) {
-    .floating-slider-container {
-        width: calc(100% - 44px);
-    }
-
+@media (min-width: 480px) {
+    .floating-slider-container,
     .floating-slider-container.round-images {
         width: calc(100% - 44px);
+    }
+}
+
+@media (min-width: 768px) {
+    .floating-slider-container,
+    .floating-slider-container.round-images {
+        width: calc(100% - 87px);
+    }
+}
+
+/* Remove -20px adjustment to make both slider types equal width */
+@media (min-width: 768px) {
+    .floating-slider-container.round-images {
+        width: calc(100% - 87px); /* No additional subtraction */
     }
 }
 
@@ -574,6 +590,45 @@ li {
     .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
         flex: 0 0 100%; /* 1 item */
         min-width: 100%;
+    }
+}
+
+/* Desktop styles (1024px+) */
+@media (min-width: 1024px) {
+    /* Only box image sliders show multiple items at this breakpoint */
+    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item,
+    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        min-width: calc(50% - 0.5em);
+    }
+
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
+    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
+        flex: 0 0 calc(100%/3 - 2em/3);
+        min-width: calc(100%/3 - 2em/3);
+    }
+
+    /* Round image sliders still show one item */
+    .floating-slider-container.round-images > .custom-feature__item,
+    .floating-slider-container.round-images > .custom-feature__item-2 {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+}
+
+/* New breakpoint for round image sliders (1280px+) */
+@media (min-width: 1280px) {
+    /* Round image sliders with 2+ items now show multiple items */
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        min-width: calc(50% - 0.5em);
+    }
+
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
+    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* Still 2 items at this size */
+        min-width: calc(50% - 0.5em);
     }
 }
 
@@ -866,7 +921,7 @@ html[data-theme="dark"] .floating-slider-container .custom-feature__item-2.custo
 
 /* Add padding to sliders with round images to make shadows fully visible */
 .floating-slider-container.round-images {
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
     /* Ensure padding doesn't increase overall width */
 }
