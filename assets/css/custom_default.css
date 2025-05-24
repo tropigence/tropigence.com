@@ -27,7 +27,7 @@ li {
     background:
         linear-gradient(to right,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 0%,
-            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 25%,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.75) 25%,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 75%,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 100%),
         linear-gradient(to top,
