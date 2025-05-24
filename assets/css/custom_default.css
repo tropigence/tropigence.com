@@ -579,46 +579,6 @@ li {
 
 /* Desktop styles (1024px+) */
 @media (min-width: 1024px) {
-    /* Only box image sliders show multiple items at this breakpoint */
-    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item,
-    .floating-slider-container.has-2-items:not(.round-images) > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        min-width: calc(50% - 0.5em);
-    }
-
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
-    .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
-        flex: 0 0 calc(100%/3 - 2em/3);
-        min-width: calc(100%/3 - 2em/3);
-    }
-
-    /* Round image sliders still show one item */
-    .floating-slider-container.round-images > .custom-feature__item,
-    .floating-slider-container.round-images > .custom-feature__item-2 {
-        flex: 0 0 100%;
-        min-width: 100%;
-    }
-}
-
-/* New breakpoint for round image sliders (1280px+) */
-@media (min-width: 1280px) {
-    /* Round image sliders with 2+ items now show multiple items */
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        min-width: calc(50% - 0.5em);
-    }
-
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* Still 2 items at this size */
-        min-width: calc(50% - 0.5em);
-    }
-}
-
-/* Desktop styles (1024px+) */
-@media (min-width: 1024px) {
-
     /* Section and image sizing */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 320px;
@@ -660,15 +620,6 @@ li {
     .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
         flex: 0 0 calc(100%/3 - 2em/3); /* 3 items with 1em gap */
         min-width: calc(100%/3 - 2em/3);
-    }
-
-    /* Round image sliders: max 2 items */
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item, /* has-3-items also shows 2 items */
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* 2 items with 1em gap */
-        min-width: calc(50% - 0.5em);
     }
 }
 
