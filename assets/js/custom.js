@@ -198,29 +198,11 @@ document.addEventListener('DOMContentLoaded', function () {
             function getScrollTargetForIndex(index) {
                 if (!slides[index]) return sliderContainer.scrollLeft;
 
-                // For single step scrolling, ensure items replace each other exactly
-                // This approach works better for multi-item sliders
-                const currentIndex = getCurrentSlideIndex();
+                // For navigation, always align items to the left edge of the container
+                // This ensures clean transitions with multiple visible items
 
-                if (index === (currentIndex + 1) % slides.length ||
-                    index === (currentIndex - 1 + slides.length) % slides.length) {
-                    // Get the exact width of one slide
-                    const slideWidth = slides[0].offsetWidth;
-                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
-
-                    // Calculate how many slides are visible at once
-                    const visibleWidth = sliderContainer.offsetWidth;
-                    const itemsPerView = Math.floor(visibleWidth / (slideWidth + gap));
-
-                    // For prev/next, move exactly one item width, regardless of how many are visible
-                    if (index > currentIndex || (currentIndex === slides.length - 1 && index === 0)) {
-                        return sliderContainer.scrollLeft + slideWidth + gap;
-                    } else {
-                        return sliderContainer.scrollLeft - (slideWidth + gap);
-                    }
-                }
-
-                // For direct indicator clicks, position the slide precisely
+                // Simply return the offsetLeft of the target slide
+                // This places the item at the left edge of the viewport
                 return slides[index].offsetLeft;
             }
 
