@@ -11,7 +11,7 @@ li {
 /* ===== SECTION: Hero Image and Hero Slider ===== */
 .hero-image-container {
     width: 100%;
-    height: 80vh;
+    height: 75vh;
     overflow: hidden;
     margin-bottom: 5em;
     position: relative;
@@ -375,7 +375,7 @@ li {
 
     /* Hero styling */
     .hero-image-container {
-        height: 90vh;
+        height: 85vh;
     }
 
     .hero-text-overlay,
