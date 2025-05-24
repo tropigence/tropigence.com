@@ -750,6 +750,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
     height: 44px; /* Clickable area height */
     cursor: pointer;
     padding: 0;
+    margin: 0;
     display: flex; /* For centering the ::before element */
     align-items: center;
     justify-content: center;
