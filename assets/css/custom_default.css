@@ -825,3 +825,18 @@ html[data-theme="dark"] .floating-slider-container .custom-feature__item.custom-
 html[data-theme="dark"] .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
     box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5);
 }
+
+/* Add padding to sliders with round images to make shadows fully visible */
+.floating-slider-container.round-images {
+    padding: 10px;
+    box-sizing: border-box;
+    /* Ensure padding doesn't increase overall width */
+}
+
+/* Adjust width calculation to account for padding */
+@media (min-width: 768px) {
+    .floating-slider-container.round-images {
+        width: calc(100% - 122px - 20px);
+        /* Original width calc minus padding (10px × 2) */
+    }
+}
