@@ -175,7 +175,7 @@ li {
 }
 
 .custom-feature-section {
-    margin: 0.25em auto 0.5em auto; /* Reduced top margin by half, kept bottom margin */
+    margin: 1px auto 0.5em auto; /* Top margin set to 1px (mobile arrow-to-slider gap) */
     padding: 1em;
     width: 100%;
     box-sizing: border-box;
@@ -346,7 +346,7 @@ li {
 .slider-indicators,
 .hero-slider-indicators {
     position: absolute;
-    bottom: 15px; /* Moved 5px down */
+    bottom: 10px; /* Increased gap to slider by moving indicators further down */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -523,6 +523,11 @@ li {
         min-width: calc(50% - 0.5em);
     }
     .floating-slider-container {
+        /* Arrow space: 15px edge + 44px arrow + 5px new_gap = 64px per side. Total 128px. */
+        width: calc(100% - 128px);
+    }
+    .custom-feature-section {
+        margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
         /* Arrow space: 15px edge + 44px arrow + 5px new_gap = 64px per side. Total 128px. */
         width: calc(100% - 128px);
     }
