@@ -319,7 +319,15 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0; /* No internal padding for the scroll container itself */
-    width: calc(100% - 59px);
+    width: calc(100% - 30px);
+}
+
+/* Add padding to sliders with round images */
+.floating-slider-container.round-images {
+    padding: 10px;
+    box-sizing: border-box;
+    /* Adjust width to account for padding */
+    width: calc(100% - 30px - 20px);
 }
 
 .floating-slider-container::-webkit-scrollbar {
@@ -442,7 +450,11 @@ li {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
-        width: calc(100% - 87px);
+        width: calc(100% - 44px);
+    }
+
+    .floating-slider-container.round-images {
+        width: calc(100% - 44px - 20px);
     }
 
     .custom-feature-section:not(.floating-slider-container) {
