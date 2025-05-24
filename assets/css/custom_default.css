@@ -646,13 +646,18 @@ li {
         padding: 3em;
     }
 
-    /* Ensure round-images sliders remain at max 2 items */
+    /* Round image sliders with 2 items show 2 items */
     .floating-slider-container.round-images.has-2-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-2-items > .custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item,
-    .floating-slider-container.round-images.has-3-items > .custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em); /* Max 2 items */
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em); /* 2 items */
         min-width: calc(50% - 0.5em);
+    }
+
+    /* Round image sliders with 3 items show 3 items at this breakpoint */
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item {
+        flex: 0 0 calc(100%/3 - 2em/3); /* 3 items with 1em gap */
+        min-width: calc(100%/3 - 2em/3);
     }
     .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item,
     .floating-slider-container.has-3-items:not(.round-images) > .custom-feature__item-2 {
