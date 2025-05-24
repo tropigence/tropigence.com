@@ -897,3 +897,109 @@ html[data-theme="dark"] .feature-style-hero .custom-feature__description-wrapper
 html[data-theme="dark"] .hero-slider-indicators .indicator.active {
     background-color: var(--custom-color-2);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Slider container modifications for peek effect */
+.floating-slider-container {
+    width: 90%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1em auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+    gap: 1em;
+    scroll-snap-type: x mandatory;
+    padding: 0 5%;
+    /* Add padding to show peek of next/prev slides */
+}
+
+/* Adjust slide widths for peek effect */
+.floating-slider-container>.custom-feature__item,
+.floating-slider-container>.custom-feature__item-2 {
+    flex: 0 0 90%;
+    /* Slightly smaller to show peek */
+    min-width: 90%;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+    margin: 0;
+}
+
+/* Slider indicators for content sliders */
+.slider-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slider-indicators .indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(var(--global-text-color-r), var(--global-text-color-g), var(--global-text-color-b), 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-indicators .indicator.active {
+    background-color: var(--custom-color-1);
+    transform: scale(1.2);
+}
+
+/* Responsive adjustments for different slider types */
+@media (min-width: 768px) {
+
+    .floating-slider-container.box-images.has-2-items>.custom-feature__item-2,
+    .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 45%;
+        min-width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 45%;
+        min-width: 45%;
+    }
+
+    .floating-slider-container.box-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 30%;
+        min-width: 30%;
+    }
+}
+
+@media (min-width: 2040px) {
+
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 30%;
+        min-width: 30%;
+    }
+}
+
+/* Dark mode compatibility */
+html[data-theme="dark"] .slider-indicators .indicator.active {
+    background-color: var(--custom-color-2);
+}
