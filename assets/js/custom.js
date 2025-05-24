@@ -198,29 +198,29 @@ document.addEventListener('DOMContentLoaded', function () {
             function getScrollTargetForIndex(index) {
                 if (!slides[index]) return sliderContainer.scrollLeft;
 
-                // For autoplay and arrow navigation - we want to move just one item at a time
+                // For single step scrolling, ensure items replace each other exactly
+                // This approach works better for multi-item sliders
                 const currentIndex = getCurrentSlideIndex();
 
-                // If we're moving forward by one position (typical for autoplay and next button)
-                if (index === (currentIndex + 1) % slides.length) {
-                    // Calculate the width of a single slide (including its share of the gap)
+                if (index === (currentIndex + 1) % slides.length ||
+                    index === (currentIndex - 1 + slides.length) % slides.length) {
+                    // Get the exact width of one slide
                     const slideWidth = slides[0].offsetWidth;
                     const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
 
-                    // Move exactly one slide forward (width + gap)
-                    return sliderContainer.scrollLeft + slideWidth + gap;
-                }
-                // If we're moving backward by one position (typical for prev button)
-                else if (index === (currentIndex - 1 + slides.length) % slides.length) {
-                    // Calculate the width of a single slide (including its share of the gap)
-                    const slideWidth = slides[0].offsetWidth;
-                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
+                    // Calculate how many slides are visible at once
+                    const visibleWidth = sliderContainer.offsetWidth;
+                    const itemsPerView = Math.floor(visibleWidth / (slideWidth + gap));
 
-                    // Move exactly one slide backward (width + gap)
-                    return sliderContainer.scrollLeft - (slideWidth + gap);
+                    // For prev/next, move exactly one item width, regardless of how many are visible
+                    if (index > currentIndex || (currentIndex === slides.length - 1 && index === 0)) {
+                        return sliderContainer.scrollLeft + slideWidth + gap;
+                    } else {
+                        return sliderContainer.scrollLeft - (slideWidth + gap);
+                    }
                 }
 
-                // For direct jumps via indicators, use the exact slide position
+                // For direct indicator clicks, position the slide precisely
                 return slides[index].offsetLeft;
             }
 
