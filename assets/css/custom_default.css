@@ -54,7 +54,7 @@ li {
     text-align: left;
     z-index: 2;
     padding: 20px 5px;
-    width: 95%;
+    width: 80%;
     box-sizing: border-box;
 }
 
@@ -778,7 +778,7 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
     align-items: flex-start !important;
     z-index: 2;
     padding: 20px 5px;
-    width: 95%;
+    width: 80%;
     box-sizing: border-box;
     background-color: transparent;
 }
