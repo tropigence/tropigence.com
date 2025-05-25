@@ -72,34 +72,16 @@ li {
 }
 
 .hero-text-overlay a.btn.btn--primary {
-    align-self: center;
-    background-color: var(--custom-color-1);
-    color: var(--custom-color-4);
-    border-color: var(--custom-color-1);
-    border-radius: 50px;
-    display: inline-block;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     font-size: 1em;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: inline-block;
-    padding: 0em 1em;
 }
 
 .hero-text-overlay a.btn.btn--primary:hover {
     background-color: var(--custom-color-2);
     border-color: var(--custom-color-2);
     color: var(--global-black) !important;
-}
-
-/* Responsive adjustments for buttons */
-@media (max-width: 480px) {
-    .hero-text-overlay a.btn.btn--primary {
-        margin-right: 8px;
-        margin-bottom: 15px;
-        padding: 0em 1em;
-    }
 }
 
 /* Hero slider styling */
@@ -190,7 +172,7 @@ li {
 .feature-style-hero .custom-feature__description-wrapper a.btn.btn--primary,
 .feature-style-hero .custom-feature__description-wrapper-2 a.btn.btn--primary {
     margin-right: 10px;
-    padding: 0.5em 1em;
+    padding: 0.25em 0.5em;
     font-size: 1em;
     align-self: flex-start !important;
     margin-left: 0;
@@ -328,6 +310,7 @@ li {
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     font-size: 1em;
+    padding: 0.25em 0.5em;
 }
 
 .custom-feature__description-wrapper a.btn.btn--primary:hover,
