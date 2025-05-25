@@ -84,6 +84,7 @@ li {
     margin-right: 10px;
     margin-bottom: 10px;
     display: inline-block;
+    padding: 0.5em 1em;
 }
 
 .hero-text-overlay a.btn.btn--primary:hover {
@@ -96,10 +97,8 @@ li {
 @media (max-width: 480px) {
     .hero-text-overlay a.btn.btn--primary {
         margin-right: 8px;
-        margin-bottom: 12px;
-        /* Increase bottom margin for mobile to create more space when stacked */
-        padding: 0.7em 1.2em;
-        /* Slightly larger touch target on mobile */
+        margin-bottom: 15px;
+        padding: 0.5em 1em;
     }
 }
 
