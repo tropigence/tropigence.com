@@ -84,7 +84,7 @@ li {
     margin-right: 10px;
     margin-bottom: 10px;
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 0em 1em;
 }
 
 .hero-text-overlay a.btn.btn--primary:hover {
@@ -98,7 +98,7 @@ li {
     .hero-text-overlay a.btn.btn--primary {
         margin-right: 8px;
         margin-bottom: 15px;
-        padding: 0.5em 1em;
+        padding: 0em 1em;
     }
 }
 
