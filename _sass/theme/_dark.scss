@@ -65,6 +65,7 @@ html[data-theme="dark"] {
     --global-black-r : #{red($global-black)};
     --global-black-g : #{green($global-black)};
     --global-black-b : #{blue($global-black)};
+    --global-text-color-2 : #{$custom-color-4};
     --custom-color-1-r : #{red($custom-color-1)};
     --custom-color-1-g : #{green($custom-color-1)};
     --custom-color-1-b : #{blue($custom-color-1)};
