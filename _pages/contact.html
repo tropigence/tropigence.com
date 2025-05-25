@@ -48,72 +48,56 @@ author_profile: false
         text-decoration: none;
         padding: 1rem;
         border-radius: 50%;
-        background-color: rgba(
-            var(--custom-color-1-r),
-            var(--custom-color-1-g),
-            var(--custom-color-1-b),
-            0.1
-        );
-        transition: transform 0.2s ease, background-color 0.2s ease;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s ease;
     }
 
     .contact-social-row a:hover {
         transform: scale(1.1);
-        background-color: rgba(
-            var(--custom-color-2-r),
-            var(--custom-color-2-g),
-            var(--custom-color-2-b),
-            0.2
-        );
     }
 
     .contact-social-row svg {
         width: 30px;
         height: 30px;
-        fill: var(--global-text-color);
         transition: fill 0.2s ease-in-out;
     }
 
-    .contact-social-row a:hover svg {
-        fill: var(--custom-color-2);
+    /* Brand-specific colors */
+    .icon-email svg {
+        fill: #d44638; /* Gmail red */
     }
 
-    /* Dark mode styles */
-    html[data-theme='dark'] .contact-social-row svg {
-        fill: var(--custom-color-4);
+    .icon-linkedin svg {
+        fill: #0077b5; /* LinkedIn blue */
     }
 
-    html[data-theme='dark'] .contact-social-row a:hover svg {
-        fill: var(--custom-color-1);
+    .icon-instagram svg {
+        fill: #e4405f; /* Instagram pink/red */
     }
 
+    .icon-twitter svg {
+        fill: #000000; /* X (Twitter) black */
+    }
+
+    .icon-facebook svg {
+        fill: #1877f2; /* Facebook blue */
+    }
+
+    /* Dark mode adjustments */
     html[data-theme='dark'] .contact-social-row a {
-        background-color: rgba(
-            var(--custom-color-3-r),
-            var(--custom-color-3-g),
-            var(--custom-color-3-b),
-            0.2
-        );
-    }
-
-    html[data-theme='dark'] .contact-social-row a:hover {
-        background-color: rgba(
-            var(--custom-color-2-r),
-            var(--custom-color-2-g),
-            var(--custom-color-2-b),
-            0.2
-        );
+        background-color: rgba(0, 0, 0, 0.2);
     }
 </style>
 
 <div class="contact-social-container">
-    <h1>Contact Us!</h1>
+    <h2>Connect with Us</h2>
 
     <div class="contact-social-row">
         <a
             href="mailto:tropigence@gmail.com"
             aria-label="Email"
             rel="nofollow"
+            class="icon-email"
         >
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -126,6 +110,7 @@ author_profile: false
             aria-label="LinkedIn"
             target="_blank"
             rel="nofollow noopener noreferrer"
+            class="icon-linkedin"
         >
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -138,6 +123,7 @@ author_profile: false
             aria-label="Instagram"
             target="_blank"
             rel="nofollow noopener noreferrer"
+            class="icon-instagram"
         >
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -150,6 +136,7 @@ author_profile: false
             aria-label="X (formerly Twitter)"
             target="_blank"
             rel="nofollow noopener noreferrer"
+            class="icon-twitter"
         >
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -162,6 +149,7 @@ author_profile: false
             aria-label="Facebook"
             target="_blank"
             rel="nofollow noopener noreferrer"
+            class="icon-facebook"
         >
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
