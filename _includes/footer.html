@@ -58,6 +58,12 @@
         {{ site.name | default: site.title -}}
     </span>
 
+    <div class="footer-links-row">
+        <a href="{{ '/terms/' | relative_url }}">General Terms</a>
+        <a href="{{ '/branding/' | relative_url }}">Branding</a>
+        <a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
+    </div>
+
     <div class="footer-social-row">
         <!-- Gmail-style email icon that follows footer styling -->
         <a
@@ -72,7 +78,6 @@
             </svg>
         </a>
 
-        <!-- Other social icons unchanged -->
         <a
             href="https://linkedin.com/company/tropigence"
             aria-label="LinkedIn"
@@ -121,14 +126,5 @@
                 />
             </svg>
         </a>
-    </div>
-
-    <div class="footer-links-row">
-        <a href="{{ '/terms/' | relative_url }}">General Terms</a>
-        <a href="{{ '/branding/' | relative_url }}">Branding</a>
-        <a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
-        <!--
-            Additional links can be added here without disrupting the visual hierarchy
-        -->
     </div>
 </div>
