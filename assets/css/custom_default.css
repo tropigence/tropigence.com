@@ -27,7 +27,7 @@ li {
     background:
         linear-gradient(to right,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 0%,
-            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7) 30%,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7) 20%,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.1) 55%,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 100%),
         linear-gradient(to top,
@@ -813,7 +813,7 @@ html[data-theme="dark"] .hero-image-container::before {
     background:
         linear-gradient(to right,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
-            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.7) 30%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.7) 20%,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.1) 55%,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%),
         linear-gradient(to top,
