@@ -303,7 +303,7 @@ li {
     border-radius: 50px;
     display: inline-block;
     text-decoration: none;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition: none; /* background-color 0.3s, color 0.3s, border-color 0.3s; */
     font-size: 1em;
     padding: 0.25em 0.75em;
 }
