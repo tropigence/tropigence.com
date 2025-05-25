@@ -28,12 +28,11 @@ li {
         linear-gradient(to right,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 0%,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.9) 15%,
-            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.1) 75%,
+            rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.1) 55%,
             rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 100%),
         linear-gradient(to top,
             rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 1) 0%,
-            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.5) 15%,
-            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 30%,
+            rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.1) 30%,
             rgb(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0) 100%);
     z-index: 1;
 }
@@ -55,7 +54,7 @@ li {
     text-align: left;
     z-index: 2;
     padding: 20px 5px;
-    width: 80%;
+    width: 70%;
     box-sizing: border-box;
 }
 
@@ -375,7 +374,8 @@ li {
 /* Update the negative margins to compensate for increased padding */
 .floating-slider-container.round-images>.custom-feature__item,
 .floating-slider-container.round-images>.custom-feature__item-2 {
-    /* margin: 0 -10px; */ /* To make the slider round image style closer together */
+    /* margin: 0 -10px; */
+    /* To make the slider round image style closer together */
     width: calc(100% + 20px);
 }
 
@@ -813,12 +813,11 @@ html[data-theme="dark"] .hero-image-container::before {
         linear-gradient(to right,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.9) 15%,
-            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.1) 75%,
+            rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.1) 55%,
             rgba(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%),
         linear-gradient(to top,
             rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 1) 0%,
-            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.5) 15%,
-            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 30%,
+            rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0.1) 30%,
             rgb(var(--global-black-r), var(--global-black-g), var(--global-black-b), 0) 100%);
 }
 
