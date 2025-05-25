@@ -71,19 +71,6 @@ li {
     text-shadow: 1px 1px 2px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
 }
 
-.hero-text-overlay a.btn.btn--primary {
-    font-size: 1em;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    display: inline-block;
-}
-
-.hero-text-overlay a.btn.btn--primary:hover {
-    background-color: var(--custom-color-2);
-    border-color: var(--custom-color-2);
-    color: var(--global-black) !important;
-}
-
 /* Hero slider styling */
 .hero-slider-container {
     position: absolute;
@@ -167,15 +154,6 @@ li {
     text-shadow: 1px 1px 2px rgba(var(--custom-color-4-r), var(--custom-color-4-g), var(--custom-color-4-b), 0.7);
     text-align: left !important;
     width: 100%;
-}
-
-.feature-style-hero .custom-feature__description-wrapper a.btn.btn--primary,
-.feature-style-hero .custom-feature__description-wrapper-2 a.btn.btn--primary {
-    margin-right: 10px;
-    padding: 0.25em 0.5em;
-    font-size: 1em;
-    align-self: flex-start !important;
-    margin-left: 0;
 }
 
 /* ===== SECTION: Feature Cards and Sections ===== */
@@ -298,6 +276,28 @@ li {
 }
 
 /* ===== SECTION: Button Styling ===== */
+.hero-text-overlay a.btn.btn--primary {
+    font-size: 1em;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.hero-text-overlay a.btn.btn--primary:hover {
+    background-color: var(--custom-color-2);
+    border-color: var(--custom-color-2);
+    color: var(--global-black) !important;
+}
+
+.feature-style-hero .custom-feature__description-wrapper a.btn.btn--primary,
+.feature-style-hero .custom-feature__description-wrapper-2 a.btn.btn--primary {
+    margin-right: 10px;
+    padding: 0.25em 0.75em;
+    font-size: 1em;
+    align-self: flex-start !important;
+    margin-left: 0;
+}
+
 .custom-feature__description-wrapper a.btn.btn--primary,
 .custom-feature__description-wrapper-2 a.btn.btn--primary,
 .hero-text-overlay a.btn.btn--primary {
@@ -310,7 +310,7 @@ li {
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     font-size: 1em;
-    padding: 0.25em 0.5em;
+    padding: 0.25em 0.75em;
 }
 
 .custom-feature__description-wrapper a.btn.btn--primary:hover,
