@@ -7,7 +7,7 @@ layout: default
 >
 
 <div class="coming-soon-container">
-    <h1>{{ page.message_heading | default: 'Coming Soon!' }}</h1>
+    <h1>{{ page.message_heading | default: 'Coming Soon' }}</h1>
 
     {% comment %} Conditionally display the search form {% endcomment %}
     {% if page.show_search_form | default: false %}
