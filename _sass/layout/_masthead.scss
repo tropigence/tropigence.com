@@ -116,35 +116,3 @@ html[data-theme="dark"] .site-logo--dark {
 }
 // End of site logo styling ====================================================
 
-
-
-// Mobile menu fix to prevent menu items showing on initial load
-@include breakpoint(max-width $medium) {
-    // Make sure the masthead container is visible
-    .masthead {
-      display: block !important;
-    }
-
-    // Make sure the inner wrap is visible
-    .masthead__inner-wrap {
-      display: flex !important;
-      align-items: center;
-    }
-
-    // Make sure the menu container is visible
-    .masthead__menu {
-      display: block !important;
-    }
-
-    // Only hide the specific menu items (not containers)
-    li.masthead__menu-item:not(.theme-toggle) {
-      display: none !important;
-    }
-
-    // Explicitly keep theme toggle visible
-    li.theme-toggle.masthead__menu-item {
-      display: block !important;
-    }
-  }
-
-
