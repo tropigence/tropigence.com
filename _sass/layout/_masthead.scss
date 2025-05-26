@@ -119,13 +119,13 @@ html[data-theme="dark"] .site-logo--dark {
 
 
 // Mobile menu fix to prevent menu items showing on initial load
-.masthead__menu-item:not(.theme-toggle) {
-    // Force items to be hidden on initial page load
-    display: none !important;
-  }
-  .theme-toggle {
-  // Ensure theme toggle stays visible
-    display: block !important;
-  }
+@include breakpoint(max-width $medium) {
+    .masthead__menu-item:not(.theme-toggle) {
+      display: none !important; // Force items to be hidden on initial page load
+    }
+    .theme-toggle {
+      display: block !important; // Ensure theme toggle stays visible
+    }
+}
 
 
