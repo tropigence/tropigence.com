@@ -115,33 +115,3 @@ html[data-theme="dark"] .site-logo--dark {
     display: inline-block;
 }
 // End of site logo styling ====================================================
-
-// Mobile menu layout fix
-@include breakpoint(max-width $medium) {
-    // Keep using flexbox but don't hide content
-    .masthead__inner-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    // Remove the max-width and overflow that's hiding elements
-    .masthead__menu {
-      width: auto;
-      // Don't restrict width or hide overflow
-    }
-
-    // Remove absolute positioning that's breaking the layout
-    .theme-toggle {
-      // No position changes
-      display: inline-block;
-    }
-
-    // Try an approach that hides only regular menu items at initial load
-    // but not special controls like toggles
-    @media (max-width: $medium) {
-      .masthead__menu ul li:not(.theme-toggle):not(.menu-toggle) {
-        visibility: hidden;
-      }
-    }
-  }
