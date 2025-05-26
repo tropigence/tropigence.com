@@ -1,25 +1,24 @@
 {
-  "name": "academic-pages",
-  "version": "0.8.1.1",
-  "description": "Academic Pages Mistakes Jekyll theme npm build scripts",
+  "name": "tropigence",
+  "version": "0.1.0",
+  "description": "Tropigence Jekyll theme npm build scripts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/academicpages/academicpages.github.io"
+    "url": "https://github.com/tropigence/tropigence.com"
   },
   "keywords": [
     "jekyll",
     "theme",
-    "minimal"
+    "tropigence"
   ],
   "contributors": [
-    "Michael Rose",
-    "Robert Zupko"
+    "O Ridwan Bello"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/academicpages/academicpages.github.io/issues"
+    "url": "https://github.com/tropigence/tropigence.com/issues"
   },
-  "homepage": "https://github.com/academicpages/academicpages.github.io",
+  "homepage": "https://github.com/tropigence/tropigence.com",
   "engines": {
     "node": ">= 0.10.0"
   },
