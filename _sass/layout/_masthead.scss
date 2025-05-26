@@ -78,7 +78,7 @@
 
 
 
-// Site log styling ============================================================
+// Site logo styling ============================================================
 .site-logo {
     max-height: 30px; // Default sizing for larger screens
     height: 30px; // Set explicit height
@@ -115,5 +115,17 @@ html[data-theme="dark"] .site-logo--dark {
     display: inline-block;
 }
 // End of site logo styling ====================================================
+
+
+
+// Mobile menu fix to prevent menu items showing on initial load
+.masthead__menu-item:not(.theme-toggle) {
+    // Force items to be hidden on initial page load
+    display: none !important;
+  }
+  .theme-toggle {
+  // Ensure theme toggle stays visible
+    display: block !important;
+  }
 
 
