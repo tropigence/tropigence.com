@@ -828,7 +828,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 /* ===== SECTION: Slider Navigation Arrows ===== */
 .slider-arrow {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 15px);
     transform: translateY(-50%);
     z-index: 5;
     background: transparent;
