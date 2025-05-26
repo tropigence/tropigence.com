@@ -118,25 +118,30 @@ html[data-theme="dark"] .site-logo--dark {
 
 // Mobile menu layout fix
 @include breakpoint(max-width $medium) {
-    // Make inner wrap use flexbox for better control
+    // Keep using flexbox but don't hide content
     .masthead__inner-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    // Force menu to have a fixed width that only accommodates the toggle
+    // Remove the max-width and overflow that's hiding elements
     .masthead__menu {
       width: auto;
-      max-width: 50px; // Adjust based on your toggle button width
-      overflow: hidden; // Hide overflow content
+      // Don't restrict width or hide overflow
     }
 
-    // Ensure theme toggle remains accessible
+    // Remove absolute positioning that's breaking the layout
     .theme-toggle {
-      position: absolute;
-      right: 60px; // Adjust based on your layout
-      top: 50%;
-      transform: translateY(-50%);
+      // No position changes
+      display: inline-block;
     }
-}
+
+    // Try an approach that hides only regular menu items at initial load
+    // but not special controls like toggles
+    @media (max-width: $medium) {
+      .masthead__menu ul li:not(.theme-toggle):not(.menu-toggle) {
+        visibility: hidden;
+      }
+    }
+  }
