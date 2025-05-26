@@ -1,15 +1,21 @@
 {
-	"name": "OOjs UI icon academic-progressive",
-	"icons": [
-		{
-			"src": "/images/favicon-192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "/images/favicon-512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	]
+    "name": "Tropigence",
+    "short_name": "Tropigence",
+    "icons": [
+        {
+            "src": "/images/favicon.png",
+            "sizes": "1251x1257",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#009a00",
+    "theme_color": "#009a00"
 }
+
