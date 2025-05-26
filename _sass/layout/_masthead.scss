@@ -80,21 +80,21 @@
 
 // Site logo styling ============================================================
 .site-logo {
-    max-height: 30px !important; // Default sizing for larger screens
-    height: 30px !important; // Set explicit height
+    max-height: 30px; // Default sizing for larger screens
+    height: 30px; // Set explicit height
     width: auto;
     vertical-align: middle;
     display: inline-block;
     object-fit: contain; // Ensures the logo maintains aspect ratio
-    margin-right: 3em !important;
+    margin-right: 3em;
     transform: translateZ(0); // Force hardware acceleration
     will-change: transform; // Hint to browser about changes
 
     // For screens smaller than medium
     @include breakpoint(max-width $medium) {
-        max-height: 25px !important;
-        height: 25px !important; // Set explicit height for mobile
-        margin-right: 1.5em !important;
+        max-height: 25px;
+        height: 25px; // Set explicit height for mobile
+        margin-right: 1.5em;
     }
 }
 
@@ -116,3 +116,27 @@ html[data-theme="dark"] .site-logo--dark {
 }
 // End of site logo styling ====================================================
 
+// Mobile menu layout fix
+@include breakpoint(max-width $medium) {
+    // Make inner wrap use flexbox for better control
+    .masthead__inner-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    // Force menu to have a fixed width that only accommodates the toggle
+    .masthead__menu {
+      width: auto;
+      max-width: 50px; // Adjust based on your toggle button width
+      overflow: hidden; // Hide overflow content
+    }
+
+    // Ensure theme toggle remains accessible
+    .theme-toggle {
+      position: absolute;
+      right: 60px; // Adjust based on your layout
+      top: 50%;
+      transform: translateY(-50%);
+    }
+}
