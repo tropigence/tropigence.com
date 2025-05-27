@@ -378,7 +378,7 @@ li {
 }
 
 /* Tablet and desktop adjustments */
-@media (min-width: 480px) {
+@media (min-width: 600px) {
 
     .floating-slider-container,
     .floating-slider-container.round-images {
@@ -425,8 +425,8 @@ li {
 }
 
 /* ===== SECTION: Responsive Styles ===== */
-/* Small tablet styles (480px+) */
-@media (min-width: 480px) {
+/* Small tablet styles (600px+) */
+@media (min-width: 600px) {
 
     /* Hero styling */
     .hero-image-container {
