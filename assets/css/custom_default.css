@@ -810,9 +810,9 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
     /* Transparent background */
     border: none;
     /* No button border */
-    width: 44px;
+    width: 36px;
     /* Clickable area width */
-    height: 44px;
+    height: 36px;
     /* Clickable area height */
     cursor: pointer;
     padding: 0;
@@ -833,26 +833,25 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-prev {
-    left: 7.5px;
+    left: 2.25px;
     /* Original position from edge */
 }
 
 .slider-arrow-prev::before {
     /* Arrow pointing left: height 20px, width 12px */
-    border-width: 10px 12px 10px 0;
+    border-width: 8px 10px 8px 0;
     border-color: transparent var(--global-text-color) transparent transparent;
     margin-left: -3px;
     /* Fine-tune position if needed */
 }
 
 .slider-arrow-next {
-    right: 7.5px;
+    right: 2.25px;
     /* Original position from edge */
 }
 
 .slider-arrow-next::before {
-    /* Arrow pointing right: height 20px, width 12px */
-    border-width: 10px 0 10px 12px;
+    border-width: 8px 0 8px 10px;
     border-color: transparent transparent transparent var(--global-text-color);
     margin-right: -3px;
     /* Fine-tune position if needed */
@@ -876,28 +875,29 @@ html[data-theme="dark"] .slider-arrow-next:hover::before {
 }
 
 /* Mobile specific adjustments for arrows */
-@media (max-width: 767px) {
+@media (min-width: 768px) {
     .slider-arrow {
-        width: 36px;
+        width: 44px;
         /* Smaller clickable area */
-        height: 36px;
+        height: 44px;
     }
 
     .slider-arrow-prev {
-        left: 2.25px;
+        left: 7.5px;
     }
 
     .slider-arrow-next {
-        right: 2.25px;
+        right: 7.5px;
     }
 
     .slider-arrow-prev::before {
-        border-width: 8px 10px 8px 0;
+        border-width: 10px 12px 10px 0;
     }
 
     /* Smaller arrow shape */
     .slider-arrow-next::before {
-        border-width: 8px 0 8px 10px;
+        /* Arrow pointing right: height 20px, width 12px */
+        border-width: 10px 0 10px 12px;
     }
 }
 
