@@ -456,11 +456,6 @@ li {
         margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
     }
 
-    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        max-height: 180px;
-        max-width: 180px;
-    }
-
     .floating-slider-container,
     .floating-slider-container.round-images {
         width: calc(100% - 44px);
