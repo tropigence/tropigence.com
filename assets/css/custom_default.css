@@ -303,7 +303,8 @@ li {
     border-radius: 50px;
     display: inline-block;
     text-decoration: none;
-    transition: none; /* background-color 0.3s, color 0.3s, border-color 0.3s; */
+    transition: none;
+    /* background-color 0.3s, color 0.3s, border-color 0.3s; */
     font-size: 1em;
     padding: 0.25em 0.75em;
 }
@@ -438,7 +439,7 @@ li {
     .feature-style-hero .custom-feature__description-wrapper,
     .feature-style-hero .custom-feature__description-wrapper-2 {
         left: 5%;
-        width: 40%;
+        width: 60%;
         max-width: 800px;
         padding: 20px;
     }
@@ -479,6 +480,15 @@ li {
 
 /* Large tablet and laptop styles (768px+) */
 @media (min-width: 768px) {
+
+    .hero-text-overlay,
+    .feature-style-hero .custom-feature__description-wrapper,
+    .feature-style-hero .custom-feature__description-wrapper-2 {
+        left: 5%;
+        width: 40%;
+        max-width: 800px;
+        padding: 20px;
+    }
 
     /* Reset negative margin for horizontal layouts */
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
@@ -603,7 +613,7 @@ li {
     }
 }
 
-/* Desktop styles (1100x+) */
+/* Desktop styles (1100px+) */
 @media (min-width: 1100px) {
 
     /* Section and image sizing */
@@ -652,8 +662,9 @@ li {
     }
 }
 
-/* Desktop large styles 1400px+) */
+/* Desktop large styles (1400px+) */
 @media (min-width: 1400px) {
+
     .hero-text-overlay h1,
     .feature-style-hero .custom-feature__description-wrapper h3,
     .feature-style-hero .custom-feature__description-wrapper-2 h3 {
@@ -828,7 +839,8 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 /* ===== SECTION: Slider Navigation Arrows ===== */
 .slider-arrow {
     position: absolute;
-    top: calc(50% - 17.5px); /* The pixel subtraction accounts for the arrow height and indicator margin/padding */
+    top: calc(50% - 17.5px);
+    /* The pixel subtraction accounts for the arrow height and indicator margin/padding */
     transform: translateY(-50%);
     z-index: 5;
     background: transparent;
