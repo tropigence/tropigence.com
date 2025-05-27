@@ -464,6 +464,26 @@ li {
     .floating-slider-container.round-images {
         width: calc(100% - 44px);
     }
+
+    /* Slider item widths for 2 items (non-round) */
+    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
+    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
+    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        /* 2 items with 1em gap */
+        min-width: calc(50% - 0.5em);
+    }
+
+    /* Round image sliders: 1 item horizontal */
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
+    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+        flex: 0 0 100%;
+        /* 1 item */
+        min-width: 100%;
+    }
 }
 
 /* Large tablet and laptop styles (768px+) */
@@ -559,17 +579,6 @@ li {
         align-self: flex-start;
     }
 
-    /* Slider item widths for 2 items (non-round) */
-    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
-    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
-    /* has-3-items shows 2 items here */
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        /* 2 items with 1em gap */
-        min-width: calc(50% - 0.5em);
-    }
-
     .floating-slider-container {
         /* Recalculated: 7.5px edge + 44px arrow + 2px gap = 53.5px per side (107px total) */
         width: calc(100% - 87px);
@@ -578,16 +587,6 @@ li {
     .custom-feature-section {
         margin-top: 5px;
         /* Top margin set to 5px (desktop arrow-to-slider gap) */
-    }
-
-    /* Round image sliders: 1 item */
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 100%;
-        /* 1 item */
-        min-width: 100%;
     }
 }
 
