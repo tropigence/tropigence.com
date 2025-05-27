@@ -469,15 +469,6 @@ li {
 /* Large tablet and laptop styles (768px+) */
 @media (min-width: 768px) {
 
-    .hero-text-overlay,
-    .feature-style-hero .custom-feature__description-wrapper,
-    .feature-style-hero .custom-feature__description-wrapper-2 {
-        left: 5%;
-        width: 40%;
-        max-width: 800px;
-        padding: 20px;
-    }
-
     /* Reset negative margin for horizontal layouts */
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
@@ -602,6 +593,14 @@ li {
 
 /* Desktop styles (1100px+) */
 @media (min-width: 1100px) {
+    .hero-text-overlay,
+    .feature-style-hero .custom-feature__description-wrapper,
+    .feature-style-hero .custom-feature__description-wrapper-2 {
+        left: 5%;
+        width: 40%;
+        max-width: 800px;
+        padding: 20px;
+    }
 
     /* Section and image sizing */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
