@@ -55,24 +55,6 @@ $medium-wide                : 900px !default;
 $large                      : 925px !default;
 $x-large                    : 1280px !default;
 
-/* Media Query for different devices ---------------------------------------- */
-/* Mobile first approach, using min-width for larger devices */
-/* Sass variables for use in media query conditions
-Less than $screen-small is considered extra small devices e.g., phones */
-$screen-small: 600px; /* Big phones and small tablets */
-$screen-medium: 768px /* Medium sized tablets */
-$screen-large: 1024px; /* Big tablets and laptops */
-$screen-x-large: 1440px; /* laptops and small monitors */
-$screen-xx-large: 2048px; /* Monitors and TVs */
-
-:root {
-    /* CSS variables for use in other CSS properties beside media queries */
-    --global-screen-small: #{$screen-small};
-    --global-screen-medium: #{$screen-medium};
-    --global-screen-large: #{$screen-large};
-    --global-screen-x-large: #{$screen-x-large};
-    --global-screen-xx-large: #{$screen-xx-large};
-}
 /* ==========================================================================
    Grid
    ========================================================================== */
