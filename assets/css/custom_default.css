@@ -936,8 +936,6 @@ html[data-theme="dark"] .slider-arrow-next:hover::before {
     .slider-arrow-next::before {
         border-width: 8px 0 8px 10px;
     }
-
-    /* Smaller arrow shape */
 }
 
 
