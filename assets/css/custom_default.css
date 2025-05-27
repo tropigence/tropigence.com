@@ -430,7 +430,7 @@ li {
     .hero-text-overlay h1,
     .feature-style-hero .custom-feature__description-wrapper h3,
     .feature-style-hero .custom-feature__description-wrapper-2 h3 {
-        font-size: 2.5em;
+        font-size: 2em;
     }
 
     .hero-text-overlay p,
@@ -564,6 +564,12 @@ li {
 }
 
 @media (min-width: 768px) {
+    .hero-text-overlay h1,
+    .feature-style-hero .custom-feature__description-wrapper h3,
+    .feature-style-hero .custom-feature__description-wrapper-2 h3 {
+        font-size: 2.5em;
+    }
+
     .floating-slider-container,
     .floating-slider-container.round-images {
         margin-left: auto;
