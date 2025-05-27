@@ -460,30 +460,9 @@ li {
         max-width: 180px;
     }
 
-    /* Reset negative margin for horizontal layouts for round feature style */
-    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
-        margin-bottom: 0;
-    }
-
-    /* Horizontal layout for round feature style for larger screens */
-    .custom-feature__item--layout-desktop-row,
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
-        flex-direction: row;
-        align-items: center;
-    }
-
     .floating-slider-container,
     .floating-slider-container.round-images {
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(100% - 87px);
-    }
-
-    .custom-feature-section:not(.floating-slider-container) {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        width: calc(100% - 44px);
     }
 
     /* Slider item widths for 2 items (non-round) */
@@ -506,17 +485,7 @@ li {
         min-width: 100%;
     }
 
-    /* Image wrapper sizing for different layouts */
-    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
-        width: 40%;
-    }
-}
-
-/* Large tablet and laptop styles (768px+) */
-@media (min-width: 768px) {
-
-/* Reset negative margin for horizontal layouts for round feature style */
+    /* Reset negative margin for horizontal layouts for round feature style */
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
         margin-bottom: 0;
@@ -619,6 +588,7 @@ li {
 
 /* Desktop styles (1100px+) */
 @media (min-width: 1100px) {
+
     .hero-text-overlay,
     .feature-style-hero .custom-feature__description-wrapper,
     .feature-style-hero .custom-feature__description-wrapper-2 {
