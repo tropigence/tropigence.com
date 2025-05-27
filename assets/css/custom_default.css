@@ -422,7 +422,7 @@ li {
     .feature-style-hero .custom-feature__description-wrapper,
     .feature-style-hero .custom-feature__description-wrapper-2 {
         left: 5%;
-        width: 60%;
+        width: 50%;
         max-width: 800px;
         padding: 20px;
     }
