@@ -460,9 +460,30 @@ li {
         max-width: 180px;
     }
 
+    /* Reset negative margin for horizontal layouts for round feature style */
+    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
+        margin-bottom: 0;
+    }
+
+    /* Horizontal layout for round feature style for larger screens */
+    .custom-feature__item--layout-desktop-row,
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
+        flex-direction: row;
+        align-items: center;
+    }
+
     .floating-slider-container,
     .floating-slider-container.round-images {
-        width: calc(100% - 44px);
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(100% - 87px);
+    }
+
+    .custom-feature-section:not(.floating-slider-container) {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Slider item widths for 2 items (non-round) */
@@ -484,31 +505,18 @@ li {
         /* 1 item */
         min-width: 100%;
     }
+}
 
-    /* Reset negative margin for horizontal layouts for round feature style */
+/* Large tablet and laptop styles (768px+) */
+@media (min-width: 768px) {
+
+/* Reset negative margin for horizontal layouts for round feature style */
     .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
         margin-bottom: 0;
     }
 
     /* Horizontal layout for round feature style for larger screens */
-    .custom-feature__item--layout-desktop-row,
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
-        flex-direction: row;
-        align-items: center;
-    }
-}
-
-/* Large tablet and laptop styles (768px+) */
-@media (min-width: 768px) {
-
-    /* Reset negative margin for horizontal layouts */
-    .custom-feature__item--layout-desktop-row .custom-feature__image-wrapper:has(.custom-feature__image--shape-round),
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image-wrapper-2:has(.custom-feature__image--shape-round-2) {
-        margin-bottom: 0;
-    }
-
-    /* Horizontal layout for larger screens */
     .custom-feature__item--layout-desktop-row,
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 {
         flex-direction: row;
