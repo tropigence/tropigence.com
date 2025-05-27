@@ -494,16 +494,10 @@ li {
         align-items: center;
     }
 
-    /* Sliders and feature sections
-    .floating-slider-container {
-        width: 95%;
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(100% - 44px);
-    } */
-
     .floating-slider-container,
     .floating-slider-container.round-images {
+        margin-left: auto;
+        margin-right: auto;
         width: calc(100% - 87px);
     }
 
