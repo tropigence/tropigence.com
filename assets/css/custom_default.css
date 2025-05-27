@@ -378,14 +378,6 @@ li {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
 }
 
-@media (min-width: 600px) {
-
-    .floating-slider-container,
-    .floating-slider-container.round-images {
-        width: calc(100% - 44px);
-    }
-}
-
 /* ===== SECTION: Slider Indicators ===== */
 /* Standardized slider indicators */
 .slider-indicators,
@@ -438,7 +430,7 @@ li {
     .hero-text-overlay h1,
     .feature-style-hero .custom-feature__description-wrapper h3,
     .feature-style-hero .custom-feature__description-wrapper-2 h3 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     .hero-text-overlay p,
@@ -466,6 +458,11 @@ li {
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 180px;
         max-width: 180px;
+    }
+
+    .floating-slider-container,
+    .floating-slider-container.round-images {
+        width: calc(100% - 44px);
     }
 }
 
