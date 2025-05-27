@@ -505,6 +505,12 @@ li {
         /* 1 item */
         min-width: 100%;
     }
+
+    /* Image wrapper sizing for different layouts */
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
+        width: 40%;
+    }
 }
 
 /* Large tablet and laptop styles (768px+) */
