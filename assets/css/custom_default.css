@@ -603,8 +603,8 @@ li {
     }
 }
 
-/* Desktop styles (1024px+) */
-@media (min-width: 1024px) {
+/* Desktop styles (1100x+) */
+@media (min-width: 1100px) {
 
     /* Section and image sizing */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
@@ -652,8 +652,8 @@ li {
     }
 }
 
-/* Desktop large styles (1440px+) */
-@media (min-width: 1440px) {
+/* Desktop large styles 1400px+) */
+@media (min-width: 1400px) {
     .hero-text-overlay h1,
     .feature-style-hero .custom-feature__description-wrapper h3,
     .feature-style-hero .custom-feature__description-wrapper-2 h3 {
