@@ -638,13 +638,6 @@ li {
 
 /* Desktop large styles (1400px+) */
 @media (min-width: 1400px) {
-
-    .hero-text-overlay h1,
-    .feature-style-hero .custom-feature__description-wrapper h3,
-    .feature-style-hero .custom-feature__description-wrapper-2 h3 {
-        font-size: 2.5em;
-    }
-
     /* Round image sliders with 2 or 3 items show max 2 items */
     .floating-slider-container.round-images.has-2-items>.custom-feature__item,
     .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
