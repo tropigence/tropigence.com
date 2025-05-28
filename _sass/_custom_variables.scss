@@ -2,6 +2,7 @@
 /* Mobile first approach, using min-width for larger devices */
 /* Sass variables for use in media query conditions
 Less than $screen-small is considered extra small devices e.g., phones */
+$screen-x-small: 480px; /* Extra small devices, e.g., phones */
 $screen-small: 600px; /* Big phones and small tablets */
 $screen-medium: 768px; /* Medium sized tablets */
 $screen-large: 1100px; /* Big tablets and laptops */
@@ -10,6 +11,7 @@ $screen-xx-large: 2048px; /* Monitors and TVs */
 
 :root {
     /* CSS variables for use in other CSS properties beside media queries */
+    --global-screen-x-small: #{$screen-x-small};
     --global-screen-small: #{$screen-small};
     --global-screen-medium: #{$screen-medium};
     --global-screen-large: #{$screen-large};

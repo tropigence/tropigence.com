@@ -59,22 +59,14 @@ author_profile: false
     }
 
     .contact-social-row svg {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         transition: fill 0.2s ease-in-out;
     }
 
     /* Brand-specific colors */
-    .icon-email svg {
-        /* Remove the fill property as it's now in the SVG */
-    }
-
     .icon-linkedin svg {
         fill: #0077b5; /* LinkedIn blue */
-    }
-
-    .icon-instagram svg {
-        /* Remove the fill property as it's now handled with a gradient */
     }
 
     .icon-twitter svg {
@@ -93,6 +85,13 @@ author_profile: false
 
     html[data-theme='dark'] .contact-social-row a:hover {
         box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (min-width: 480px) {
+        .contact-social-row svg {
+            width: 30px;
+            height: 30px;
+        }
     }
 </style>
 
