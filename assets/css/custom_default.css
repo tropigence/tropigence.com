@@ -666,8 +666,8 @@ li {
     }
 
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
-        width: 400px;
-        min-width: 400px;
+        width: 350px;
+        min-width: 350px;
         padding: 2em;
         margin-right: 0;
     }
