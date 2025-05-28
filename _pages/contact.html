@@ -54,8 +54,8 @@ author_profile: false
     }
 
     .contact-social-row a:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);on hover */
+        transform: scale(1.5);
+        box-shadow: none; /* 0 0px 20px rgba(0, 0, 0, 0.4);on hover */
     }
 
     .contact-social-row svg {
@@ -71,15 +71,23 @@ author_profile: false
     }
 
     html[data-theme='dark'] .contact-social-row a:hover {
-        box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: none; /* 0 0px 20px rgba(0, 0, 0, 0.4); */
     }
 
     /* Twitter/X icon color reversing in dark mode */
-    html[data-theme='dark'] .contact-social-row a[href*="x.com"] svg path:first-child {
+    html[data-theme='dark']
+        .contact-social-row
+        a[href*='x.com']
+        svg
+        path:first-child {
         fill: #000000;
     }
 
-    html[data-theme='dark'] .contact-social-row a[href*="x.com"] svg path:last-child {
+    html[data-theme='dark']
+        .contact-social-row
+        a[href*='x.com']
+        svg
+        path:last-child {
         fill: #ffffff;
     }
 </style>
