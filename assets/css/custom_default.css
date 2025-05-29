@@ -332,13 +332,13 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0;
-    scroll-padding-left: 15px;
     width: calc(100% - 30px);
 }
 
 /* Adjust round image sliders with consistent padding on all sides for shadows */
 .floating-slider-container.round-images {
     padding: 15px;
+    scroll-padding-left: 15px; /* Protects the padding on the left due to scroll-snap-align set to start */
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
