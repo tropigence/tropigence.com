@@ -159,9 +159,9 @@ li {
 /* ===== SECTION: Feature Cards and Sections ===== */
 .custom-section-header {
     text-align: center;
-    margin: 3em auto 0 auto;
+    margin: 1.5em auto 0 auto;
     padding: 0;
-    font-size: 1.25em;
+    font-size: 1.2em;
     color: var(--global-text-color)
 }
 
@@ -449,6 +449,10 @@ li {
     }
 
     /* Feature section styling */
+    .custom-section-header {
+        margin: 3em auto 0 auto;
+    }
+
     .custom-feature-section {
         width: 90%;
         margin-left: auto;
