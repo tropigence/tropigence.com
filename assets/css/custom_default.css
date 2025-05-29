@@ -331,11 +331,11 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 0 1em;
+    padding: 0;
     width: calc(100% - 30px);
 }
 
-/* Adjust round image sliders with consistent padding on all sides */
+/* Adjust round image sliders with consistent padding on all sides for shadows */
 .floating-slider-container.round-images {
     padding: 15px;
     box-sizing: border-box;
