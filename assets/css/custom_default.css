@@ -159,7 +159,7 @@ li {
 /* ===== SECTION: Feature Cards and Sections ===== */
 .custom-section-header {
     text-align: center;
-    margin: 1.5em auto -1.5em auto;
+    margin: 1.5em auto -1em auto;
     padding: 0;
     font-size: 1.2em;
     color: var(--global-text-color)
