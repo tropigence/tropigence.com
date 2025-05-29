@@ -159,9 +159,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const prevArrow = section.querySelector('.slider-arrow-prev');
             const nextArrow = section.querySelector('.slider-arrow-next');
 
-            if (slides.length <= 1) {
-                const existingIndicators = section.querySelector(`.slider-indicators[data-slider-id="slider-${sectionIndex}"]`);
-                if (existingIndicators) existingIndicators.remove();
+            // Initial check for slider necessity, will also be handled by updateUI on resize/load
+            const itemsFitInContainerInitial = sliderContainer.scrollWidth <= sliderContainer.offsetWidth;
+            if (slides.length <= 1 || itemsFitInContainerInitial) {
+                const indicatorsToHide = section.querySelector(`.slider-indicators[data-slider-id="slider-${sectionIndex}"]`);
+                if (indicatorsToHide) {
+                    // Instead of removing, hide it. updateUI will manage visibility.
+                    // indicatorsToHide.remove();
+                    indicatorsToHide.style.display = 'none';
+                }
                 if (prevArrow) {
                     prevArrow.style.display = 'none';
                     prevArrow.disabled = true;
@@ -170,7 +176,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     nextArrow.style.display = 'none';
                     nextArrow.disabled = true;
                 }
-                return;
+                stopContentAutoplay(); // Ensure autoplay is not running
+                // Don't return yet, let updateUI handle final state,
+                // especially if indicators are created then hidden by updateUI.
+                // However, if no indicators are created, this early return is fine.
+                // For safety, let's ensure indicators are created if needed, then updateUI handles visibility.
+                // The original code would return here, preventing indicator creation.
+                // If slides.length <=1, it's safe to return. If itemsFit, updateUI will handle.
+                if (slides.length <= 1) return;
             }
 
             if (prevArrow) prevArrow.style.display = '';
@@ -190,6 +203,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (index === 0) indicator.classList.add('active');
                     indicatorsContainer.appendChild(indicator);
                 });
+            } else {
+                 // Ensure it's visible if it was hidden and now slider is active
+                indicatorsContainer.style.display = '';
             }
             const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
 
@@ -205,25 +221,54 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             function getCurrentSlideIndex() {
-                const scrollPosition = sliderContainer.scrollLeft;
-                const containerWidth = sliderContainer.offsetWidth;
-                const viewportCenter = scrollPosition + containerWidth / 2;
-                let activeIndex = 0;
-                let minDistance = Infinity;
+                const currentScroll = sliderContainer.scrollLeft;
+                let closestIndex = 0;
+                let minDiff = Infinity;
+
+                if (slides.length === 0) return 0;
 
                 slides.forEach((slide, index) => {
-                    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-                    const distance = Math.abs(viewportCenter - slideCenter);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        activeIndex = index;
+                    const slideStart = slide.offsetLeft;
+                    const diff = Math.abs(slideStart - currentScroll);
+
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        closestIndex = index;
+                    }
+                    // If a slide's start is very close to currentScroll, it's a strong candidate.
+                    if (diff < 1) { // Use a small tolerance
+                        closestIndex = index;
+                        return; // Found a very close match
                     }
                 });
-                return activeIndex;
+                return closestIndex;
             }
 
             function updateUI() {
                 if (!slides.length) return;
+
+                const itemsFitInContainer = sliderContainer.scrollWidth <= sliderContainer.offsetWidth + 2; // 2px tolerance
+                const hasMultipleSlides = slides.length > 1;
+
+                if (!hasMultipleSlides || itemsFitInContainer) {
+                    if (prevArrow) {
+                        prevArrow.style.display = 'none';
+                        prevArrow.disabled = true;
+                    }
+                    if (nextArrow) {
+                        nextArrow.style.display = 'none';
+                        nextArrow.disabled = true;
+                    }
+                    if (indicatorsContainer) indicatorsContainer.style.display = 'none';
+                    stopContentAutoplay(); // Stop autoplay if items fit or only one slide
+                    return;
+                }
+
+                // If we are here, slider is active, ensure controls are visible
+                if (prevArrow) prevArrow.style.display = '';
+                if (nextArrow) nextArrow.style.display = '';
+                if (indicatorsContainer) indicatorsContainer.style.display = '';
+
                 const currentIndex = getCurrentSlideIndex();
 
                 indicators.forEach((indicator, index) => {
@@ -231,19 +276,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (prevArrow && nextArrow) {
-                    prevArrow.disabled = currentIndex === 0;
-                    nextArrow.disabled = currentIndex === slides.length - 1;
+                    // Disable prev arrow if at the beginning
+                    prevArrow.disabled = sliderContainer.scrollLeft < 2; // Small tolerance
+
+                    // Disable next arrow if at the end
+                    const maxScroll = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
+                    nextArrow.disabled = sliderContainer.scrollLeft >= maxScroll - 2; // Small tolerance
                 }
             }
 
             indicators.forEach((indicator, index) => {
                 indicator.addEventListener('click', () => {
                     const targetScrollLeft = getScrollTargetForIndex(index);
-                    sliderContainer.scrollTo({
-                        left: targetScrollLeft,
-                        behavior: 'smooth'
-                    });
-                    resetContentAutoplay();
+                    if (Math.abs(sliderContainer.scrollLeft - targetScrollLeft) > 1) {
+                        sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                        resetContentAutoplay();
+                    }
                 });
             });
 
@@ -251,53 +299,70 @@ document.addEventListener('DOMContentLoaded', function () {
                 prevArrow.addEventListener('click', () => {
                     const currentIndex = getCurrentSlideIndex();
                     const targetIndex = Math.max(0, currentIndex - 1);
-                    if (currentIndex === targetIndex && currentIndex === 0) return;
-                    const targetScrollLeft = getScrollTargetForIndex(targetIndex);
-                    sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
-                    resetContentAutoplay();
+
+                    if (currentIndex > 0 || (currentIndex === 0 && sliderContainer.scrollLeft > 1)) {
+                        const targetScrollLeft = getScrollTargetForIndex(targetIndex);
+                        if (Math.abs(sliderContainer.scrollLeft - targetScrollLeft) > 1) {
+                            sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                            resetContentAutoplay();
+                        }
+                    }
                 });
             }
 
             if (nextArrow) {
                 nextArrow.addEventListener('click', () => {
                     const currentIndex = getCurrentSlideIndex();
-                    const targetIndex = Math.min(slides.length - 1, currentIndex + 1);
-                    if (currentIndex === targetIndex && currentIndex === slides.length - 1) return;
-                    const targetScrollLeft = getScrollTargetForIndex(targetIndex);
-                    sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
-                    resetContentAutoplay();
+                    const maxScroll = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
+
+                    if (sliderContainer.scrollLeft < maxScroll - 2) { // If not already at the very end
+                        let targetNextIndex = currentIndex + 1;
+                        let targetScrollLeft;
+
+                        if (slides[targetNextIndex]) {
+                            targetScrollLeft = getScrollTargetForIndex(targetNextIndex);
+                            if (targetScrollLeft > maxScroll) {
+                                targetScrollLeft = maxScroll;
+                            }
+                        } else {
+                            targetScrollLeft = maxScroll;
+                        }
+
+                        if (Math.abs(sliderContainer.scrollLeft - targetScrollLeft) > 1) {
+                            sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                            resetContentAutoplay();
+                        }
+                    }
                 });
             }
 
             function startContentAutoplay() {
                 stopContentAutoplay();
                 if (slides.length <= 1) return;
+
+                const maxScroll = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
+                if (maxScroll <= 2) { // If not scrollable (or barely), don't start autoplay
+                    return;
+                }
+
                 contentAutoplayTimer = setInterval(() => {
-                    // Instead of using index-based navigation, move by exactly one item width
-                    const slideWidth = slides[0].offsetWidth;
-                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
+                    const currentFirstIndex = getCurrentSlideIndex();
+                    let targetScrollLeft;
 
-                    // Calculate current and max scroll positions
-                    const currentScrollPos = sliderContainer.scrollLeft;
-                    const maxScrollPos = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
+                    const isEffectivelyAtEnd = sliderContainer.scrollLeft >= maxScroll - 2;
 
-                    // Calculate next scroll position (one item forward)
-                    let nextScrollPos = currentScrollPos + slideWidth + gap;
-
-                    // If we're near the end, loop back to the beginning
-                    if (nextScrollPos >= maxScrollPos - 10) {
-                        nextScrollPos = 0;
+                    if (isEffectivelyAtEnd && slides.length > 1) {
+                        targetScrollLeft = 0; // Loop to beginning
+                    } else {
+                        const nextPotentialIndex = currentFirstIndex + 1;
+                        targetScrollLeft = slides[nextPotentialIndex] ? getScrollTargetForIndex(nextPotentialIndex) : maxScroll;
+                        if (targetScrollLeft > maxScroll) targetScrollLeft = maxScroll;
                     }
 
-                    // Scroll to the calculated position
-                    sliderContainer.scrollTo({
-                        left: nextScrollPos,
-                        behavior: 'smooth'
-                    });
-
-                    // After scrolling, update UI indicators
-                    setTimeout(updateUI, 500);
-                }, CONTENT_AUTOPLAY_INTERVAL); // Keep using original interval for content sliders
+                    if (Math.abs(sliderContainer.scrollLeft - targetScrollLeft) > 1 || (targetScrollLeft === 0 && sliderContainer.scrollLeft !== 0) ) {
+                         sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                    }
+                }, CONTENT_AUTOPLAY_INTERVAL);
             }
 
             function stopContentAutoplay() {
