@@ -111,7 +111,7 @@ li {
     height: 100%;
     width: 100%;
     flex: 0 0 100%;
-    scroll-snap-align: center;
+    scroll-snap-align: start; /* Align to start for consistency with JS */
     overflow: visible;
 }
 
@@ -367,7 +367,7 @@ li {
     flex: 0 0 100%;
     /* Default to 1 item, full width */
     min-width: 100%;
-    scroll-snap-align: center;
+    scroll-snap-align: start; /* Align items to the start for JS control */
     transition: transform 0.3s ease;
     margin: 0;
 }
