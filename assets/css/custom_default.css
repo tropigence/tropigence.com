@@ -494,31 +494,23 @@ li {
         align-items: center;
     }
 
-    /* Image wrapper sizing for different layouts */
+    /* Image and wrapper sizing for different layouts */
+    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
+    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
+        width: 40%;
+    }
+
+    .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper,
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 250px;
         min-width: 250px;
         padding: 2em;
         margin-right: 0;
-    }
-
-    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
-        width: 350px;
-        min-width: 350px;
-        padding: 2em;
-        margin-right: 0;
-    }
-
-    .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__image-wrapper-2 {
-        width: 40%;
-    }
-
-    /* Image sizing */
-    .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        margin: 0 auto;
-        max-width: 100%;
     }
 
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image--shape-round-2 {
@@ -530,6 +522,13 @@ li {
     .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 200px;
         max-width: 200px;
+    }
+
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
+        width: 350px;
+        min-width: 350px;
+        padding: 2em;
+        margin-right: 0;
     }
 
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
