@@ -196,51 +196,12 @@ document.addEventListener('DOMContentLoaded', function () {
             function getScrollTargetForIndex(index) {
                 if (!slides[index]) return sliderContainer.scrollLeft;
 
-                // Get the target slide's left position
-                const targetLeft = slides[index].offsetLeft;
+                // For navigation, always align items to the left edge of the container
+                // This ensures clean transitions with multiple visible items
 
-                // Get container width and calculate how many items can be fully visible
-                const containerWidth = sliderContainer.offsetWidth;
-                const slideWidth = slides[0].offsetWidth;
-                const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
-                const itemsPerView = Math.floor((containerWidth + gap) / (slideWidth + gap));
-
-                // Calculate maximum scroll position
-                const maxScrollLeft = sliderContainer.scrollWidth - containerWidth;
-
-                // If we're targeting one of the last items that would show partially,
-                // scroll to show the last itemsPerView items completely
-                if (index >= slides.length - itemsPerView) {
-                    return maxScrollLeft;
-                }
-
-                return targetLeft;
-            }
-
-            function handleNavigation(direction) {
-                // Find the first fully visible slide
-                const scrollPosition = sliderContainer.scrollLeft;
-                let firstVisibleIndex = 0;
-
-                for (let i = 0; i < slides.length; i++) {
-                    if (slides[i].offsetLeft >= scrollPosition) {
-                        firstVisibleIndex = i;
-                        break;
-                    }
-                }
-
-                // Calculate target index based on direction
-                let targetIndex;
-                if (direction === 'next') {
-                    targetIndex = Math.min(slides.length - 1, firstVisibleIndex + 1);
-                } else {
-                    targetIndex = Math.max(0, firstVisibleIndex - 1);
-                }
-
-                // Scroll to the target
-                const targetScrollLeft = getScrollTargetForIndex(targetIndex);
-                sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
-                resetContentAutoplay();
+                // Simply return the offsetLeft of the target slide
+                // This places the item at the left edge of the viewport
+                return slides[index].offsetLeft;
             }
 
             function getCurrentSlideIndex() {
@@ -288,13 +249,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (prevArrow) {
                 prevArrow.addEventListener('click', () => {
-                    handleNavigation('prev');
+                    const currentIndex = getCurrentSlideIndex();
+                    const targetIndex = Math.max(0, currentIndex - 1);
+                    if (currentIndex === targetIndex && currentIndex === 0) return;
+                    const targetScrollLeft = getScrollTargetForIndex(targetIndex);
+                    sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                    resetContentAutoplay();
                 });
             }
 
             if (nextArrow) {
                 nextArrow.addEventListener('click', () => {
-                    handleNavigation('next');
+                    const currentIndex = getCurrentSlideIndex();
+                    const targetIndex = Math.min(slides.length - 1, currentIndex + 1);
+                    if (currentIndex === targetIndex && currentIndex === slides.length - 1) return;
+                    const targetScrollLeft = getScrollTargetForIndex(targetIndex);
+                    sliderContainer.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+                    resetContentAutoplay();
                 });
             }
 
@@ -302,11 +273,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 stopContentAutoplay();
                 if (slides.length <= 1) return;
                 contentAutoplayTimer = setInterval(() => {
-                    handleNavigation('next');
+                    // Instead of using index-based navigation, move by exactly one item width
+                    const slideWidth = slides[0].offsetWidth;
+                    const gap = parseInt(getComputedStyle(sliderContainer).gap) || 0;
+
+                    // Calculate current and max scroll positions
+                    const currentScrollPos = sliderContainer.scrollLeft;
+                    const maxScrollPos = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
+
+                    // Calculate next scroll position (one item forward)
+                    let nextScrollPos = currentScrollPos + slideWidth + gap;
+
+                    // If we're near the end, loop back to the beginning
+                    if (nextScrollPos >= maxScrollPos - 10) {
+                        nextScrollPos = 0;
+                    }
+
+                    // Scroll to the calculated position
+                    sliderContainer.scrollTo({
+                        left: nextScrollPos,
+                        behavior: 'smooth'
+                    });
 
                     // After scrolling, update UI indicators
                     setTimeout(updateUI, 500);
-                }, CONTENT_AUTOPLAY_INTERVAL);
+                }, CONTENT_AUTOPLAY_INTERVAL); // Keep using original interval for content sliders
             }
 
             function stopContentAutoplay() {
