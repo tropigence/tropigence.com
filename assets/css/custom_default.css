@@ -333,7 +333,7 @@ li {
     scroll-snap-type: x mandatory;
     padding: 0;
     /* No internal padding for the scroll container itself */
-    width: calc(100% - 30px);
+    width: 100%; /* calc(100% - 30px); */
 }
 
 /* Adjust round image sliders with consistent padding on all sides */
