@@ -592,8 +592,8 @@ li {
     }
 
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        max-height: 300px;
-        max-width: 300px;
+        max-height: 250px;
+        max-width: 250px;
     }
 
     .custom-feature-section:not(.floating-slider-container):has(.custom-feature__image--shape-round),
