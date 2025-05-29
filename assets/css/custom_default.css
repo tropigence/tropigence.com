@@ -331,7 +331,8 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 10em;
+    padding: 0;
+    scroll-padding-left: 15px;
     width: calc(100% - 30px);
 }
 
