@@ -168,7 +168,7 @@ li {
 .custom-feature-section {
     margin: 1px auto 0.5em auto;
     /* Top margin set to 1px (mobile arrow-to-slider gap) */
-    padding: 0 1em 1em;
+    padding: 0 10em 1em;
     /* Adjusted: top padding 0, L/R 1em, bottom 1em */
     width: 100%;
     box-sizing: border-box;
@@ -569,7 +569,7 @@ li {
     .floating-slider-container.round-images {
         margin-left: auto;
         margin-right: auto;
-        width: 100%; /* calc(100% - 87px); */
+        width: calc(100% - 87px);
     }
 }
 
