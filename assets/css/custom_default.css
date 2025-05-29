@@ -111,7 +111,7 @@ li {
     height: 100%;
     width: 100%;
     flex: 0 0 100%;
-    scroll-snap-align: start; /* Align to start for consistency with JS */
+    scroll-snap-align: start;
     overflow: visible;
 }
 
@@ -331,9 +331,9 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    /* Base padding is 0, specific types will override. */
-    padding: 0; /* Will be overridden by specific types like .round-images */
-    width: 100%; /* Let it fill the parent custom-feature-section's content box */
+    padding: 0;
+    /* No internal padding for the scroll container itself */
+    width: calc(100% - 30px);
 }
 
 /* Adjust round image sliders with consistent padding on all sides */
@@ -341,19 +341,13 @@ li {
     padding: 15px;
     box-sizing: border-box;
     margin-left: auto;
-    margin-right: auto; /* This will center it if its parent section is wider than the slider content */
-    /* If .round-images items ever use scroll-snap-align: start, they'd need scroll-padding too.
-       Currently, they use scroll-snap-align: center (line 339), so this is not an issue for them. */
+    margin-right: auto;
 }
 
 /* Add top padding to box image sliders to allow smooth hover */
 .floating-slider-container:not(.round-images) {
-    /* Ensure visual padding for content offset */
-    padding: 5px 0 0 0; /* Top padding for hover, no L/R padding here */
+    padding: 5px 0 0 0;
     box-sizing: border-box;
-    /* Explicitly define scroll-padding to match visual padding for snapping */
-    scroll-padding-left: 0; /* Snap to actual container edge */
-    scroll-padding-right: 0; /* Snap to actual container edge */
 }
 
 /* Update the negative margins to compensate for increased padding */
@@ -373,7 +367,7 @@ li {
     flex: 0 0 100%;
     /* Default to 1 item, full width */
     min-width: 100%;
-    scroll-snap-align: start; /* Align items to the start for JS control */
+    scroll-snap-align: start;
     transition: transform 0.3s ease;
     margin: 0;
 }
@@ -459,12 +453,15 @@ li {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
+        margin-top: 5px;
+        /* Top margin set to 5px (desktop arrow-to-slider gap) */
     }
 
-    /* Removed width: calc(100% - 44px) for .floating-slider-container and .floating-slider-container.round-images
-       They will now take 100% width of .custom-feature-section's content box.
-       The .custom-feature-section itself is width: 90% and centered. */
+    .floating-slider-container,
+    .floating-slider-container.round-images {
+        width: calc(100% - 44px);
+    }
+
     /* Slider item widths for 2 items (non-round) */
     .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
     .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
@@ -562,15 +559,19 @@ li {
 }
 
 @media (min-width: 768px) {
+
     .hero-text-overlay h1,
     .feature-style-hero .custom-feature__description-wrapper h3,
     .feature-style-hero .custom-feature__description-wrapper-2 h3 {
         font-size: 2.5em;
     }
 
-    /* Removed width: calc(100% - 87px) for .floating-slider-container and .floating-slider-container.round-images
-       They will now take 100% width of .custom-feature-section's content box.
-       The .custom-feature-section itself is width: 90% (at 600px+) and centered. */
+    .floating-slider-container,
+    .floating-slider-container.round-images {
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(100% - 87px);
+    }
 }
 
 /* Desktop styles (1100px+) */
@@ -633,6 +634,7 @@ li {
 
 /* Desktop large styles (1400px+) */
 @media (min-width: 1400px) {
+
     /* Round image sliders with 2 or 3 items show max 2 items */
     .floating-slider-container.round-images.has-2-items>.custom-feature__item,
     .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
@@ -654,7 +656,8 @@ li {
 
 /* Extra large screens (2040px+) */
 @media (min-width: 2040px) {
-/* Image wrapper sizing */
+
+    /* Image wrapper sizing */
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper,
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
         width: 300px;
