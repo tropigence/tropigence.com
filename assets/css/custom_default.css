@@ -168,7 +168,7 @@ li {
 .custom-feature-section {
     margin: 1px auto 0.5em auto;
     /* Top margin set to 1px (mobile arrow-to-slider gap) */
-    padding: 0 10em 10em;
+    padding: 0 1em 1em;
     /* Adjusted: top padding 0, L/R 1em, bottom 1em */
     width: 100%;
     box-sizing: border-box;
@@ -331,7 +331,7 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
-    padding: 0;
+    padding: 10em;
     width: calc(100% - 30px);
 }
 
