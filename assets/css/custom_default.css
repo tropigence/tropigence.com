@@ -331,8 +331,8 @@ li {
     display: flex;
     gap: 1em;
     scroll-snap-type: x mandatory;
+    /* Base padding is 0, specific types will override. */
     padding: 0;
-    /* No internal padding for the scroll container itself */
     width: calc(100% - 30px);
 }
 
@@ -346,8 +346,12 @@ li {
 
 /* Add top padding to box image sliders to allow smooth hover */
 .floating-slider-container:not(.round-images) {
-    padding: 5px 0 0 0;
+    /* Ensure visual padding for content offset */
+    padding: 5px 1em 0 1em;
     box-sizing: border-box;
+    /* Explicitly define scroll-padding to match visual padding for snapping */
+    scroll-padding-left: 1em;
+    scroll-padding-right: 1em; /* For consistency at the end of the scroll */
 }
 
 /* Update the negative margins to compensate for increased padding */
