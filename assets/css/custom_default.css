@@ -332,8 +332,9 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     padding: 0;
-    /* No internal padding for the scroll container itself */
-    width: 100%; /* calc(100% - 30px); */
+    /* Let it fill the parent custom-feature-section's content box.
+       The parent section's padding will provide the outer 1em spacing. */
+    width: 100%;
 }
 
 /* Adjust round image sliders with consistent padding on all sides */
@@ -346,8 +347,10 @@ li {
 
 /* Add top padding to box image sliders to allow smooth hover */
 .floating-slider-container:not(.round-images) {
-    padding: 5px 0 0 0;
+    padding: 5px 0 0 0; /* Top padding for hover, no L/R padding here */
     box-sizing: border-box;
+    /* Ensure scroll snapping aligns to the actual edges of this container */
+    scroll-padding: 0; /* Explicitly set scroll-padding to 0 for left/right */
 }
 
 /* Update the negative margins to compensate for increased padding */
@@ -457,11 +460,9 @@ li {
         /* Top margin set to 5px (desktop arrow-to-slider gap) */
     }
 
-    .floating-slider-container,
-    .floating-slider-container.round-images {
-        width: calc(100% - 44px);
-    }
-
+    /* .floating-slider-container width is now 100% of parent's content box.
+       The parent .custom-feature-section (width: 90%; margin: auto;) handles centering.
+       Removed: width: calc(100% - 44px); */
     /* Slider item widths for 2 items (non-round) */
     .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
     .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
@@ -566,12 +567,9 @@ li {
         font-size: 2.5em;
     }
 
-    .floating-slider-container,
-    .floating-slider-container.round-images {
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(100% - 87px);
-    }
+    /* .floating-slider-container width is now 100% of parent's content box.
+       The parent .custom-feature-section (width: 90%; margin: auto;) handles centering.
+       Removed: width: calc(100% - 87px); */
 }
 
 /* Desktop styles (1100px+) */
@@ -725,7 +723,7 @@ li {
     .floating-slider-container>.custom-feature__item:hover,
     .floating-slider-container>.custom-feature__item-2:hover {
         transform: translateY(-5px);
-        box-shadow: none; /* 0 10px 20px rgba(0, 0, 0, 0.1); */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 }
 
