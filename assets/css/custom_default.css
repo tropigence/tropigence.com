@@ -162,11 +162,12 @@ li {
     margin: 1.5em auto 0 auto;
     padding: 0;
     font-size: 1.2em;
+    line-height: 0;
     color: var(--global-text-color)
 }
 
 .custom-feature-section {
-    margin: 0px auto 0em auto;
+    margin: 1px auto 0 auto;
     /* Top margin set to 1px (mobile arrow-to-slider gap) */
     padding: 0 1em 1em;
     /* Adjusted: top padding 0, L/R 1em, bottom 1em */
