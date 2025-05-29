@@ -857,20 +857,22 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 /* Hover states for arrow shape */
-.slider-arrow-prev:hover::before {
-    border-color: transparent var(--custom-color-1) transparent transparent;
-}
+@media (hover: hover) {
+    .slider-arrow-prev:hover::before {
+        border-color: transparent var(--custom-color-1) transparent transparent;
+    }
 
-.slider-arrow-next:hover::before {
-    border-color: transparent transparent transparent var(--custom-color-1);
-}
+    .slider-arrow-next:hover::before {
+        border-color: transparent transparent transparent var(--custom-color-1);
+    }
 
-html[data-theme="dark"] .slider-arrow-prev:hover::before {
-    border-color: transparent var(--custom-color-2) transparent transparent;
-}
+    html[data-theme="dark"] .slider-arrow-prev:hover::before {
+        border-color: transparent var(--custom-color-2) transparent transparent;
+    }
 
-html[data-theme="dark"] .slider-arrow-next:hover::before {
-    border-color: transparent transparent transparent var(--custom-color-2);
+    html[data-theme="dark"] .slider-arrow-next:hover::before {
+        border-color: transparent transparent transparent var(--custom-color-2);
+    }
 }
 
 /* Mobile specific adjustments for arrows */
