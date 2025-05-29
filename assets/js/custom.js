@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return slides[index].offsetLeft;
             }
 
+            // This should be the version that finds the slide closest to the current scrollLeft
             function getCurrentSlideIndex() {
                 const currentScroll = sliderContainer.scrollLeft;
                 let closestIndex = 0;
@@ -236,9 +237,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         closestIndex = index;
                     }
                     // If a slide's start is very close to currentScroll, it's a strong candidate.
+                    // Note: return from forEach callback doesn't exit the outer function,
+                    // but closestIndex will hold the best match.
                     if (diff < 1) { // Use a small tolerance
                         closestIndex = index;
-                        return; // Found a very close match
+                        // return; // This return is for the forEach callback
                     }
                 });
                 return closestIndex;
@@ -348,15 +351,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 contentAutoplayTimer = setInterval(() => {
                     const currentFirstIndex = getCurrentSlideIndex();
                     let targetScrollLeft;
-
+                    const maxScroll = sliderContainer.scrollWidth - sliderContainer.offsetWidth;
                     const isEffectivelyAtEnd = sliderContainer.scrollLeft >= maxScroll - 2;
 
-                    if (isEffectivelyAtEnd && slides.length > 1) {
-                        targetScrollLeft = 0; // Loop to beginning
+                    if (isEffectivelyAtEnd && slides.length > 1) { // If at the end, loop to beginning
+                        targetScrollLeft = 0;
                     } else {
                         const nextPotentialIndex = currentFirstIndex + 1;
+                        // Target the start of the next slide, or maxScroll if it's the end
                         targetScrollLeft = slides[nextPotentialIndex] ? getScrollTargetForIndex(nextPotentialIndex) : maxScroll;
-                        if (targetScrollLeft > maxScroll) targetScrollLeft = maxScroll;
+                        if (targetScrollLeft > maxScroll) {
+                            targetScrollLeft = maxScroll;
+                        }
                     }
 
                     if (Math.abs(sliderContainer.scrollLeft - targetScrollLeft) > 1 || (targetScrollLeft === 0 && sliderContainer.scrollLeft !== 0) ) {
