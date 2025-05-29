@@ -569,7 +569,7 @@ li {
     .floating-slider-container.round-images {
         margin-left: auto;
         margin-right: auto;
-        width: calc(100% - 87px);
+        width: 100%; /* calc(100% - 87px); */
     }
 }
 
