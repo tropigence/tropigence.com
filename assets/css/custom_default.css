@@ -332,8 +332,8 @@ li {
     gap: 1em;
     scroll-snap-type: x mandatory;
     /* Base padding is 0, specific types will override. */
-    padding: 0;
-    width: calc(100% - 30px);
+    padding: 0; /* Will be overridden by specific types like .round-images */
+    width: 100%; /* Let it fill the parent custom-feature-section's content box */
 }
 
 /* Adjust round image sliders with consistent padding on all sides */
@@ -341,17 +341,19 @@ li {
     padding: 15px;
     box-sizing: border-box;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* This will center it if its parent section is wider than the slider content */
+    /* If .round-images items ever use scroll-snap-align: start, they'd need scroll-padding too.
+       Currently, they use scroll-snap-align: center (line 339), so this is not an issue for them. */
 }
 
 /* Add top padding to box image sliders to allow smooth hover */
 .floating-slider-container:not(.round-images) {
     /* Ensure visual padding for content offset */
-    padding: 5px 1em 0 1em;
+    padding: 5px 0 0 0; /* Top padding for hover, no L/R padding here */
     box-sizing: border-box;
     /* Explicitly define scroll-padding to match visual padding for snapping */
-    scroll-padding-left: 1em;
-    scroll-padding-right: 1em; /* For consistency at the end of the scroll */
+    scroll-padding-left: 0; /* Snap to actual container edge */
+    scroll-padding-right: 0; /* Snap to actual container edge */
 }
 
 /* Update the negative margins to compensate for increased padding */
@@ -460,11 +462,9 @@ li {
         margin-top: 5px; /* Top margin set to 5px (desktop arrow-to-slider gap) */
     }
 
-    .floating-slider-container,
-    .floating-slider-container.round-images {
-        width: calc(100% - 44px);
-    }
-
+    /* Removed width: calc(100% - 44px) for .floating-slider-container and .floating-slider-container.round-images
+       They will now take 100% width of .custom-feature-section's content box.
+       The .custom-feature-section itself is width: 90% and centered. */
     /* Slider item widths for 2 items (non-round) */
     .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
     .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
@@ -568,12 +568,9 @@ li {
         font-size: 2.5em;
     }
 
-    .floating-slider-container,
-    .floating-slider-container.round-images {
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(100% - 87px);
-    }
+    /* Removed width: calc(100% - 87px) for .floating-slider-container and .floating-slider-container.round-images
+       They will now take 100% width of .custom-feature-section's content box.
+       The .custom-feature-section itself is width: 90% (at 600px+) and centered. */
 }
 
 /* Desktop styles (1100px+) */
