@@ -159,7 +159,7 @@ li {
 /* ===== SECTION: Feature Cards and Sections ===== */
 .custom-section-header {
     text-align: center;
-    margin: 3em auto -1em auto;
+    margin: 5em auto -1em auto;
     padding: 0;
     font-size: 1.2em;
     color: var(--global-text-color)
@@ -446,11 +446,6 @@ li {
     .feature-style-hero .custom-feature__description-wrapper-2 a.btn.btn--primary {
         display: inline-block;
         font-size: 1.2em;
-    }
-
-    /* Feature section styling */
-    .custom-section-header {
-        margin: 3em auto -1em auto;
     }
 
     .custom-feature-section {
