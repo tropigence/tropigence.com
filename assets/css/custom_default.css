@@ -338,7 +338,7 @@ li {
 /* Adjust round image sliders with consistent padding on all sides for shadows */
 .floating-slider-container.round-images {
     padding: 15px;
-    scroll-padding-left: 16px; /* Protects the padding on the left due to scroll-snap-align set to start */
+    scroll-padding-left: 15px; /* Protects the padding on the left due to scroll-snap-align set to start */
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -556,6 +556,10 @@ li {
     .custom-feature__description-wrapper-2 a.btn.btn--primary {
         align-self: flex-start;
     }
+
+    .hero-slider-indicators {
+        bottom: 15px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -651,6 +655,10 @@ li {
         max-width: 1440px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .hero-slider-indicators {
+        bottom: 10px;
     }
 }
 
