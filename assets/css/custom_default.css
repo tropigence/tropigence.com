@@ -880,6 +880,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
         /* Clickable area */
         width: 44px;
         height: 44px;
+        top: calc(50% - 20px);
     }
 
     .slider-arrow-prev {
