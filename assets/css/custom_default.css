@@ -13,7 +13,7 @@ li {
     width: 100%;
     height: 75vh;
     overflow: hidden;
-    margin-bottom: 5em;
+    margin-bottom: 6em;
     position: relative;
 }
 
@@ -159,13 +159,21 @@ li {
 /* ===== SECTION: Feature Cards and Sections ===== */
 .custom-section-header {
     text-align: center;
-    margin: 0em auto 0em auto;
+    margin: 2em auto 0em auto;
     padding: 0;
     font-size: 1.2em;
     color: var(--global-text-color)
 }
 
 .custom-section-header-2 {
+    text-align: center;
+    margin: 2em auto -1em auto;
+    padding: 0;
+    font-size: 1.2em;
+    color: var(--global-text-color);
+}
+
+.custom-section-header-3 {
     text-align: center;
     margin: 5em auto -1em auto;
     padding: 0;
