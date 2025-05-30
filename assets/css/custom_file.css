@@ -6,6 +6,7 @@
     box-sizing: border-box;
     height: 90vh;
     width: 80%;
+    max-width: 1440px;
     overflow-y: hidden;
     /* Prevent this container from scrolling; scrolling is inside the file */
     display: flex;
