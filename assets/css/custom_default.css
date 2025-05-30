@@ -847,7 +847,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-prev {
-    left: 2.25px;
+    left: 5px;
     /* Original position from edge */
 }
 
@@ -860,7 +860,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 }
 
 .slider-arrow-next {
-    right: 2.25px;
+    right: 5px;
     /* Original position from edge */
 }
 
