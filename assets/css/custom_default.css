@@ -800,7 +800,7 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 /* ===== SECTION: Slider Navigation Arrows ===== */
 .slider-arrow {
     position: absolute;
-    top: calc(50% - 17.5px);
+    top: calc(50% - 18px);
     /* The pixel subtraction accounts for the arrow height and indicator margin/padding */
     transform: translateY(-50%);
     z-index: 5;
@@ -877,8 +877,8 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 /* Mobile specific adjustments for arrows */
 @media (min-width: 768px) {
     .slider-arrow {
+        /* Clickable area */
         width: 44px;
-        /* Smaller clickable area */
         height: 44px;
     }
 
