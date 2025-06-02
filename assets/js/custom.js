@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Don't add a new event listener - the one in _main.js will handle it
 
         // Just apply saved theme on load
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        // const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        // document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Use site's configured theme (dark) with no fallback option
+        const savedTheme = 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
 
