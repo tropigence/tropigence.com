@@ -140,7 +140,7 @@
 /* Handles any touch and no hover device like mobile or tablets */
 @media (pointer: coarse) and (hover: none) {
     .file-page-container {
-        max-width: 700px;
+        max-width: 650px;
     }
 
     /* Use attribute selector to target mobile viewer more specifically */
