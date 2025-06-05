@@ -91,7 +91,8 @@
     text-align: center;
     align-self: center;
     width: auto;
-    transition: none; /* background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;*/
+    transition: none;
+    /* background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; */
 }
 
 .btn--primary {
@@ -115,8 +116,10 @@
     /* Example: limit height if .file-page-container is hidden overflow */
 }
 
-/* Responsive Design - Adjustments for mobile */
-@media (max-width: 768px) {
+
+
+/* Handles mobile */
+@media (max-width: 600px) {
     .file-page-container {
         height: 80vh;
         width: 100%;
@@ -125,6 +128,30 @@
 
     .file-additional-content {
         max-height: calc(100vh - 80vh - 20px);
+    }
+}
+
+/* Style to handle PDF viewers */
+#mobile-file-viewer {
+    display: none;
+    /* Hidden by default */
+}
+
+/* Handles any touch and no hover device like mobile or tablets */
+@media (pointer: coarse) and (hover: none) {
+    .file-page-container {
+        max-width: 700px;
+    }
+
+    /* Use attribute selector to target mobile viewer more specifically */
+    iframe#mobile-file-viewer {
+        display: block !important;
+        /* Force display on mobile/touch devices */
+    }
+
+    iframe#desktop-file-viewer {
+        display: none !important;
+        /* Hide desktop viewer */
     }
 }
 
