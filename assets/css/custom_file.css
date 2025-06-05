@@ -116,7 +116,13 @@
     /* Example: limit height if .file-page-container is hidden overflow */
 }
 
-
+/* Defaults to handle PDF viewers */
+iframe#desktop-file-viewer {
+    display: block; /* Default to desktop viewer */
+}
+iframe#mobile-file-viewer {
+    display: none; /* Hidden by default */
+}
 
 /* Handles mobile */
 @media (max-width: 600px) {
@@ -129,12 +135,13 @@
     .file-additional-content {
         max-height: calc(100vh - 80vh - 20px);
     }
-}
 
-/* Style to handle PDF viewers */
-#mobile-file-viewer {
-    display: none;
-    /* Hidden by default */
+    iframe#desktop-file-viewer {
+        display: none;
+    }
+
+    iframe#mobile-file-viewer {
+        display: block;   }
 }
 
 /* Handles any touch and no hover device like mobile or tablets */
