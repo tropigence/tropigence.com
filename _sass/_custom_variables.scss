@@ -17,7 +17,7 @@ $vh-x-tall: 90vh; /* Full viewport height */
 $vh-full: 100vh; /* Full viewport height */
 
 :root {
-    /* CSS variables for use in other CSS properties beside media queries */
+    /* CSS variables for use in other CSS properties excluding media queries */
     --global-screen-x-small: #{$screen-x-small};
     --global-screen-small: #{$screen-small};
     --global-screen-medium: #{$screen-medium};
