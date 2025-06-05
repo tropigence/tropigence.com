@@ -242,83 +242,85 @@ redirect_from:
     ></button>
 </section>
 
-<!-- Header Section -->
-<section class="custom-feature-section">
-    <div class="custom-section-header-3">
-        <h1>News</h1>
-    </div>
-</section>
+{% comment %}
+    <!-- Header Section -->
+    <section class="custom-feature-section">
+        <div class="custom-section-header-3">
+            <h1>News</h1>
+        </div>
+    </section>
 
-<!-- Fourth Slider Section -->
-<section class="custom-feature-section">
-    <button
-        class="slider-arrow slider-arrow-prev"
-        aria-label="Previous slide"
-    ></button>
-    <div class="floating-slider-container box-images has-3-items">
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-2"
-            image_url="/images/plantation.jpg"
-            image_alt="Agricultural Technology"
-            header_text="Digital Agriculture"
-            paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
-            button_href="/news/"
-            button_text="Learn More"
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-2"
-            image_url="/images/cover_team.png"
-            image_alt="Community Outreach"
-            header_text="Community Engagement"
-            paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
-            button_href="/news/"
-            button_text="Learn More"
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-2"
-            image_url="/images/plantation3.jpg"
-            image_alt="Soil Testing"
-            header_text="Soil Health Management"
-            paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
-            button_href="/news/"
-            button_text="Learn More"
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-2"
-            image_url="/images/cover_team.png"
-            image_alt="Community Outreach"
-            header_text="Community Engagement"
-            paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
-            button_href="/news/"
-            button_text="Learn More"
-        %}
-        {%
-            include custom_default.html
-            mode="item"
-            in_slider=true
-            container_style="feature-style-2"
-            image_url="/images/plantation3.jpg"
-            image_alt="Soil Testing"
-            header_text="Soil Health Management"
-            paragraph_text="Our soil management research aims to restore and maintain soil fertility in tropical regions, optimizing nutrient cycling and enhancing crop productivity sustainably."
-            button_href="/news/"
-            button_text="Learn More"
-        %}
-    </div>
-    <button
-        class="slider-arrow slider-arrow-next"
-        aria-label="Next slide"
-    ></button>
-</section>
+    <!-- Fourth Slider Section -->
+    <section class="custom-feature-section">
+        <button
+            class="slider-arrow slider-arrow-prev"
+            aria-label="Previous slide"
+        ></button>
+        <div class="floating-slider-container box-images has-3-items">
+            {%
+                include custom_default.html
+                mode="item"
+                in_slider=true
+                container_style="feature-style-2"
+                image_url="/images/packaging.jpg"
+                image_alt="Packaging Research"
+                header_text="Packaging"
+                paragraph_text="We aim to investigate novel biodegradable polymers derived from agricultural waste streams to develop packaging that extends produce shelf-life while addressing plastic pollution in the agricultural sector."
+                button_href="/research/"
+                button_text="Learn More"
+            %}
+            {%
+                include custom_default.html
+                mode="item"
+                in_slider=true
+                container_style="feature-style-2"
+                image_url="/images/plantation.jpg"
+                image_alt="Agricultural Technology"
+                header_text="Digital Agriculture"
+                paragraph_text="We're developing AI-powered tools and mobile applications that help tropical farmers make data-driven decisions, improving resource efficiency and crop management."
+                button_href="/news/"
+                button_text="Learn More"
+            %}
+            {%
+                include custom_default.html
+                mode="item"
+                in_slider=true
+                container_style="feature-style-2"
+                image_url="/images/cool_chain.png"
+                image_alt="Cool Chain Research"
+                header_text="Cool Chain Optimization"
+                paragraph_text="Our post-harvest loss research will explore low-energy cooling technologies for tropical fruit preservation. We aim to develop predictive models for quality degradation under various environmental conditions."
+                button_href="/research/"
+                button_text="Learn More"
+            %}
+            {%
+                include custom_default.html
+                mode="item"
+                in_slider=true
+                container_style="feature-style-2"
+                image_url="/images/plantation3.jpg"
+                image_alt="Tomato Research"
+                header_text="Heat-Resilient Tomato"
+                paragraph_text="Our tomato research program investigates genetic markers associated with heat tolerance and extended shelf-life. We will conduct simulations and field trials across multiple tropical environments."
+                button_href="/research/"
+                button_text="Learn More"
+            %}
+            {%
+                include custom_default.html
+                mode="item"
+                in_slider=true
+                container_style="feature-style-2"
+                image_url="/images/cover_team.png"
+                image_alt="Community Outreach"
+                header_text="Community Engagement"
+                paragraph_text="Our outreach programs transfer knowledge from research to practice, empowering farming communities to adopt improved varieties and sustainable techniques."
+                button_href="/news/"
+                button_text="Learn More"
+            %}
+        </div>
+        <button
+            class="slider-arrow slider-arrow-next"
+            aria-label="Next slide"
+        ></button>
+    </section>
+{% endcomment %}
