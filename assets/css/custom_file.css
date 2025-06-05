@@ -4,9 +4,9 @@
 .file-page-container {
     padding: 20px 20px;
     box-sizing: border-box;
-    height: var(--global-vh-x-tall);
+    height: var(--global-vh-tall);
     width: 80%;
-    max-width: 1200px;
+    max-width: var(--global-doc-large);
     overflow-y: hidden;
     /* Prevent this container from scrolling; scrolling is inside the file */
     display: flex;
@@ -112,7 +112,7 @@
     padding-top: 10px;
     flex-shrink: 0;
     overflow-y: auto;
-    max-height: calc(100vh - var(--global-vh-x-tall) - 20px);
+    max-height: calc(100vh - var(--global-vh-tall) - 20px);
     /* Example: limit height if .file-page-container is hidden overflow */
 }
 

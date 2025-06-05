@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<link
+    rel="stylesheet"
+    href="{{ '/assets/css/custom_html_doc.css' | relative_url }}"
+>
+
+{% comment %} Allows for additional Markdown/HTML content on the page. {% endcomment %}
+{% if content != '' and content != null %}
+    <div class="file-additional-content">{{ content }}</div>
+{% endif %}
