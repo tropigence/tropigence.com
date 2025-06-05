@@ -9,6 +9,7 @@ $screen-large: 1100px; /* Big tablets and laptops */
 $screen-x-large: 1400px; /* laptops and small monitors */
 $screen-xx-large: 2048px; /* Monitors and TVs */
 
+$doc-small: 650px;
 $doc-medium: 800px;
 $doc-large: 1200px;
 
@@ -28,6 +29,7 @@ $vh-full: 100vh; /* Full viewport height */
     --global-screen-x-large: #{$screen-x-large};
     --global-screen-xx-large: #{$screen-xx-large};
 
+    --global-doc-small: #{$doc-small};
     --global-doc-medium: #{$doc-medium};
     --global-doc-large: #{$doc-large};
 

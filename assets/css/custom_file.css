@@ -151,7 +151,7 @@ iframe#mobile-file-viewer {
 /* Handles any touch and no hover device like mobile or tablets */
 @media (pointer: coarse) and (hover: none) {
     .file-page-container {
-        max-width: 650px;
+        max-width: var(--global-doc-small);
     }
 
     /* Use attribute selector to target mobile viewer more specifically */
