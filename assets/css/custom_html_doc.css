@@ -31,8 +31,12 @@
 
 .page-content ul {
     margin-bottom: 15px;
-    padding-left: 0px;
+    padding-left: 20px;
+}
+
+.no-bullets {
     list-style-type: none;
+    padding-left: 0;
 }
 
 .page-content li {

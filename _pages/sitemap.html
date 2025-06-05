@@ -79,7 +79,7 @@ permalink: /sitemap/
             {% endfor %}
             {% assign sorted_pages = pages_list | sort %}
 
-            <ul>
+            <ul class="no-bullets">
                 {% if sorted_pages.size > 0 %}
                     {% for page_entry in sorted_pages %}
                         {% assign parts = page_entry | split: '|' %}
