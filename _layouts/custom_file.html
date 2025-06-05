@@ -20,9 +20,9 @@ layout: default
             <div class="file-viewer-and-button-area">
                 <div class="file-viewer-wrapper">
                     <div class="file-viewer">
-                        <!-- This iframe will manage desktop viewing -->
+                        <!-- Default version -->
                         <iframe
-                            id="desktop-file-viewer"
+                            id="default-file-viewer"
                             src="{{ page.file_url }}"
                             title="{{ page.file_title | default: page.title | escape }} Viewer"
                             frameborder="0"
@@ -32,11 +32,9 @@ layout: default
                             <a href="{{ page.file_url }}">download the file</a>
                             to view it.
                         </iframe>
-
-                        <!-- Mobile version -->
                         {% if page.mobile_file_url %}
+                            <!-- Mobile and Tablet version -->
                             <iframe
-                                class="file-viewer"
                                 id="mobile-file-viewer"
                                 src="{{ page.mobile_file_url }}"
                                 title="{{ page.file_title | default: page.title | escape }} Viewer"

@@ -112,19 +112,17 @@
     padding-top: 10px;
     flex-shrink: 0;
     overflow-y: auto;
-    max-height: calc(100vh - var(--global-vh-tall) - 20px);
+    max-height: calc(100vh - var(--global-vh-tall) - 1em);
     /* Example: limit height if .file-page-container is hidden overflow */
 }
 
-/* Defaults to handle PDF viewers */
-iframe#desktop-file-viewer {
+/* Default viewer */
+#default-file-viewer {
     display: block;
-    /* Default to desktop viewer */
 }
 
-iframe#mobile-file-viewer {
+#mobile-file-viewer {
     display: none;
-    /* Hidden by default */
 }
 
 /* Handles mobile */
@@ -136,15 +134,7 @@ iframe#mobile-file-viewer {
     }
 
     .file-additional-content {
-        max-height: calc(100vh - var(--global-vh-medium) - 20px);
-    }
-
-    iframe#desktop-file-viewer {
-        display: none !important;
-    }
-
-    iframe#mobile-file-viewer {
-        display: block !important;
+        max-height: calc(100vh - var(--global-vh-medium) - 1em);
     }
 }
 
@@ -154,15 +144,12 @@ iframe#mobile-file-viewer {
         max-width: var(--global-doc-small);
     }
 
-    /* Use attribute selector to target mobile viewer more specifically */
-    iframe#mobile-file-viewer {
-        display: block !important;
-        /* Force display on mobile/touch devices */
+    #default-file-viewer {
+        display: none !important;
     }
 
-    iframe#desktop-file-viewer {
-        display: none !important;
-        /* Hide desktop viewer */
+    #mobile-file-viewer {
+        display: block !important;
     }
 }
 
