@@ -4,7 +4,7 @@
 .file-page-container {
     padding: 20px 20px;
     box-sizing: border-box;
-    height: 90vh;
+    height: 95vh;
     width: 80%;
     max-width: 1440px;
     overflow-y: hidden;
@@ -112,16 +112,19 @@
     padding-top: 10px;
     flex-shrink: 0;
     overflow-y: auto;
-    max-height: calc(100vh - 90vh - 20px);
+    max-height: calc(100vh - 95vh - 20px);
     /* Example: limit height if .file-page-container is hidden overflow */
 }
 
 /* Defaults to handle PDF viewers */
 iframe#desktop-file-viewer {
-    display: block; /* Default to desktop viewer */
+    display: block;
+    /* Default to desktop viewer */
 }
+
 iframe#mobile-file-viewer {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
 }
 
 /* Handles mobile */
@@ -137,11 +140,12 @@ iframe#mobile-file-viewer {
     }
 
     iframe#desktop-file-viewer {
-        display: none;
+        display: none !important;
     }
 
     iframe#mobile-file-viewer {
-        display: block;   }
+        display: block !important;
+    }
 }
 
 /* Handles any touch and no hover device like mobile or tablets */
