@@ -21,6 +21,11 @@ logo_light: "/images/logo_colored.png" # Specify your light theme logo
 logo_dark: "/images/logo_colored.png" # Specify your dark theme logo
 # ...
 
+social_preview:
+    title: "Transforming Tropical Horticulture Through Advanced Research"
+    description: "We develop and apply the latest scientific advancements..."
+    image: "/images/site_preview.jpg"
+
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
