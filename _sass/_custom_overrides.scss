@@ -40,7 +40,7 @@
 
 /* Selection - Customization ------------------------------------------------ */
 ::selection {
-    background-color: var(--custom-color-2);
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.2);
     color: var(--global-text-color);
 }
 /* End of Selection - Customization ----------------------------------------- */
