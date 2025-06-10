@@ -8,18 +8,20 @@ redirect_from:
     - /about.html/
 ---
 {% comment %}
-    {%
-        include custom_default.html
-        mode="hero"
-        image_url="/images/cover_team.png"
-        image_alt="Our Team"
-        header_text="Transforming Tropical Horticulture Through Advanced Research"
-        paragraph_text="We are a team of highly innovative researchers, each bringing specialized knowledge and a shared passion for advancing tropical agriculture. Our collective expertise spans the critical domains of food technology, material science, and quantitative genetics."
-        button_href="#meet-the-team"
-        button_text="Meet the Team"
-    %}
+    <!-- Hero Section -->
+        {%
+            include custom_default.html
+            mode="hero"
+            image_url="/images/cover_team.png"
+            image_alt="Our Team"
+            header_text="Transforming Tropical Horticulture Through Advanced Research"
+            paragraph_text="We are a team of highly innovative researchers, each bringing specialized knowledge and a shared passion for advancing tropical agriculture. Our collective expertise spans the critical domains of food technology, materials science, and quantitative genetics."
+            button_href="#meet-our-team"
+            button_text="Meet Our Team"
+        %}
 {% endcomment %}
 
+<!-- Hero Section -->
 <div class="hero-image-container">
     <img src="/images/cover_team.png" alt="Our Team">
     <div class="hero-slider-container">
@@ -57,12 +59,10 @@ redirect_from:
                     We are a team of highly innovative researchers, each
                     bringing specialized knowledge and a shared passion for
                     advancing tropical agriculture. Our collective expertise
-                    spans the critical domains of food technology, material
+                    spans the critical domains of food technology, materials
                     science, and quantitative genetics.
                 </p>
-                <a href="#meet-our-team" class="btn btn--primary"
-                    >Meet Our Team</a
-                >
+                <a href="#below-hero" class="btn btn--primary">Meet Our Team</a>
             </div>
         </div>
     </div>
@@ -73,8 +73,7 @@ redirect_from:
         <span class="indicator"></span>
     </div>
 </div>
-
-<div class="below-hero" id="meet-our-team"></div>
+<div class="below-hero" id="below-hero"></div>
 
 <!-- Header Section -->
 <section class="custom-feature-section">
@@ -83,6 +82,7 @@ redirect_from:
     </div>
 </section>
 
+<!-- Team Members Section -->
 <section class="custom-feature-section">
     {%
         include custom_default.html

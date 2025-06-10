@@ -34,3 +34,10 @@
 }
 
 /* End of Author Avatar Border Removal -------------------------------------- */
+
+/* Selection - Customization ------------------------------------------------ */
+::selection {
+    background-color: $custom-color-2;
+    color: $global-white;
+}
+/* End of Selection - Customization ----------------------------------------- */
