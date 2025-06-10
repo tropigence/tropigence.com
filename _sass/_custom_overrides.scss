@@ -43,6 +43,9 @@
 /* Selection - Customization ------------------------------------------------ */
 ::selection {
     background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.2);
-    // color: $global-black;
+    color: $global-black;
+}
+html[data-theme="dark"] ::selection {
+    color: $global-white;
 }
 /* End of Selection - Customization ----------------------------------------- */
