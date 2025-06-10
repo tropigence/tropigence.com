@@ -3,8 +3,8 @@
    ========================================================================== */
 
 /* Color codes used for the theme */
-$custom-color-1 : #009a00;
-$custom-color-2 : #99cc00;
+$custom-color-1 : #99cc00;
+$custom-color-2 : #009a00;
 $custom-color-3 : #2c2d2c;
 $custom-color-4 : #fafffa;
 
@@ -19,7 +19,7 @@ $background                 : $global-black;
 $background-light           : mix(#fff, $background, 80%);
 $background-lighter         : mix(#fff, $background, 90%);
 
-$link                       : $custom-color-2;
+$link                       : $custom-color-1;
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
 
@@ -27,7 +27,7 @@ $link-light                 : mix(#fff, $link, 25%);
 $danger-color               : #ee5f5b;
 $info-color                 : #2f7f93;
 $notice-color               : #7a8288;
-$success-color              : $custom-color-2;
+$success-color              : $custom-color-1;
 $warning-color              : #f89406;
 
 /* Other basic settings for the template */
@@ -45,7 +45,7 @@ html[data-theme="dark"] {
     --global-base-color                 : #{$background};
     --global-bg-color                   : #{$background};
     --global-footer-bg-color            : #{$background};
-    --global-border-color               : #{$custom-color-2};
+    --global-border-color               : #{$custom-color-1};
     --global-dark-border-color          : #{$background-light};
     --global-code-background-color      : #002b36;
     --global-code-text-color            : #{$global-white};
@@ -54,7 +54,7 @@ html[data-theme="dark"] {
     --global-link-color-hover           : #{$link-dark};
     --global-link-color-visited         : #{$link-light};
     --global-masthead-link-color        : #{$custom-color-4};
-    --global-masthead-link-color-hover  : #{$custom-color-2};
+    --global-masthead-link-color-hover  : #{$custom-color-1};
     --global-text-color                 : #{$global-white};
     --global-text-color-light           : #{$light-gray};
     --global-thead-color                : #{$background-lighter};

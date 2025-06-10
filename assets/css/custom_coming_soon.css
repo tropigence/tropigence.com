@@ -104,13 +104,9 @@ html[data-theme="dark"] .coming-soon-container .search-form input[type="search"]
 }
 
 html[data-theme="dark"] body .btn--primary {
-    background-color: var(--custom-color-2);
-    border-color: var(--custom-color-2);
     color: var(--global-black) !important;
 }
 
 html[data-theme="dark"] body .btn--primary:hover {
-    background-color: var(--custom-color-1);
-    border-color: var(--custom-color-1);
     color: var(--custom-color-4) !important;
 }
