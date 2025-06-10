@@ -769,7 +769,6 @@ html[data-theme="dark"] .custom-feature__description-wrapper-2 h3,
 html[data-theme="dark"] .feature-style-hero .custom-feature__description-wrapper h3,
 html[data-theme="dark"] .feature-style-hero .custom-feature__description-wrapper-2 h3,
 html[data-theme="dark"] .hero-text-overlay h1 {
-    color: var(--custom-color-2);
     text-shadow: 1px 1px 3px rgba(var(--custom-color-3-r), var(--custom-color-3-g), var(--custom-color-3-b), 0.7);
 }
 
@@ -795,22 +794,13 @@ html[data-theme="dark"] .hero-image-container::before {
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary,
 html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary,
 html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--primary {
-    background-color: var(--custom-color-2);
-    border-color: var(--custom-color-2);
     color: var(--global-black) !important;
 }
 
 html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--primary:hover,
 html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary:hover,
 html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--primary:hover {
-    background-color: var(--custom-color-1);
-    border-color: var(--custom-color-1);
     color: var(--custom-color-4) !important;
-}
-
-html[data-theme="dark"] .slider-indicators .indicator.active,
-html[data-theme="dark"] .hero-slider-indicators .indicator.active {
-    background-color: var(--custom-color-2);
 }
 
 /* ===== SECTION: Slider Navigation Arrows ===== */
@@ -879,14 +869,6 @@ html[data-theme="dark"] .hero-slider-indicators .indicator.active {
 
     .slider-arrow-next:hover::before {
         border-color: transparent transparent transparent var(--custom-color-1);
-    }
-
-    html[data-theme="dark"] .slider-arrow-prev:hover::before {
-        border-color: transparent var(--custom-color-2) transparent transparent;
-    }
-
-    html[data-theme="dark"] .slider-arrow-next:hover::before {
-        border-color: transparent transparent transparent var(--custom-color-2);
     }
 }
 
