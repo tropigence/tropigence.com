@@ -530,6 +530,11 @@ li {
         margin-right: 0;
     }
 
+    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
+        max-height: 250px;
+        max-width: 250px;
+    }
+
     .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
         max-height: 200px;
         max-width: 200px;
@@ -540,12 +545,6 @@ li {
         max-height: 200px;
         max-width: 200px;
     }
-
-    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        max-height: 250px;
-        max-width: 250px;
-    }
-
     /* Description styling for horizontal layouts */
     .custom-feature__description-wrapper,
     .custom-feature__description-wrapper-2 {
