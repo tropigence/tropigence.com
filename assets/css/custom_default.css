@@ -824,7 +824,7 @@ html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--p
 }
 
 /* Mobile specific adjustments for arrows */
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .slider-arrow {
         /* Clickable area */
         width: 44px;
