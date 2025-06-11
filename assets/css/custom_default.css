@@ -425,6 +425,82 @@ li {
     background-color: var(--custom-color-1);
 }
 
+/* Box shadow for round image features in sliders */
+.floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
+.floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
+    /* Background remains transparent, we're just adding the shadow */
+}
+
+/* ===== SECTION: Slider Navigation Arrows ===== */
+.slider-arrow {
+    position: absolute;
+    top: calc(50% - 17px);
+    /* Half arrow height subtracted and indicator spacing added */
+    transform: translateY(-50%);
+    z-index: 5;
+    background: transparent;
+    /* Transparent background */
+    border: none;
+    /* No button border */
+    width: 36px;
+    /* Clickable area width */
+    height: 36px;
+    /* Clickable area height */
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* For centering the ::before element */
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: border-color 0.3s ease;
+}
+
+.slider-arrow-prev {
+    left: 0px;
+    /* Original position from edge */
+}
+
+.slider-arrow-prev::before {
+    /* Arrow pointing left: height 20px, width 12px */
+    border-width: 8px 10px 8px 0;
+    border-color: transparent var(--global-text-color) transparent transparent;
+    margin-left: -3px;
+    /* Fine-tune position if needed */
+}
+
+.slider-arrow-next {
+    right: 0px;
+    /* Original position from edge */
+}
+
+.slider-arrow-next::before {
+    border-width: 8px 0 8px 10px;
+    border-color: transparent transparent transparent var(--global-text-color);
+    margin-right: -3px;
+    /* Fine-tune position if needed */
+}
+
+/* Hover states for arrow shape */
+@media (hover: hover) {
+    .slider-arrow-prev:hover::before {
+        border-color: transparent var(--custom-color-1) transparent transparent;
+    }
+
+    .slider-arrow-next:hover::before {
+        border-color: transparent transparent transparent var(--custom-color-1);
+    }
+}
+
 /* ===== SECTION: Responsive Styles ===== */
 @media (min-width: 600px) {
 
@@ -591,6 +667,31 @@ li {
         flex: 0 0 calc(50% - 0.5em);
         min-width: calc(50% - 0.5em);
     }
+
+    /* Mobile specific adjustments for arrows */
+    .slider-arrow {
+        /* Clickable area */
+        width: 44px;
+        height: 44px;
+    }
+
+    .slider-arrow-prev {
+        left: 7.5px;
+    }
+
+    .slider-arrow-next {
+        right: 7.5px;
+    }
+
+    .slider-arrow-prev::before {
+        border-width: 10px 12px 10px 0;
+    }
+
+    /* Smaller arrow shape */
+    .slider-arrow-next::before {
+        /* Arrow pointing right: height 20px, width 12px */
+        border-width: 10px 0 10px 12px;
+    }
 }
 
 /* Desktop styles (1100px+) */
@@ -751,110 +852,6 @@ html[data-theme="dark"] body .custom-feature__description-wrapper a.btn.btn--pri
 html[data-theme="dark"] body .hero-text-overlay a.btn.btn--primary:hover,
 html[data-theme="dark"] body .custom-feature__description-wrapper-2 a.btn.btn--primary:hover {
     color: var(--custom-color-4) !important;
-}
-
-/* ===== SECTION: Slider Navigation Arrows ===== */
-.slider-arrow {
-    position: absolute;
-    top: calc(50% - 17px);
-    /* Half arrow height subtracted and indicator spacing added */
-    transform: translateY(-50%);
-    z-index: 5;
-    background: transparent;
-    /* Transparent background */
-    border: none;
-    /* No button border */
-    width: 36px;
-    /* Clickable area width */
-    height: 36px;
-    /* Clickable area height */
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    /* For centering the ::before element */
-    align-items: center;
-    justify-content: center;
-}
-
-.slider-arrow::before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    transition: border-color 0.3s ease;
-}
-
-.slider-arrow-prev {
-    left: 0px;
-    /* Original position from edge */
-}
-
-.slider-arrow-prev::before {
-    /* Arrow pointing left: height 20px, width 12px */
-    border-width: 8px 10px 8px 0;
-    border-color: transparent var(--global-text-color) transparent transparent;
-    margin-left: -3px;
-    /* Fine-tune position if needed */
-}
-
-.slider-arrow-next {
-    right: 0px;
-    /* Original position from edge */
-}
-
-.slider-arrow-next::before {
-    border-width: 8px 0 8px 10px;
-    border-color: transparent transparent transparent var(--global-text-color);
-    margin-right: -3px;
-    /* Fine-tune position if needed */
-}
-
-/* Hover states for arrow shape */
-@media (hover: hover) {
-    .slider-arrow-prev:hover::before {
-        border-color: transparent var(--custom-color-1) transparent transparent;
-    }
-
-    .slider-arrow-next:hover::before {
-        border-color: transparent transparent transparent var(--custom-color-1);
-    }
-}
-
-/* Mobile specific adjustments for arrows */
-@media (min-width: 800px) {
-    .slider-arrow {
-        /* Clickable area */
-        width: 44px;
-        height: 44px;
-    }
-
-    .slider-arrow-prev {
-        left: 7.5px;
-    }
-
-    .slider-arrow-next {
-        right: 7.5px;
-    }
-
-    .slider-arrow-prev::before {
-        border-width: 10px 12px 10px 0;
-    }
-
-    /* Smaller arrow shape */
-    .slider-arrow-next::before {
-        /* Arrow pointing right: height 20px, width 12px */
-        border-width: 10px 0 10px 12px;
-    }
-}
-
-
-/* Box shadow for round image features in sliders */
-.floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
-.floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
-    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
-    /* Background remains transparent, we're just adding the shadow */
 }
 
 /* Darker shadow for dark mode for better visibility */
