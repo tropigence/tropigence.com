@@ -668,7 +668,7 @@ li {
         min-width: calc(50% - 0.5em);
     }
 
-    /* Mobile specific adjustments for arrows */
+    /* Adjustments for arrows */
     .slider-arrow {
         /* Clickable area */
         width: 44px;
