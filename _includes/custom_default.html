@@ -1,11 +1,8 @@
 {%- comment -%}
     Slider classes:
-    - "floating-slider-container box-images has-2-items"
-    - "floating-slider-container box-images has-3-items"
-    - "floating-slider-container round-images has-2-items"
-    - "floating-slider-container round-images has-3-items"
-    has-2-items means max of 2 items in view at a time depending on screen size
-    has-3-items means max of 3 items in view at a time depending on screen size
+    - "floating-slider-container box-images"
+    - "floating-slider-container round-images"
+    The number of items shown per view is now controlled only by CSS breakpoints.
 
     Parameters:
     - mode: "slider", "item", or "hero" (default: "slider")
@@ -39,11 +36,9 @@
 
 {%- assign mode = include.mode | default: 'slider' -%}
 {%- assign slider_type = include.slider_type | default: 'box-images' -%}
-{%- assign slider_items = include.slider_items | default: 1 | plus: 0 -%}
 {%- assign container_style = include.container_style
     | default: 'feature-style-1'
 -%}
-
 {%- assign in_slider = include.in_slider | default: false -%}
 
 {%- if mode == 'item' and in_slider == true -%}
@@ -109,9 +104,7 @@
 
     {% if mode == 'slider' %}
         <!-- Start of floating slider container -->
-        <div
-            class="floating-slider-container {{ slider_type }} has-{{ slider_items }}-items{% if slider_items == 1 %} single-item-slider{% endif %}"
-        >
+        <div class="floating-slider-container {{ slider_type }}">
     {% endif %}
 
     <!-- Feature Item -->
