@@ -201,7 +201,7 @@ li {
     border: none;
     border-radius: 30px;
     overflow: hidden;
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.2);
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.1);
     margin: 0 auto;
     width: 100%;
     height: 100%;
@@ -392,7 +392,7 @@ li {
 /* Set transparent background for round image sliders */
 .floating-slider-container .custom-feature__item.custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round),
 .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) {
-    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0.2);
+    background-color: rgba(var(--custom-color-2-r), var(--custom-color-2-g), var(--custom-color-2-b), 0);
 }
 
 /* ===== SECTION: Slider Indicators ===== */
