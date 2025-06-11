@@ -485,11 +485,11 @@ li {
         min-width: 100%;
     }
 
-    /* Non-round sliders: 2 features */
+    /* Non-round sliders: 1 feature */
     .floating-slider-container:not(.round-images)>.custom-feature__item,
     .floating-slider-container:not(.round-images)>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        min-width: calc(50% - 0.5em);
+        flex: 0 0 100%;
+        min-width: 100%;
     }
 
     /* Reset negative margin for horizontal layouts for round feature style */
@@ -572,7 +572,7 @@ li {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
 
     .hero-text-overlay h1,
     .feature-style-hero .custom-feature__description-wrapper h3,
@@ -585,6 +585,13 @@ li {
         margin-left: auto;
         margin-right: auto;
         width: calc(100% - 87px);
+    }
+
+    /* Non-round sliders: 2 features */
+    .floating-slider-container:not(.round-images)>.custom-feature__item,
+    .floating-slider-container:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        min-width: calc(50% - 0.5em);
     }
 }
 
@@ -626,16 +633,9 @@ li {
         max-height: 250px;
         max-width: 250px;
     }
-
-    /* Non-round image sliders: 2 features */
-    .floating-slider-container:not(.round-images)>.custom-feature__item,
-    .floating-slider-container:not(.round-images)>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        min-width: calc(50% - 0.5em);
-    }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1600px) {
 
     /* Round image sliders: 2 features */
     .floating-slider-container.round-images>.custom-feature__item,
@@ -694,13 +694,6 @@ li {
     .custom-feature__item:not(:has(.custom-feature__image--shape-round)) .custom-feature__description-wrapper,
     .custom-feature__item-2:not(:has(.custom-feature__image--shape-round-2)) .custom-feature__description-wrapper-2 {
         padding: 3em;
-    }
-
-    /* Round image sliders: 2 features */
-    .floating-slider-container.round-images>.custom-feature__item,
-    .floating-slider-container.round-images>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        min-width: calc(50% - 0.5em);
     }
 
     /* Non-round sliders: 3 features */
