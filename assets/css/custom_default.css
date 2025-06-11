@@ -666,23 +666,11 @@ li {
         min-width: 300px;
     }
 
-    /* Round image sizing */
-    .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round,
-    .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image--shape-round-2 {
-        max-height: 250px;
-        max-width: 250px;
-    }
-
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
         width: 350px;
         min-width: 350px;
         padding: 2em;
         margin-right: 0;
-    }
-
-    .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round {
-        max-height: 250px;
-        max-width: 250px;
     }
 
     .custom-feature__item--layout-desktop-row:not(:has(.custom-feature__image--shape-round)) .custom-feature__image-wrapper,
