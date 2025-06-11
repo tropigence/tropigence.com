@@ -662,15 +662,15 @@ li {
     /* Image wrapper sizing (in slider) */
     .floating-slider-container .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper,
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
-        width: 300px;
-        min-width: 300px;
+        width: 500px;
+        min-width: 500px;
     }
 
     /* Round image sizing (in slider) */
     .floating-slider-container .custom-feature__item--layout-desktop-row .custom-feature__image--shape-round,
     .custom-feature__item-2.custom-feature__item--layout-desktop-row-2 .custom-feature__image--shape-round-2 {
-        max-height: 100px;
-        max-width: 100px;
+        max-height: 250px;
+        max-width: 250px;
     }
 
     /* Image wrapper sizing (outside slider) */
