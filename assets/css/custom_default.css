@@ -588,10 +588,9 @@ li {
         padding: 20px;
     }
 
-    /* Section and image sizing */
     .custom-feature-section:not(.floating-slider-container) .custom-feature__item--layout-desktop-row:has(.custom-feature__image--shape-round) .custom-feature__image-wrapper {
-        width: 350px;
-        min-width: 350px;
+        width: 300px;
+        min-width: 300px;
     }
 
     .floating-slider-container .custom-feature__item-2.custom-feature__item--layout-desktop-row-2:has(.custom-feature__image--shape-round-2) .custom-feature__image-wrapper-2 {
