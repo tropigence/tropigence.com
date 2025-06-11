@@ -232,6 +232,16 @@ li {
     aspect-ratio: 2 / 1;
 }
 
+.custom-feature__image--shape-rect {
+    border-radius: 0;
+    aspect-ratio: 2 / 1;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
 /* ===== DESCRIPTION WRAPPER ===== */
 .custom-feature__description-wrapper,
 .custom-feature__description-wrapper-2 {
