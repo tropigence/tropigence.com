@@ -354,7 +354,8 @@ li {
 /* Adjust round image sliders with consistent padding on all sides for shadows */
 .floating-slider-container.round-images {
     padding: 15px;
-    scroll-padding-left: 15px; /* Protects the padding on the left due to scroll-snap-align set to start */
+    scroll-padding-left: 15px;
+    /* Protects the padding on the left due to scroll-snap-align set to start */
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -477,24 +478,18 @@ li {
         width: calc(100% - 44px);
     }
 
-    /* Slider item widths for 2 items (non-round) */
-    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
-    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2,
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        /* 2 items with 1em gap */
-        min-width: calc(50% - 0.5em);
+    /* Round sliders: 1 feature */
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images>.custom-feature__item-2 {
+        flex: 0 0 100%;
+        min-width: 100%;
     }
 
-    /* Round image sliders: 1 item */
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 100%;
-        /* 1 item */
-        min-width: 100%;
+    /* Non-round sliders: 2 features */
+    .floating-slider-container:not(.round-images)>.custom-feature__item,
+    .floating-slider-container:not(.round-images)>.custom-feature__item-2 {
+        flex: 0 0 calc(50% - 0.5em);
+        min-width: calc(50% - 0.5em);
     }
 
     /* Reset negative margin for horizontal layouts for round feature style */
@@ -593,7 +588,6 @@ li {
     }
 }
 
-/* Desktop styles (1100px+) */
 @media (min-width: 1100px) {
 
     .hero-text-overlay,
@@ -633,34 +627,20 @@ li {
         max-width: 250px;
     }
 
-    /* Slider item widths */
-    /* Sliders with 2 items (non-round) */
-    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item,
-    .floating-slider-container.has-2-items:not(.round-images)>.custom-feature__item-2 {
+    /* Non-round image sliders: 2 features */
+    .floating-slider-container:not(.round-images)>.custom-feature__item,
+    .floating-slider-container:not(.round-images)>.custom-feature__item-2 {
         flex: 0 0 calc(50% - 0.5em);
-        /* 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
-    }
-
-    /* Sliders with 3 items (non-round) */
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
-        flex: 0 0 calc(100%/3 - 2em/3);
-        /* 3 items with 1em gap */
-        min-width: calc(100%/3 - 2em/3);
     }
 }
 
-/* Desktop large styles (1400px+) */
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
 
-    /* Round image sliders with 2 or 3 items show max 2 items */
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
+    /* Round image sliders: 2 features */
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images>.custom-feature__item-2 {
         flex: 0 0 calc(50% - 0.5em);
-        /* 2 items with 1em gap */
         min-width: calc(50% - 0.5em);
     }
 
@@ -677,7 +657,6 @@ li {
     }
 }
 
-/* Extra large screens (2040px+) */
 @media (min-width: 2040px) {
 
     /* Image wrapper sizing */
@@ -717,27 +696,17 @@ li {
         padding: 3em;
     }
 
-    /* Round image sliders with 2 items show 2 items */
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-2-items>.custom-feature__item-2 {
+    /* Round image sliders: 2 features */
+    .floating-slider-container.round-images>.custom-feature__item,
+    .floating-slider-container.round-images>.custom-feature__item-2 {
         flex: 0 0 calc(50% - 0.5em);
-        /* 2 items */
         min-width: calc(50% - 0.5em);
     }
 
-    /* Round image sliders with 3 items also show max 2 items */
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item,
-    .floating-slider-container.round-images.has-3-items>.custom-feature__item-2 {
-        flex: 0 0 calc(50% - 0.5em);
-        /* Max 2 items with 1em gap */
-        min-width: calc(50% - 0.5em);
-    }
-
-    /* Non-round sliders can still show 3 items */
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item,
-    .floating-slider-container.has-3-items:not(.round-images)>.custom-feature__item-2 {
+    /* Non-round sliders: 3 features */
+    .floating-slider-container:not(.round-images)>.custom-feature__item,
+    .floating-slider-container:not(.round-images)>.custom-feature__item-2 {
         flex: 0 0 calc(100%/3 - 2em/3);
-        /* 3 items for non-round */
         min-width: calc(100%/3 - 2em/3);
     }
 }
@@ -748,7 +717,8 @@ li {
     .floating-slider-container>.custom-feature__item:hover,
     .floating-slider-container>.custom-feature__item-2:hover {
         transform: translateY(-5px);
-        box-shadow: none; /* 0 10px 20px rgba(0, 0, 0, 0.1); */
+        box-shadow: none;
+        /* 0 10px 20px rgba(0, 0, 0, 0.1); */
     }
 }
 
